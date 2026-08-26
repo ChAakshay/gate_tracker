@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GATE ECE 2027 — Week 1 Command Center</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #111827;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 270mm;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  h1 {
+    font-size: 16pt;
+    margin: 0 0 4px 0;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h1 span.subtitle {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #475569;
+  }
+  h2 {
+    font-size: 11pt;
+    margin: 10px 0 6px 0;
+    color: #1e293b;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  h3 {
+    font-size: 10pt;
+    margin: 8px 0 4px 0;
+    color: #1e3a8a;
+  }
+
+  .target-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #2563eb;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 9.5pt;
+  }
+  .target-card div strong {
+    color: #0f172a;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 8.5pt;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 6px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  th {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 8.5pt;
+  }
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  .center {
+    text-align: center;
+  }
+  .cb {
+    font-family: monospace;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #475569;
+  }
+
+  .sop-card {
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 8.5pt;
+  }
+  .sop-title {
+    font-weight: bold;
+    color: #1e3a8a;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+  }
+
+  .rules-box {
+    background: #fffbe6;
+    border: 1px solid #ffe58f;
+    border-left: 4px solid #faad14;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 8.5pt;
+  }
+  .rules-box h3 {
+    color: #d46b08;
+    margin-top: 0;
+  }
+
+  .emergency-box {
+    background: #fff1f0;
+    border: 1px solid #ffa39e;
+    border-left: 4px solid #ff4d4f;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 8.5pt;
+  }
+  .emergency-box h3 {
+    color: #cf1322;
+    margin-top: 0;
+  }
+
+  .error-entry {
+    border: 1px dashed #64748b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 8.5pt;
+    background: #fafafa;
+  }
+  .error-header {
+    font-weight: bold;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .line-field {
+    border-bottom: 1px solid #94a3b8;
+    height: 18px;
+    margin-bottom: 6px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+    font-weight: bold;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-yellow { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <h1>GATE ECE 2027 — WEEK 1 COMMAND CENTER <span class="subtitle">PAGE 1 OF 4 (PIN ON WALL)</span></h1>
+
+  <div class="target-card">
+    <div><strong>Target College:</strong> IIIT Bangalore (M.Tech ECE)</div>
+    <div><strong>Target GATE Score:</strong> ≥ 650 | Raw Marks: ~68/100</div>
+    <div><strong>Week 1 Focus:</strong> Engg. Math (Linear Algebra) + GA (Verbal)</div>
+    <div><strong>Weekly Target:</strong> 85+ PYQs | 4 Short Note Pages | Subject Test #1</div>
+  </div>
+
+  <h2>📅 Mon – Fri Daily Master Checklist (Check off daily as you complete)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 5%;" class="center">Blk</th>
+        <th style="width: 14%;">Time</th>
+        <th style="width: 47%;">Activity / Task</th>
+        <th style="width: 8%;" class="center">SOP</th>
+        <th style="width: 5%;" class="center">Mon</th>
+        <th style="width: 5%;" class="center">Tue</th>
+        <th style="width: 5%;" class="center">Wed</th>
+        <th style="width: 5%;" class="center">Thu</th>
+        <th style="width: 5%;" class="center">Fri</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="center">0</td>
+        <td>07:30 – 07:40</td>
+        <td>🔄 <strong>Red Star Re-Attempt</strong> (2 days ago 🔴 questions closed-book)</td>
+        <td class="center">3.5</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">0.5</td>
+        <td>07:40 – 08:00</td>
+        <td>☀️ <strong>Warm-Up Memory Dump</strong> (Yesterday's notes blank-sheet recall)</td>
+        <td class="center">5</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">1</td>
+        <td>08:00 – 08:50</td>
+        <td>🔴 <strong>Math Theory Block 1</strong> (Concept scan at 1.5x / book scan)</td>
+        <td class="center">1, 2</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">2</td>
+        <td>09:00 – 09:50</td>
+        <td>🔴 <strong>Math Theory Block 2</strong> (Worked examples attack — cover solution)</td>
+        <td class="center">1, 2</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">3</td>
+        <td>10:00 – 10:50</td>
+        <td>🔴 <strong>Math PYQ Block 1</strong> (Topic-wise 4-min rule execution)</td>
+        <td class="center">1, 3</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">4</td>
+        <td>11:00 – 11:50</td>
+        <td>🟡 <strong>GA Verbal Block</strong> (Grammar / Logic rules & practice)</td>
+        <td class="center">1, 2</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">5</td>
+        <td>12:00 – 12:50</td>
+        <td>🟡 <strong>GA Verbal PYQs</strong> (10–12 questions, timed)</td>
+        <td class="center">1, 3</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr style="background:#f1f5f9; font-weight:bold;">
+        <td class="center">—</td>
+        <td>01:00 – 02:00</td>
+        <td colspan="2">🍽️ <strong>LUNCH + OFFLINE REST</strong> (No screens, walk 10 min)</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">6</td>
+        <td>02:00 – 02:50</td>
+        <td>🔵 <strong>Math PYQ Block 2</strong> (Mixed PYQ sprint — post-lunch active focus)</td>
+        <td class="center">1, 3</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">7</td>
+        <td>03:00 – 03:50</td>
+        <td>🔵 <strong>Math PYQ Block 3</strong> (Interleaved PYQs — include older topics)</td>
+        <td class="center">1, 3</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">8</td>
+        <td>04:00 – 04:50</td>
+        <td>🟣 <strong>Spaced Revision</strong> (Review short notes from 3 & 7 days ago)</td>
+        <td class="center">5</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr style="background:#f1f5f9; font-weight:bold;">
+        <td class="center">—</td>
+        <td>05:00 – 05:40</td>
+        <td colspan="2">🏃 <strong>PHYSICAL BREAK</strong> (40-min Exercise / Jog / Walk)</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">9</td>
+        <td>05:40 – 06:20</td>
+        <td>🟣 <strong>Active Recall Drill</strong> (Blank-sheet dump + Red-Pen audit)</td>
+        <td class="center">5</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">10</td>
+        <td>06:30 – 07:20</td>
+        <td>📝 <strong>Short Notes Synthesis</strong> (Max 1 A4 page per sub-topic)</td>
+        <td class="center">4</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr style="background:#f1f5f9; font-weight:bold;">
+        <td class="center">—</td>
+        <td>07:30 – 08:30</td>
+        <td colspan="2">🍽️ <strong>DINNER & RELAXATION</strong></td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">11</td>
+        <td>08:30 – 09:00</td>
+        <td>📓 <strong>Error Logging</strong> (3-line entry for every 🔴 RED STAR question)</td>
+        <td class="center">6</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">12</td>
+        <td>09:00 – 09:10</td>
+        <td>📋 <strong>Desk Setup</strong> (Bookmark tomorrow's links & pages, clear desk)</td>
+        <td class="center">—</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+      <tr>
+        <td class="center">13</td>
+        <td>09:10 – 09:15</td>
+        <td>🌙 <strong>Pre-Sleep Micro-Review</strong> (5-min slow read of Short Notes in bed)</td>
+        <td class="center">7.5</td>
+        <td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td><td class="center cb">☐</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>GATE ECE 2027 — WEEK 1 COMMAND CENTER <span class="subtitle">PAGE 2 OF 4 (TRACKER & WEEKEND)</span></h1>
+
+  <h2>📊 Daily Metrics & Progress Tracker</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 7%;" class="center">Day</th>
+        <th style="width: 8%;" class="center">Date</th>
+        <th style="width: 37%;">Specific Sub-Topics Covered</th>
+        <th style="width: 14%;" class="center">PYQs Done</th>
+        <th style="width: 10%;" class="center">Red Stars 🔴</th>
+        <th style="width: 10%;" class="center">Notes Done</th>
+        <th style="width: 8%;" class="center">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="center"><strong>Day 1</strong></td>
+        <td class="center">Mon</td>
+        <td>Matrices, Determinants, Rank, Systems $Ax=b$ consistency</td>
+        <td class="center">_____ / 20</td>
+        <td class="center">_____</td>
+        <td class="center cb">☐ YES</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr>
+        <td class="center"><strong>Day 2</strong></td>
+        <td class="center">Tue</td>
+        <td>Eigenvalues, Eigenvectors & Special Matrix Properties</td>
+        <td class="center">_____ / 20</td>
+        <td class="center">_____</td>
+        <td class="center cb">☐ YES</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr>
+        <td class="center"><strong>Day 3</strong></td>
+        <td class="center">Wed</td>
+        <td>Cayley-Hamilton Theorem, Matrix Powers, Quadratic Forms</td>
+        <td class="center">_____ / 20</td>
+        <td class="center">_____</td>
+        <td class="center cb">☐ YES</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr>
+        <td class="center"><strong>Day 4</strong></td>
+        <td class="center">Thu</td>
+        <td>Vector Spaces, Subspaces, Basis, Dimension, Rank-Nullity</td>
+        <td class="center">_____ / 15</td>
+        <td class="center">_____</td>
+        <td class="center cb">☐ YES</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr>
+        <td class="center"><strong>Day 5</strong></td>
+        <td class="center">Fri</td>
+        <td>Comprehensive PYQ Marathon (Mixed) + GA Verbal Review</td>
+        <td class="center">_____ / 30</td>
+        <td class="center">_____</td>
+        <td class="center cb">☐ YES</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr style="background:#f1f5f9;">
+        <td class="center"><strong>Day 6</strong></td>
+        <td class="center">Sat</td>
+        <td><strong>SUBJECT TEST #1</strong> (30 Marks) + 5-Step Deep Analysis</td>
+        <td class="center">Score: __/30</td>
+        <td class="center">_____</td>
+        <td class="center">—</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+      <tr style="background:#f1f5f9;">
+        <td class="center"><strong>Day 7</strong></td>
+        <td class="center">Sun</td>
+        <td><strong>WEEKLY AUDIT</strong> + Full-Week Recall Dump + Mandatory Rest</td>
+        <td class="center">—</td>
+        <td class="center">—</td>
+        <td class="center">—</td>
+        <td class="center">🟢 🟡 🔴</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>🏆 Saturday Subject Test & Analysis Protocol</h2>
+  <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:8px 12px; border-radius:4px; font-size:8.5pt;">
+    <div style="margin-bottom:4px;">☐ <strong>08:15 – 09:45</strong>: <strong>Subject Test #1 Execution</strong> (Linear Algebra 20M + GA Verbal 10M = 30M total). Strict CBT conditions.</div>
+    <div>☐ <strong>10:00 – 12:00</strong>: <strong>5-Step Analysis Protocol Execution</strong>:</div>
+    <ul style="margin:4px 0 0 16px; padding:0;">
+      <li><strong>Step 1</strong>: Fill Score Table by Sub-Topic & calculate accuracy %.</li>
+      <li><strong>Step 2</strong>: Classify Errors → Cat A (Concept) | Cat B (Silly) | Cat C (Time) | Cat D (Misread).</li>
+      <li><strong>Step 3</strong>: Write Error Log entries for Cat A & B errors.</li>
+      <li><strong>Step 4</strong>: Rework all wrong questions closed-book. Failed again = DOUBLE RED STAR ⭕.</li>
+      <li><strong>Step 5</strong>: Write single-sentence Weekly Diagnosis in Error Log.</li>
+    </ul>
+  </div>
+
+  <h2>🛌 Sunday Audit & Recovery Checklist</h2>
+  <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:8px 12px; border-radius:4px; font-size:8.5pt;">
+    <div>☐ <strong>08:00 – 09:00</strong>: <strong>Full-Week Memory Dump</strong> (Write ALL Linear Algebra properties from memory on blank A4).</div>
+    <div>☐ <strong>09:00 – 10:00</strong>: <strong>Error Log Pattern Review</strong> (Re-read week's errors → Write Pattern Alert).</div>
+    <div>☐ <strong>10:00 – 10:30</strong>: <strong>Weekly Goal Audit</strong> (Verify 85+ PYQs, 4 Short Note pages completed).</div>
+    <div>☐ <strong>10:30 – 11:00</strong>: <strong>Week 2 Setup</strong> (Bookmark Calculus & GA Quant topics, tape schedule to desk).</div>
+    <div style="color:#b91c1c; font-weight:bold; margin-top:4px;">☐ 11:00 – 05:00: MANDATORY REST 🛌 (Offline brain recovery — NO study allowed).</div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>GATE ECE 2027 — WEEK 1 COMMAND CENTER <span class="subtitle">PAGE 3 OF 4 (SOP CHEAT SHEET)</span></h1>
+
+  <h2>📋 Standard Operating Procedures (SOP) Quick Reference Card</h2>
+
+  <div class="sop-card">
+    <div class="sop-title">🟢 SOP 0: Energy-State Awareness Check</div>
+    <strong>Green</strong> (Alert) = Execute full plan. | <strong>Yellow</strong> (Tired) = Switch block to PYQ problem solving (active focus).<br>
+    <strong>Red</strong> (Exhausted) = Execute Emergency Day Protocol (1 hr PYQs + 30 min Error Log + 15 min Short Notes).
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">🛠️ SOP 1: Deep-Work Environment Control</div>
+    Phone in another room / airplane mode. Single window open. Physical timer on desk. Write random thoughts on Distraction Card → address ONLY during 10-min break. Break rule: Walk, water, stretch. No social media.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">📖 SOP 2: 3-Step Theory Acquisition (Morning)</div>
+    <strong>Min 0–20 (Concept Scan)</strong>: Watch lecture at 1.5x or read textbook. NO note-taking! Focus on WHY.<br>
+    <strong>Min 20–40 (Example Attack)</strong>: Cover solution, try solo. If stuck >2 min, reveal line 1.<br>
+    <strong>Min 40–50 (Raw Scratch)</strong>: Write formulas/conditions on rough pad. Say "Can I teach it?" out loud.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">🎯 SOP 3: 3-Pass PYQ Solving Rule (4-Minute Algorithm)</div>
+    <strong>Pass 1 (3 min Solo)</strong>: Attempt from memory. Solved? → Mark Green.<br>
+    <strong>Pass 2 (+1 min Formula Check)</strong>: Open SHORT NOTES ONLY (not solution!). Solved? → Mark Yellow.<br>
+    <strong>Pass 3 (+2 min Line 1 Hint)</strong>: Read line 1 of official solution. Close it. Finish solo → Mark 🔴 RED STAR.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">🔄 SOP 3.5: Red Star Re-Attempt Protocol</div>
+    Re-attempt 🔴 questions closed-book **2 days later** (at 7:30 AM warm-up). Solved? → Clear star. Failed? → DOUBLE RED STAR ⭕ (High priority item for Saturday analysis).
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">📝 SOP 4: 1-Page Short Notes Protocol (6:30 PM Window)</div>
+    Max **1 side of A4 per sub-topic**. Include: Formulas (blue) + Properties (black) + Special Cases (green) + TRAPS (RED pen) + Connections to future subjects (pencil). NO long proofs or definitions.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">🧠 SOP 5: "Blank Sheet" Active Recall & Audit</div>
+    15-min memory dump on blank A4 → Line-by-line audit against Short Notes → Highlight missing in **YELLOW** (weak recall), circle wrong in **RED** (concept error) → **5-min Re-Encode**: write weak items again from memory.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">📓 SOP 6: 3-Line Error Log Protocol (8:30 PM)</div>
+    For every 🔴 RED STAR question, write 3 lines: 1. The Trap | 2. My Error (brutally honest) | 3. The Rule for future self.
+  </div>
+
+  <div class="sop-card">
+    <div class="sop-title">🌙 SOP 7.5: Pre-Sleep Micro-Review (9:10 PM)</div>
+    5-minute slow read of today's Short Notes page in bed. Exploits sleep-dependent memory consolidation during REM.
+  </div>
+
+  <div class="emergency-box">
+    <h3>🚨 Contingency Protocols (When things break)</h3>
+    <div>• <strong>Overslept &lt; 1 hr</strong>: Compress breaks to 5 min, skip GA theory (just do GA PYQs).</div>
+    <div>• <strong>Overslept 1–2 hrs</strong>: Skip Spaced Revision (4 PM). Shift Active Recall to 5:40 PM.</div>
+    <div>• <strong>Lost 3+ hrs</strong>: Execute <strong>Minimum Viable Day</strong> (Theory Block 1 + Math PYQ Block 1 + Short Notes + Error Log = 3.5 hrs).</div>
+    <div>• <strong>Fell behind 1+ days</strong>: Do NOT double up. Shift schedule forward by 1 day. Sat test moves to Sun morning.</div>
+  </div>
+
+  <div class="rules-box">
+    <h3>🚦 The 5 Non-Negotiable Rules</h3>
+    <div>1. <strong>NEVER start a block asking "What do I do now?"</strong> (Desk prepped at 9:10 PM night before).</div>
+    <div>2. <strong>NEVER spend &gt;6 minutes on a single PYQ</strong> (Enforce 3-Pass Rule SOP 3).</div>
+    <div>3. <strong>NEVER skip the 8:30 PM Error Log</strong> (Quality error analysis beats sheer volume).</div>
+    <div>4. <strong>NEVER skip Sunday rest</strong> (Offline downtime consolidates long-term memory).</div>
+    <div>5. <strong>NEVER study new theory after 4 PM</strong> (Afternoon/Evening is for practice & recall).</div>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>GATE ECE 2027 — WEEK 1 COMMAND CENTER <span class="subtitle">PAGE 4 OF 4 (ERROR LOG SHEETS)</span></h1>
+
+  <p style="margin-top:0; font-size:8.5pt; color:#475569;"><em>Print multiple copies of this page and clip them into your Error Log notebook.</em></p>
+
+  <div class="error-entry">
+    <div class="error-header">
+      <span>ENTRY # ________</span>
+      <span>Date: ____ / ____ / 2026</span>
+      <span>Topic: ________________________</span>
+    </div>
+    <div style="margin-bottom:4px; font-size:8pt;">
+      Source: [ ] PYQ (Year: _____ Branch: _____) &nbsp;&nbsp; [ ] Subject Test # _____ &nbsp;&nbsp;&nbsp;&nbsp;
+      Category: <span class="badge badge-blue">Concept Gap (A)</span> <span class="badge badge-yellow">Silly Mistake (B)</span> <span class="badge badge-red">Time Pressure (C)</span>
+    </div>
+    <div style="font-weight:bold; color:#1e3a8a; margin-top:4px;">1. THE TRAP / CONCEPT TESTED:</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#b91c1c; margin-top:4px;">2. MY EXACT ERROR (Why did I fail?):</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#15803d; margin-top:4px;">3. THE RULE FOR FUTURE SELF:</div>
+    <div class="line-field"></div>
+    <div style="margin-top:6px; font-size:8pt; text-align:right;">
+      Re-Attempt Status: [ ] Day N+2 Passed (Cleared) &nbsp;&nbsp;&nbsp;&nbsp; [ ] Day N+2 Failed (DOUBLE RED STAR ⭕)
+    </div>
+  </div>
+
+  <div class="error-entry">
+    <div class="error-header">
+      <span>ENTRY # ________</span>
+      <span>Date: ____ / ____ / 2026</span>
+      <span>Topic: ________________________</span>
+    </div>
+    <div style="margin-bottom:4px; font-size:8pt;">
+      Source: [ ] PYQ (Year: _____ Branch: _____) &nbsp;&nbsp; [ ] Subject Test # _____ &nbsp;&nbsp;&nbsp;&nbsp;
+      Category: <span class="badge badge-blue">Concept Gap (A)</span> <span class="badge badge-yellow">Silly Mistake (B)</span> <span class="badge badge-red">Time Pressure (C)</span>
+    </div>
+    <div style="font-weight:bold; color:#1e3a8a; margin-top:4px;">1. THE TRAP / CONCEPT TESTED:</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#b91c1c; margin-top:4px;">2. MY EXACT ERROR (Why did I fail?):</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#15803d; margin-top:4px;">3. THE RULE FOR FUTURE SELF:</div>
+    <div class="line-field"></div>
+    <div style="margin-top:6px; font-size:8pt; text-align:right;">
+      Re-Attempt Status: [ ] Day N+2 Passed (Cleared) &nbsp;&nbsp;&nbsp;&nbsp; [ ] Day N+2 Failed (DOUBLE RED STAR ⭕)
+    </div>
+  </div>
+
+  <div class="error-entry">
+    <div class="error-header">
+      <span>ENTRY # ________</span>
+      <span>Date: ____ / ____ / 2026</span>
+      <span>Topic: ________________________</span>
+    </div>
+    <div style="margin-bottom:4px; font-size:8pt;">
+      Source: [ ] PYQ (Year: _____ Branch: _____) &nbsp;&nbsp; [ ] Subject Test # _____ &nbsp;&nbsp;&nbsp;&nbsp;
+      Category: <span class="badge badge-blue">Concept Gap (A)</span> <span class="badge badge-yellow">Silly Mistake (B)</span> <span class="badge badge-red">Time Pressure (C)</span>
+    </div>
+    <div style="font-weight:bold; color:#1e3a8a; margin-top:4px;">1. THE TRAP / CONCEPT TESTED:</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#b91c1c; margin-top:4px;">2. MY EXACT ERROR (Why did I fail?):</div>
+    <div class="line-field"></div>
+    <div style="font-weight:bold; color:#15803d; margin-top:4px;">3. THE RULE FOR FUTURE SELF:</div>
+    <div class="line-field"></div>
+    <div style="margin-top:6px; font-size:8pt; text-align:right;">
+      Re-Attempt Status: [ ] Day N+2 Passed (Cleared) &nbsp;&nbsp;&nbsp;&nbsp; [ ] Day N+2 Failed (DOUBLE RED STAR ⭕)
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

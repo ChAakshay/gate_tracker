@@ -1,0 +1,46 @@
+export interface SubTopic {
+  id: string;
+  name: string;
+  marksWeight: number; // e.g. 1.5, 2, 3
+  isHighYield: boolean;
+  theoryCompleted: boolean;
+  pyqsSolvedCount: number;
+  targetPyqs: number;
+  formulaCardAdded: boolean;
+  errorLogged: boolean;
+  notes?: string;
+}
+
+export interface SubjectModule {
+  id: string;
+  name: string;
+  shortCode: string;
+  totalMarksRange: string;
+  targetMarks: number;
+  priorityTier: 'Tier 1 (High Yield / Fast Marks)' | 'Tier 2 (Core Heavy Duty)' | 'Tier 3 (80/20 Selective)';
+  phase: number; // 1, 2, 3
+  color: string;
+  topics: SubTopic[];
+}
+
+export interface DayPlan {
+  dayNumber: number; // 1 to 126
+  weekNumber: number; // 1 to 18
+  subjectId: string;
+  topicTitle: string;
+  targetMarksValue: number;
+  theoryTarget: string;
+  pyqTargetCount: number;
+  retentionFocus: string;
+  isCompleted: boolean;
+  isMvd: boolean;
+}
+
+export interface ProgressSummary {
+  totalTargetMarks: number;
+  marksSecured: number;
+  totalTopicsCount: number;
+  completedTopicsCount: number;
+  totalPyqsSolved: number;
+  streakDays: number;
+}
