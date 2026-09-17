@@ -33,7 +33,7 @@ export const PyqArena: React.FC = () => {
 
   // Timer interval
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     if (timerRunning && !isSubmitted) {
       interval = setInterval(() => setSeconds(s => s + 1), 1000);
     }
@@ -244,7 +244,7 @@ export const PyqArena: React.FC = () => {
                       {evalResult?.isCorrect ? 'Correct Answer!' : 'Incorrect / Missed'}
                     </div>
                     <div className="text-xs opacity-80">
-                      Score: <strong>{evalResult?.netScore > 0 ? `+${evalResult?.netScore}` : evalResult?.netScore} Marks</strong>
+                      Score: <strong>{(evalResult?.netScore ?? 0) > 0 ? `+${evalResult?.netScore}` : evalResult?.netScore} Marks</strong>
                     </div>
                   </div>
                 </div>
