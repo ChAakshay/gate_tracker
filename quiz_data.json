@@ -1,0 +1,1414 @@
+{
+  "unit1": {
+    "title": "Unit I: Introduction to Technical Communication",
+    "total": 50,
+    "questions": [
+      {
+        "id": "unit-1-q1",
+        "number": 1,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the primary focus of technical communication, in contrast to academic writing?",
+        "options": {
+          "A": "Personal thoughts and feelings of the writer",
+          "B": "Showing mastery of a body of information",
+          "C": "Audience and purpose",
+          "D": "Literary style and creativity"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q2",
+        "number": 2,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which of the following is NOT one of the four basic communication skills mentioned for technical communication?",
+        "options": {
+          "A": "Listening",
+          "B": "Speaking",
+          "C": "Debating",
+          "D": "Writing"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q3",
+        "number": 3,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the main purpose of technical communication?",
+        "options": {
+          "A": "To create new knowledge for a general audience",
+          "B": "To reinforce or change attitudes, motivate actions, or help readers with work-related tasks",
+          "C": "To get a good grade from an instructor",
+          "D": "To express personal experiences and opinions"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q4",
+        "number": 4,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "A public-health scientist creating a journal article, a press release, and a blog post about the same study is an example of tailoring content for what?",
+        "options": {
+          "A": "The writer's personal preference",
+          "B": "The required length of the document",
+          "C": "A particular audience",
+          "D": "The type of software used"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q5",
+        "number": 5,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Technical communication is defined as the exchange of information that helps people interact with what?",
+        "options": {
+          "A": "Other people in social settings",
+          "B": "Technology and solve complex problems",
+          "C": "Abstract ideas and philosophical concepts",
+          "D": "Academic journals and books"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q6",
+        "number": 6,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is a key characteristic of technical documents regarding their audience?",
+        "options": {
+          "A": "They focus on the writer's personal thoughts",
+          "B": "They are reader-centered, with the needs of the readers coming first",
+          "C": "They are written to impress critics",
+          "D": "They are always highly technical and complex"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q7",
+        "number": 7,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which feature of an accessible and efficient technical document involves using heads, lists, and white space?",
+        "options": {
+          "A": "Worthwhile content",
+          "B": "Readable style",
+          "C": "Effective page design",
+          "D": "Effective visuals"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q8",
+        "number": 8,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Who is typically involved in creating complex technical documents?",
+        "options": {
+          "A": "A lone writer",
+          "B": "A single subject matter expert",
+          "C": "Teams composed of various professionals like writers, engineers, and managers",
+          "D": "Only senior-level executives"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q9",
+        "number": 9,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is a key characteristic of technical writing?",
+        "options": {
+          "A": "Uses complex language and jargon",
+          "B": "Communicates complex information clearly, concisely, and accurately",
+          "C": "Focuses on the writer's perspective",
+          "D": "Is only delivered in digital format"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q10",
+        "number": 10,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is one of the key characteristics of technical writing?",
+        "options": {
+          "A": "Ambiguous",
+          "B": "Wordy",
+          "C": "Audience-Oriented",
+          "D": "Unstructured"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q11",
+        "number": 11,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Why is technical writing considered a \"foundational professional skill\" and not a \"soft skill\" for engineers?",
+        "options": {
+          "A": "It is only required for senior-level roles",
+          "B": "It directly impacts the quality of their work and is a business imperative",
+          "C": "It is a skill you are born with",
+          "D": "It is only used for internal communication"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q12",
+        "number": 12,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of an Engineering Notebook or Logbook?",
+        "options": {
+          "A": "To document personal feelings",
+          "B": "To protect intellectual property and provide a historical record of the design process",
+          "C": "To write poems about engineering",
+          "D": "To serve as a rough draft for a final report"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q13",
+        "number": 13,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the goal of an internal memo or email within a company?",
+        "options": {
+          "A": "To showcase the writer's vocabulary",
+          "B": "To convey information quickly and efficiently to colleagues",
+          "C": "To express personal grievances",
+          "D": "To formalize every conversation"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q14",
+        "number": 14,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the primary audience for a user manual?",
+        "options": {
+          "A": "Managers",
+          "B": "Investors",
+          "C": "End-users who may not have a technical background",
+          "D": "The wider scientific community"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q15",
+        "number": 15,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Strong writing skills are a prerequisite for which type of roles?",
+        "options": {
+          "A": "Entry-level positions",
+          "B": "Internships",
+          "C": "Senior roles like Project Manager or Team Lead",
+          "D": "Research assistant"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q16",
+        "number": 16,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is described as the \"ethical responsibility\" of an engineer regarding technical documents?",
+        "options": {
+          "A": "To write only when asked",
+          "B": "To ensure documents are entertaining",
+          "C": "To provide clear instructions to prevent accidents and real-world consequences",
+          "D": "To use as much jargon as possible"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q17",
+        "number": 17,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What are the four pillars of effective technical communication?",
+        "options": {
+          "A": "Grammar, punctuation, style, and tone",
+          "B": "Clarity, conciseness, accuracy, and audience focus",
+          "C": "Length, cost, visuals, and feedback",
+          "D": "Planning, drafting, revising, and editing"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q18",
+        "number": 18,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the meaning of Clarity in technical communication?",
+        "options": {
+          "A": "Using complex and multi-syllabic words",
+          "B": "The quality of being easy to understand, with an unmistakable message",
+          "C": "The ability to write quickly",
+          "D": "Using a formal tone at all times"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q19",
+        "number": 19,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the \"inverted pyramid\" style of writing?",
+        "options": {
+          "A": "Starting with a detailed introduction and ending with a brief conclusion",
+          "B": "Beginning with the least important information and building up to the main point",
+          "C": "Starting with the most important information first",
+          "D": "Writing in chronological order"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q20",
+        "number": 20,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Why is Accuracy considered \"non-negotiable\" in engineering communication?",
+        "options": {
+          "A": "Inaccurate data can make a document look unprofessional",
+          "B": "It is a matter of personal pride for the writer",
+          "C": "Mistakes can lead to serious consequences like structural failure or user injury",
+          "D": "It is required by law in most countries"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q21",
+        "number": 21,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of an Audience and Purpose Analysis?",
+        "options": {
+          "A": "To make the document longer",
+          "B": "To identify readers' characteristics and define the document's goal",
+          "C": "To find out what the writer already knows",
+          "D": "To avoid having to cite sources"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q22",
+        "number": 22,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Who belongs to the \"Primary audience\" for a technical document?",
+        "options": {
+          "A": "The general public",
+          "B": "Auditors and future employees",
+          "C": "The direct recipients who use the document to make decisions or take action",
+          "D": "Legal experts"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q23",
+        "number": 23,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Who is part of the \"Secondary audience\"?",
+        "options": {
+          "A": "The main client",
+          "B": "Reviewers or advisors who evaluate the document for accuracy and quality",
+          "C": "The end-user",
+          "D": "The writer's family"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q24",
+        "number": 24,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the main characteristic of the \"Tertiary audience\"?",
+        "options": {
+          "A": "They are the direct decision-makers",
+          "B": "They are the primary financial backers",
+          "C": "They interact with the document indirectly for reference or archival purposes",
+          "D": "They create the document"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q25",
+        "number": 25,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which of the following is NOT one of the four phases of the technical communication process?",
+        "options": {
+          "A": "Planning",
+          "B": "Drafting",
+          "C": "Revising",
+          "D": "Publishing"
+        },
+        "answer": "D"
+      },
+      {
+        "id": "unit-1-q26",
+        "number": 26,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the main goal of the Planning phase?",
+        "options": {
+          "A": "To start writing as fast as possible",
+          "B": "To perfect the grammar and spelling",
+          "C": "To define the audience, purpose, and scope before writing",
+          "D": "To get feedback from others"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q27",
+        "number": 27,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the primary mindset for the Drafting phase?",
+        "options": {
+          "A": "Focus on grammar and punctuation",
+          "B": "Turn off the inner editor and focus on capturing the core message",
+          "C": "Write the introduction first",
+          "D": "Only use complex sentences"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q28",
+        "number": 28,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What does \"Revision\" mean in the context of technical writing?",
+        "options": {
+          "A": "Fixing spelling and grammar mistakes",
+          "B": "Looking at the big picture of the document for clarity and flow",
+          "C": "Adding more jargon",
+          "D": "Making the document longer"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q29",
+        "number": 29,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of the \"Editing\" phase?",
+        "options": {
+          "A": "To restructure the entire document",
+          "B": "To generate new content",
+          "C": "To fine-tune the details, checking for grammar, spelling, and consistency",
+          "D": "To define the audience and purpose"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q30",
+        "number": 30,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which of the following is an example of a \"portable skill\" that employers seek in college graduates?",
+        "options": {
+          "A": "The ability to program in any language",
+          "B": "The ability to get along with and motivate others",
+          "C": "Mastery of a single, highly specialized software",
+          "D": "The ability to work alone"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q31",
+        "number": 31,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the main difference between academic writing and technical communication?",
+        "options": {
+          "A": "Academic writing is more complex",
+          "B": "Technical communication has a different focus on audience and purpose",
+          "C": "Academic writing is done in teams",
+          "D": "Technical communication is never persuasive"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q32",
+        "number": 32,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which of the following is a potential consequence of an engineer failing to communicate effectively?",
+        "options": {
+          "A": "Increased project funding",
+          "B": "Delays in project timelines",
+          "C": "A promotion",
+          "D": "A bonus"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q33",
+        "number": 33,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of a Design Specification document?",
+        "options": {
+          "A": "To showcase the aesthetics of a product",
+          "B": "To define what a product or system must do",
+          "C": "To provide a list of project team members",
+          "D": "To justify the project's cost"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q34",
+        "number": 34,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is a key skill for a technical writer creating presentations and slide decks?",
+        "options": {
+          "A": "Using complex, jargon-filled language",
+          "B": "Translating technical jargon into visual and verbal narratives",
+          "C": "Reading directly from the slides",
+          "D": "Avoiding all visuals"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q35",
+        "number": 35,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the goal of a Client Report?",
+        "options": {
+          "A": "To persuade the client to cancel the project",
+          "B": "To update the client on progress and justify design choices",
+          "C": "To provide a history of the company",
+          "D": "To critique the client's business model"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q36",
+        "number": 36,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Why is it important to \"read critically\"?",
+        "options": {
+          "A": "To find mistakes in other people's writing",
+          "B": "To learn what makes a document good or bad",
+          "C": "To impress your colleagues",
+          "D": "To avoid writing your own documents"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q37",
+        "number": 37,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What does the technical communication suggest you should do to achieve conciseness?",
+        "options": {
+          "A": "Use more complex sentence structures",
+          "B": "Eliminate wordy phrases and redundant information",
+          "C": "Repeat your main points multiple times",
+          "D": "Use a thesaurus to find longer words"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q38",
+        "number": 38,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of citing sources in a technical document?",
+        "options": {
+          "A": "To make the document look longer",
+          "B": "To give credit to the original research or data and ensure accuracy",
+          "C": "To confuse the reader",
+          "D": "To show off your research skills"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q39",
+        "number": 39,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is a key question to ask when analyzing your audience?",
+        "options": {
+          "A": "What are their hobbies?",
+          "B": "What is my favorite color?",
+          "C": "How familiar might the audience be with technical details?",
+          "D": "How long will it take to write the document?"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q40",
+        "number": 40,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is a key skill for writing effective emails and internal memos?",
+        "options": {
+          "A": "Writing long, detailed paragraphs",
+          "B": "Using vague subject lines",
+          "C": "Writing clear subject lines and structuring information logically",
+          "D": "Using informal language and slang"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q41",
+        "number": 41,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Technical writing is a \"tool\" for engineers. What does this analogy mean?",
+        "options": {
+          "A": "It is only used for very specific tasks",
+          "B": "It is a skill that can be mastered to make you a more effective engineer",
+          "C": "It is a temporary skill that will become obsolete",
+          "D": "It is a manual process that cannot be automated"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q42",
+        "number": 42,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the benefit of a \"sensible organization\" in a technical document?",
+        "options": {
+          "A": "It makes the document look professional",
+          "B": "It guides the reader and emphasizes important material",
+          "C": "It allows the writer to express their feelings",
+          "D": "It is a requirement for all documents"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q43",
+        "number": 43,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of a Test Plan & Report?",
+        "options": {
+          "A": "To provide a financial breakdown of the project",
+          "B": "To verify that the design meets its requirements and provides data for future improvements",
+          "C": "To list all the team members",
+          "D": "To explain how to use the final product"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q44",
+        "number": 44,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "A good technical document presents content in \"short chunks\" and avoids \"long technical passages\" to be what?",
+        "options": {
+          "A": "More entertaining",
+          "B": "More efficient and accessible",
+          "C": "More scholarly",
+          "D": "More challenging for the reader"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q45",
+        "number": 45,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Which of the following is an example of an unethical communication?",
+        "options": {
+          "A": "Using technical jargon",
+          "B": "Using a direct and simple tone",
+          "C": "Inefficient style that confuses or misleads the audience",
+          "D": "Presenting factual information"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q46",
+        "number": 46,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the purpose of a Project Proposal?",
+        "options": {
+          "A": "To get a good grade",
+          "B": "To secure funding and justify resource allocation",
+          "C": "To provide a list of materials used",
+          "D": "To summarize past projects"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q47",
+        "number": 47,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the goal of academic papers and conference proceedings?",
+        "options": {
+          "A": "To get a promotion",
+          "B": "To share research findings and establish credibility within the engineering community",
+          "C": "To inform a non-technical audience",
+          "D": "To provide step-by-step instructions"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q48",
+        "number": 48,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "Why is it important to \"Embrace Feedback\" on your writing?",
+        "options": {
+          "A": "It shows you are not a good writer",
+          "B": "It is a requirement for all technical writers",
+          "C": "To learn from your mistakes and improve",
+          "D": "To get others to do your work for you"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-1-q49",
+        "number": 49,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the recommended style for a technical document?",
+        "options": {
+          "A": "Informal and conversational",
+          "B": "A style that promotes fluid reading and accurate understanding",
+          "C": "A style that uses as many literary devices as possible",
+          "D": "A style that focuses on the writer's personal feelings"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-1-q50",
+        "number": 50,
+        "unit": "unit-1",
+        "unitName": "Unit I: Introduction to Technical Communication",
+        "question": "What is the role of digital technology in technical communication?",
+        "options": {
+          "A": "It has made communication less frequent",
+          "B": "It has provided more ways to research and find information",
+          "C": "It has eliminated the need for critical thinking",
+          "D": "It has made professional standards for communication obsolete"
+        },
+        "answer": "B"
+      }
+    ]
+  },
+  "unit2": {
+    "title": "Unit II: The Research Process & Technical Evaluation",
+    "total": 50,
+    "questions": [
+      {
+        "id": "unit-2-q1",
+        "number": 1,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "Major decisions in the workplace are based on what?",
+        "options": {
+          "A": "Personal opinions",
+          "B": "Careful research with findings recorded in a report",
+          "C": "Unverified assumptions",
+          "D": "Quick judgments"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q2",
+        "number": 2,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the first procedural stage of the research process?",
+        "options": {
+          "A": "Recording your findings",
+          "B": "Writing the document",
+          "C": "Searching for information",
+          "D": "Documenting your sources"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q3",
+        "number": 3,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "The stages of critical thinking in the research process begin with what action?",
+        "options": {
+          "A": "Evaluating your findings",
+          "B": "Asking the right questions",
+          "C": "Exploring a balance of views",
+          "D": "Interpreting your findings"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q4",
+        "number": 4,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "The answers you uncover will only be as good as the:",
+        "options": {
+          "A": "Sources you use",
+          "B": "Time you spend",
+          "C": "Questions you ask",
+          "D": "Tools you have"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q5",
+        "number": 5,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What does critical thinking help a researcher to do with essential questions?",
+        "options": {
+          "A": "Avoid them",
+          "B": "Define and refine them",
+          "C": "Make them simpler",
+          "D": "Skip them"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q6",
+        "number": 6,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the key to solving a problem in research?",
+        "options": {
+          "A": "Finding the most convenient answer",
+          "B": "Avoiding a range of views",
+          "C": "Clearly defining the problem",
+          "D": "Rushing to a conclusion"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q7",
+        "number": 7,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "Ethical researchers rely on evidence that represents what?",
+        "options": {
+          "A": "A single, definitive source",
+          "B": "The most comforting answer",
+          "C": "A fair balance of views",
+          "D": "Only the author's own biases"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q8",
+        "number": 8,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "Balanced research examines a broad range of evidence, while thorough research examines that evidence in:",
+        "options": {
+          "A": "Sufficient depth",
+          "B": "A biased manner",
+          "C": "A superficial way",
+          "D": "Only a single viewpoint"
+        },
+        "answer": "A"
+      },
+      {
+        "id": "unit-2-q9",
+        "number": 9,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the main goal when evaluating your sources?",
+        "options": {
+          "A": "Emphasizing findings that support your own biases",
+          "B": "Seeking out and reporting the most accurate answer",
+          "C": "Accepting every finding as equal",
+          "D": "Distorting the information"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q10",
+        "number": 10,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "When interpreting findings, the document advises against forcing a simplistic conclusion on a complex issue, stating that a wrong conclusion is:",
+        "options": {
+          "A": "Better than no definite conclusion",
+          "B": "Far worse than no definite conclusion at all",
+          "C": "Always the best approach",
+          "D": "The ultimate truth"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q11",
+        "number": 11,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "Primary research is defined as getting information directly from the source by what methods?",
+        "options": {
+          "A": "Reading books and articles",
+          "B": "Conducting interviews and surveys",
+          "C": "Searching online databases",
+          "D": "Watching a documentary"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q12",
+        "number": 12,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is secondary research?",
+        "options": {
+          "A": "Information gathered from personal experience",
+          "B": "Information obtained firsthand",
+          "C": "Information obtained second hand by reading what other researchers have compiled",
+          "D": "Information from an experiment you conducted"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q13",
+        "number": 13,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "Most information found on the Internet is considered a:",
+        "options": {
+          "A": "Primary source",
+          "B": "Tertiary source",
+          "C": "Secondary source",
+          "D": "Unreliable source"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q14",
+        "number": 14,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "You should typically start your research with which type of source?",
+        "options": {
+          "A": "Primary sources",
+          "B": "Secondary sources",
+          "C": "Unsolicited inquiries",
+          "D": "Personal communication"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q15",
+        "number": 15,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "How can working with primary sources add to the credibility of your work?",
+        "options": {
+          "A": "They are readily available and simple to use.",
+          "B": "They help you expand upon what others have learned and add your own findings.",
+          "C": "They are always more accurate than secondary sources.",
+          "D": "They do not require documentation."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q16",
+        "number": 16,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a key characteristic of a subject directory?",
+        "options": {
+          "A": "It is a search engine that scans for keywords.",
+          "B": "It is a list of Web sites compiled by editors.",
+          "C": "It is a forum for discussion.",
+          "D": "It is an academic journal."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q17",
+        "number": 17,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a key characteristic of search engines like Google and Yahoo!?",
+        "options": {
+          "A": "They are indexes compiled by editors.",
+          "B": "They scan for Web sites that best match your query.",
+          "C": "They are exclusively used for academic research.",
+          "D": "They always provide the final, accurate word on a topic."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q18",
+        "number": 18,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "You should use a Wikipedia entry for what purpose?",
+        "options": {
+          "A": "As your final destination for information.",
+          "B": "To get an overview of a topic and locate other sources.",
+          "C": "To find peer-reviewed articles.",
+          "D": "To find conclusive answers."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q19",
+        "number": 19,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is \"gray literature\"?",
+        "options": {
+          "A": "Published books found in a library.",
+          "B": "Information that is unpublished or not typically cataloged, like pamphlets or unpublished government documents.",
+          "C": "Information from online encyclopedias.",
+          "D": "Peer-reviewed journal articles."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q20",
+        "number": 20,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a caution about using gray literature?",
+        "options": {
+          "A": "It is always carefully scrutinized for content by editors.",
+          "B": "It is always a primary source.",
+          "C": "It can be unreliable and should be backed up by information from other sources.",
+          "D": "It is only available to experts."
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q21",
+        "number": 21,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is \"source bias\"?",
+        "options": {
+          "A": "A source that always reports the ultimate truth.",
+          "B": "When a source understates or overstates certain facts depending on whose interests it represents.",
+          "C": "An objective analysis of information.",
+          "D": "A source that has been peer-reviewed."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q22",
+        "number": 22,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What are the three distinct levels of certainty research can yield?",
+        "options": {
+          "A": "Fact, theory, and opinion",
+          "B": "The ultimate truth, the probable answer, and the inconclusive answer",
+          "C": "Confirmed, unconfirmed, and debated",
+          "D": "Definitive, likely, and unlikely"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q23",
+        "number": 23,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is an assumption?",
+        "options": {
+          "A": "A notion that has been proven to be true.",
+          "B": "An idea we accept without proof.",
+          "C": "A conclusion reached after research.",
+          "D": "A type of primary source."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q24",
+        "number": 24,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the process of rewriting a passage in your own words to make it shorter while still retaining its essential message?",
+        "options": {
+          "A": "Paraphrasing",
+          "B": "Quoting",
+          "C": "Summarizing",
+          "D": "Plagiarizing"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q25",
+        "number": 25,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the process of a restatement, in your own words, of someone else’s words?",
+        "options": {
+          "A": "Quoting",
+          "B": "Summarizing",
+          "C": "Paraphrasing",
+          "D": "Plagiarizing"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q26",
+        "number": 26,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "When must you use quotation marks in your notes?",
+        "options": {
+          "A": "When you paraphrase information.",
+          "B": "When you summarize a passage.",
+          "C": "When you copy someone else's words, even a mere two or three in a row.",
+          "D": "Only when you quote a full paragraph."
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q27",
+        "number": 27,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a key reason for taking notes accurately?",
+        "options": {
+          "A": "To avoid getting a grade of C.",
+          "B": "To ensure you can plagiarize without being caught.",
+          "C": "To prevent unintentional plagiarism and ensure the quality of your finished product.",
+          "D": "To make the document longer."
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q28",
+        "number": 28,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "You can use a Wikipedia entry to get an overview of a topic and what else?",
+        "options": {
+          "A": "Find the conclusive truth.",
+          "B": "Locate other, more reliable sources.",
+          "C": "Get a definitive peer review.",
+          "D": "Find a single, unbiased viewpoint."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q29",
+        "number": 29,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What does it mean for research to be \"reliable\"?",
+        "options": {
+          "A": "It produces findings that can be replicated.",
+          "B": "It is published in a book.",
+          "C": "It is based on opinions.",
+          "D": "It is conducted by a well-known person."
+        },
+        "answer": "A"
+      },
+      {
+        "id": "unit-2-q30",
+        "number": 30,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "To what does the term \"relevance\" refer in the context of research depth?",
+        "options": {
+          "A": "The number of sources you find.",
+          "B": "The quality and pertinence of the information you find.",
+          "C": "The ease of finding information online.",
+          "D": "The speed at which you conduct your search."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q31",
+        "number": 31,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the primary function of documentation?",
+        "options": {
+          "A": "To make your document look more professional.",
+          "B": "To help you acknowledge your debt to sources, establish credibility, and help readers find your sources.",
+          "C": "To make the document longer.",
+          "D": "To avoid having to write your own words."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q32",
+        "number": 32,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "The failure to document a source, whether intentional or unintentional, is called:",
+        "options": {
+          "A": "Summarizing",
+          "B": "Quoting",
+          "C": "Paraphrasing",
+          "D": "Plagiarism"
+        },
+        "answer": "D"
+      },
+      {
+        "id": "unit-2-q33",
+        "number": 33,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What three kinds of material should always be documented?",
+        "options": {
+          "A": "Common knowledge, opinions, and graphics.",
+          "B": "Quotations, paraphrased ideas, and graphics.",
+          "C": "Summaries, conclusions, and introductions.",
+          "D": "Theories, facts, and beliefs."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q34",
+        "number": 34,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "In APA style, for material that you have summarized or paraphrased, what must you include in the parentheses immediately following the borrowed information?",
+        "options": {
+          "A": "The author's name and the publication date.",
+          "B": "The title and page number.",
+          "C": "The author's last name and page number.",
+          "D": "The volume and number."
+        },
+        "answer": "A"
+      },
+      {
+        "id": "unit-2-q35",
+        "number": 35,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "When citing a source with three to five authors for the first time in APA style, what should you do?",
+        "options": {
+          "A": "Include all the names.",
+          "B": "Use only the first author's last name followed by et al.",
+          "C": "Use the title of the work.",
+          "D": "Use only the last author's name."
+        },
+        "answer": "A"
+      },
+      {
+        "id": "unit-2-q36",
+        "number": 36,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "In APA style, what should you do if the source has no author?",
+        "options": {
+          "A": "Use the phrase \"Unknown Author.\"",
+          "B": "Use a shortened version of the title.",
+          "C": "Omit the citation.",
+          "D": "Use the phrase \"Anonymous.\""
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q37",
+        "number": 37,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "In APA style, what does \"n.d.\" stand for in an electronic citation?",
+        "options": {
+          "A": "No data",
+          "B": "Not documented",
+          "C": "No date",
+          "D": "Non-digital"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q38",
+        "number": 38,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "How is the reference list in APA style arranged?",
+        "options": {
+          "A": "Alphabetically by author's last name.",
+          "B": "By date of publication.",
+          "C": "By the order of citation in the text.",
+          "D": "By the title of the work."
+        },
+        "answer": "A"
+      },
+      {
+        "id": "unit-2-q39",
+        "number": 39,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a key difference between APA and IEEE textual citations?",
+        "options": {
+          "A": "APA uses a numbered list, while IEEE uses the author's name and date.",
+          "B": "APA uses the author's name and publication date, while IEEE uses bracketed numbers keyed to a reference list.",
+          "C": "APA does not require page numbers, while IEEE always does.",
+          "D": "APA uses only the title, while IEEE uses the author's name."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q40",
+        "number": 40,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "In IEEE style, what happens once a reference has been listed?",
+        "options": {
+          "A": "It is not used again.",
+          "B": "A new number is assigned each time it is cited.",
+          "C": "The same number is used in all subsequent citations of that source.",
+          "D": "The citation is omitted."
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q41",
+        "number": 41,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is an example of an informational interview?",
+        "options": {
+          "A": "A survey you conduct with 100 people.",
+          "B": "An email to a company's general information account.",
+          "C": "Spending time with an expert and asking pertinent questions.",
+          "D": "Reading an article in a journal."
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q42",
+        "number": 42,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is one of the questions an ethical researcher should ask when evaluating a finding?",
+        "options": {
+          "A": "Is this information easy to find?",
+          "B": "Does this finding support my personal bias?",
+          "C": "Is this information accurate, reliable, and relatively unbiased?",
+          "D": "Can I ignore conflicting information?"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q43",
+        "number": 43,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "In the case study about EMFs, what additional question arose after preliminary reading?",
+        "options": {
+          "A": "Do townspeople care about the issue?",
+          "B": "Do power lines present the greatest hazard as a source of EMFs?",
+          "C": "How many people live in the town?",
+          "D": "What is the public health manager's job title?"
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q44",
+        "number": 44,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the importance of a well-defined research question?",
+        "options": {
+          "A": "It guarantees an easy research process.",
+          "B": "It guides the entire research work.",
+          "C": "It eliminates the need for any further research.",
+          "D": "It ensures the answer will be what you expected."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q45",
+        "number": 45,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is one of the things you should skim in a book to gauge the quality and relevance of information?",
+        "options": {
+          "A": "The entire index.",
+          "B": "A few paragraphs from different portions of the text.",
+          "C": "The copyright date.",
+          "D": "The front cover."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q46",
+        "number": 46,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the process of rewriting a passage in your own words while retaining its essence?",
+        "options": {
+          "A": "Quoting",
+          "B": "Plagiarizing",
+          "C": "Summarizing",
+          "D": "Citing"
+        },
+        "answer": "C"
+      },
+      {
+        "id": "unit-2-q47",
+        "number": 47,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "When using a reference work, what is it important to check to ensure you are accessing the most current information?",
+        "options": {
+          "A": "The number of pages",
+          "B": "The title",
+          "C": "The font size",
+          "D": "The copyright date"
+        },
+        "answer": "D"
+      },
+      {
+        "id": "unit-2-q48",
+        "number": 48,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a key caution about using commercial (.com) or organizational (.org) websites for research?",
+        "options": {
+          "A": "They are always biased and should be avoided.",
+          "B": "The information may be affected by an effort to sell something or a particular social/political agenda.",
+          "C": "They are always peer-reviewed.",
+          "D": "They do not need to be documented."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q49",
+        "number": 49,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is a \"conclusive answer\" or \"ultimate truth\" in research?",
+        "options": {
+          "A": "What a single expert believes.",
+          "B": "The answer that has been proven to be true and agreed upon by all who investigate it.",
+          "C": "The most convenient answer.",
+          "D": "An answer that is subject to revision."
+        },
+        "answer": "B"
+      },
+      {
+        "id": "unit-2-q50",
+        "number": 50,
+        "unit": "unit-2",
+        "unitName": "Unit II: Research Process & Evaluation",
+        "question": "What is the stance on using a Google search for research?",
+        "options": {
+          "A": "It should be the only source you use.",
+          "B": "It's fine to start with a Google search to brainstorm ideas, but you will need to narrow down your findings.",
+          "C": "You should never use Google for research.",
+          "D": "It is only useful for academic papers."
+        },
+        "answer": "B"
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ import { TopicMasteryTracker } from './components/TopicMasteryTracker';
 import { FormulaVault } from './components/FormulaVault';
 import { DailyRoadmapPlanner } from './components/DailyRoadmapPlanner';
 import { ErrorLogTracker } from './components/ErrorLogTracker';
+import { QuizArena } from './components/quiz/QuizArena';
 import { 
   CheckSquare, 
   Layers, 
@@ -13,7 +14,8 @@ import {
   FileWarning, 
   Flame, 
   Cpu, 
-  Award 
+  Award,
+  BookOpen
 } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -22,6 +24,7 @@ export const App: React.FC = () => {
 
   const navigationTabs = [
     { id: 'today', label: "Today's Essentials", icon: CheckSquare },
+    { id: 'quiz', label: 'Unit 1 & 2 Quiz', icon: BookOpen },
     { id: 'syllabus', label: 'Topic Marks Tracker', icon: Layers },
     { id: 'formula', label: 'Formula Vault', icon: ImageIcon },
     { id: 'roadmap', label: '18-Week Roadmap', icon: CalendarDays },
@@ -115,6 +118,7 @@ export const App: React.FC = () => {
         {activeView === 'formula' && <FormulaVault />}
         {activeView === 'roadmap' && <DailyRoadmapPlanner />}
         {activeView === 'errors' && <ErrorLogTracker />}
+        {activeView === 'quiz' && <QuizArena />}
       </main>
 
       {/* Footer */}

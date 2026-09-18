@@ -13,8 +13,8 @@ export interface DailyChecklist {
 
 interface ProgressStore {
   // Active Navigation Tab
-  activeView: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors';
-  setActiveView: (view: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors') => void;
+  activeView: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz';
+  setActiveView: (view: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz') => void;
 
   // Active 18-Week Day Selection
   activeDayNumber: number;
