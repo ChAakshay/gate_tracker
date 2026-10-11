@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Writing MCQ Exam Portal • Unit I & II</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: #0b0f19; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .print-card { border: 1px solid #ccc !important; background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+<body class="bg-[#080b12] text-slate-100 min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+  <!-- Container -->
+  <div id="app" class="flex-1 flex flex-col"></div>
+
+  <!-- Data Script -->
+  <script>
+    const QUIZ_DATA = {"unit1": {"title": "Unit I: Introduction to Technical Communication", "total": 50, "questions": [{"id": "unit-1-q1", "number": 1, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the primary focus of technical communication, in contrast to academic writing?", "options": {"A": "Personal thoughts and feelings of the writer", "B": "Showing mastery of a body of information", "C": "Audience and purpose", "D": "Literary style and creativity"}, "answer": "C"}, {"id": "unit-1-q2", "number": 2, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which of the following is NOT one of the four basic communication skills mentioned for technical communication?", "options": {"A": "Listening", "B": "Speaking", "C": "Debating", "D": "Writing"}, "answer": "C"}, {"id": "unit-1-q3", "number": 3, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the main purpose of technical communication?", "options": {"A": "To create new knowledge for a general audience", "B": "To reinforce or change attitudes, motivate actions, or help readers with work-related tasks", "C": "To get a good grade from an instructor", "D": "To express personal experiences and opinions"}, "answer": "B"}, {"id": "unit-1-q4", "number": 4, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "A public-health scientist creating a journal article, a press release, and a blog post about the same study is an example of tailoring content for what?", "options": {"A": "The writer's personal preference", "B": "The required length of the document", "C": "A particular audience", "D": "The type of software used"}, "answer": "C"}, {"id": "unit-1-q5", "number": 5, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Technical communication is defined as the exchange of information that helps people interact with what?", "options": {"A": "Other people in social settings", "B": "Technology and solve complex problems", "C": "Abstract ideas and philosophical concepts", "D": "Academic journals and books"}, "answer": "B"}, {"id": "unit-1-q6", "number": 6, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is a key characteristic of technical documents regarding their audience?", "options": {"A": "They focus on the writer's personal thoughts", "B": "They are reader-centered, with the needs of the readers coming first", "C": "They are written to impress critics", "D": "They are always highly technical and complex"}, "answer": "B"}, {"id": "unit-1-q7", "number": 7, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which feature of an accessible and efficient technical document involves using heads, lists, and white space?", "options": {"A": "Worthwhile content", "B": "Readable style", "C": "Effective page design", "D": "Effective visuals"}, "answer": "C"}, {"id": "unit-1-q8", "number": 8, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Who is typically involved in creating complex technical documents?", "options": {"A": "A lone writer", "B": "A single subject matter expert", "C": "Teams composed of various professionals like writers, engineers, and managers", "D": "Only senior-level executives"}, "answer": "C"}, {"id": "unit-1-q9", "number": 9, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is a key characteristic of technical writing?", "options": {"A": "Uses complex language and jargon", "B": "Communicates complex information clearly, concisely, and accurately", "C": "Focuses on the writer's perspective", "D": "Is only delivered in digital format"}, "answer": "B"}, {"id": "unit-1-q10", "number": 10, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is one of the key characteristics of technical writing?", "options": {"A": "Ambiguous", "B": "Wordy", "C": "Audience-Oriented", "D": "Unstructured"}, "answer": "C"}, {"id": "unit-1-q11", "number": 11, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Why is technical writing considered a \"foundational professional skill\" and not a \"soft skill\" for engineers?", "options": {"A": "It is only required for senior-level roles", "B": "It directly impacts the quality of their work and is a business imperative", "C": "It is a skill you are born with", "D": "It is only used for internal communication"}, "answer": "B"}, {"id": "unit-1-q12", "number": 12, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of an Engineering Notebook or Logbook?", "options": {"A": "To document personal feelings", "B": "To protect intellectual property and provide a historical record of the design process", "C": "To write poems about engineering", "D": "To serve as a rough draft for a final report"}, "answer": "B"}, {"id": "unit-1-q13", "number": 13, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the goal of an internal memo or email within a company?", "options": {"A": "To showcase the writer's vocabulary", "B": "To convey information quickly and efficiently to colleagues", "C": "To express personal grievances", "D": "To formalize every conversation"}, "answer": "B"}, {"id": "unit-1-q14", "number": 14, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the primary audience for a user manual?", "options": {"A": "Managers", "B": "Investors", "C": "End-users who may not have a technical background", "D": "The wider scientific community"}, "answer": "C"}, {"id": "unit-1-q15", "number": 15, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Strong writing skills are a prerequisite for which type of roles?", "options": {"A": "Entry-level positions", "B": "Internships", "C": "Senior roles like Project Manager or Team Lead", "D": "Research assistant"}, "answer": "C"}, {"id": "unit-1-q16", "number": 16, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is described as the \"ethical responsibility\" of an engineer regarding technical documents?", "options": {"A": "To write only when asked", "B": "To ensure documents are entertaining", "C": "To provide clear instructions to prevent accidents and real-world consequences", "D": "To use as much jargon as possible"}, "answer": "C"}, {"id": "unit-1-q17", "number": 17, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What are the four pillars of effective technical communication?", "options": {"A": "Grammar, punctuation, style, and tone", "B": "Clarity, conciseness, accuracy, and audience focus", "C": "Length, cost, visuals, and feedback", "D": "Planning, drafting, revising, and editing"}, "answer": "B"}, {"id": "unit-1-q18", "number": 18, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the meaning of Clarity in technical communication?", "options": {"A": "Using complex and multi-syllabic words", "B": "The quality of being easy to understand, with an unmistakable message", "C": "The ability to write quickly", "D": "Using a formal tone at all times"}, "answer": "B"}, {"id": "unit-1-q19", "number": 19, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the \"inverted pyramid\" style of writing?", "options": {"A": "Starting with a detailed introduction and ending with a brief conclusion", "B": "Beginning with the least important information and building up to the main point", "C": "Starting with the most important information first", "D": "Writing in chronological order"}, "answer": "C"}, {"id": "unit-1-q20", "number": 20, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Why is Accuracy considered \"non-negotiable\" in engineering communication?", "options": {"A": "Inaccurate data can make a document look unprofessional", "B": "It is a matter of personal pride for the writer", "C": "Mistakes can lead to serious consequences like structural failure or user injury", "D": "It is required by law in most countries"}, "answer": "C"}, {"id": "unit-1-q21", "number": 21, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of an Audience and Purpose Analysis?", "options": {"A": "To make the document longer", "B": "To identify readers' characteristics and define the document's goal", "C": "To find out what the writer already knows", "D": "To avoid having to cite sources"}, "answer": "B"}, {"id": "unit-1-q22", "number": 22, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Who belongs to the \"Primary audience\" for a technical document?", "options": {"A": "The general public", "B": "Auditors and future employees", "C": "The direct recipients who use the document to make decisions or take action", "D": "Legal experts"}, "answer": "C"}, {"id": "unit-1-q23", "number": 23, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Who is part of the \"Secondary audience\"?", "options": {"A": "The main client", "B": "Reviewers or advisors who evaluate the document for accuracy and quality", "C": "The end-user", "D": "The writer's family"}, "answer": "B"}, {"id": "unit-1-q24", "number": 24, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the main characteristic of the \"Tertiary audience\"?", "options": {"A": "They are the direct decision-makers", "B": "They are the primary financial backers", "C": "They interact with the document indirectly for reference or archival purposes", "D": "They create the document"}, "answer": "C"}, {"id": "unit-1-q25", "number": 25, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which of the following is NOT one of the four phases of the technical communication process?", "options": {"A": "Planning", "B": "Drafting", "C": "Revising", "D": "Publishing"}, "answer": "D"}, {"id": "unit-1-q26", "number": 26, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the main goal of the Planning phase?", "options": {"A": "To start writing as fast as possible", "B": "To perfect the grammar and spelling", "C": "To define the audience, purpose, and scope before writing", "D": "To get feedback from others"}, "answer": "C"}, {"id": "unit-1-q27", "number": 27, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the primary mindset for the Drafting phase?", "options": {"A": "Focus on grammar and punctuation", "B": "Turn off the inner editor and focus on capturing the core message", "C": "Write the introduction first", "D": "Only use complex sentences"}, "answer": "B"}, {"id": "unit-1-q28", "number": 28, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What does \"Revision\" mean in the context of technical writing?", "options": {"A": "Fixing spelling and grammar mistakes", "B": "Looking at the big picture of the document for clarity and flow", "C": "Adding more jargon", "D": "Making the document longer"}, "answer": "B"}, {"id": "unit-1-q29", "number": 29, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of the \"Editing\" phase?", "options": {"A": "To restructure the entire document", "B": "To generate new content", "C": "To fine-tune the details, checking for grammar, spelling, and consistency", "D": "To define the audience and purpose"}, "answer": "C"}, {"id": "unit-1-q30", "number": 30, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which of the following is an example of a \"portable skill\" that employers seek in college graduates?", "options": {"A": "The ability to program in any language", "B": "The ability to get along with and motivate others", "C": "Mastery of a single, highly specialized software", "D": "The ability to work alone"}, "answer": "B"}, {"id": "unit-1-q31", "number": 31, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the main difference between academic writing and technical communication?", "options": {"A": "Academic writing is more complex", "B": "Technical communication has a different focus on audience and purpose", "C": "Academic writing is done in teams", "D": "Technical communication is never persuasive"}, "answer": "B"}, {"id": "unit-1-q32", "number": 32, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which of the following is a potential consequence of an engineer failing to communicate effectively?", "options": {"A": "Increased project funding", "B": "Delays in project timelines", "C": "A promotion", "D": "A bonus"}, "answer": "B"}, {"id": "unit-1-q33", "number": 33, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of a Design Specification document?", "options": {"A": "To showcase the aesthetics of a product", "B": "To define what a product or system must do", "C": "To provide a list of project team members", "D": "To justify the project's cost"}, "answer": "B"}, {"id": "unit-1-q34", "number": 34, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is a key skill for a technical writer creating presentations and slide decks?", "options": {"A": "Using complex, jargon-filled language", "B": "Translating technical jargon into visual and verbal narratives", "C": "Reading directly from the slides", "D": "Avoiding all visuals"}, "answer": "B"}, {"id": "unit-1-q35", "number": 35, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the goal of a Client Report?", "options": {"A": "To persuade the client to cancel the project", "B": "To update the client on progress and justify design choices", "C": "To provide a history of the company", "D": "To critique the client's business model"}, "answer": "B"}, {"id": "unit-1-q36", "number": 36, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Why is it important to \"read critically\"?", "options": {"A": "To find mistakes in other people's writing", "B": "To learn what makes a document good or bad", "C": "To impress your colleagues", "D": "To avoid writing your own documents"}, "answer": "B"}, {"id": "unit-1-q37", "number": 37, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What does the technical communication suggest you should do to achieve conciseness?", "options": {"A": "Use more complex sentence structures", "B": "Eliminate wordy phrases and redundant information", "C": "Repeat your main points multiple times", "D": "Use a thesaurus to find longer words"}, "answer": "B"}, {"id": "unit-1-q38", "number": 38, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of citing sources in a technical document?", "options": {"A": "To make the document look longer", "B": "To give credit to the original research or data and ensure accuracy", "C": "To confuse the reader", "D": "To show off your research skills"}, "answer": "B"}, {"id": "unit-1-q39", "number": 39, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is a key question to ask when analyzing your audience?", "options": {"A": "What are their hobbies?", "B": "What is my favorite color?", "C": "How familiar might the audience be with technical details?", "D": "How long will it take to write the document?"}, "answer": "C"}, {"id": "unit-1-q40", "number": 40, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is a key skill for writing effective emails and internal memos?", "options": {"A": "Writing long, detailed paragraphs", "B": "Using vague subject lines", "C": "Writing clear subject lines and structuring information logically", "D": "Using informal language and slang"}, "answer": "C"}, {"id": "unit-1-q41", "number": 41, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Technical writing is a \"tool\" for engineers. What does this analogy mean?", "options": {"A": "It is only used for very specific tasks", "B": "It is a skill that can be mastered to make you a more effective engineer", "C": "It is a temporary skill that will become obsolete", "D": "It is a manual process that cannot be automated"}, "answer": "B"}, {"id": "unit-1-q42", "number": 42, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the benefit of a \"sensible organization\" in a technical document?", "options": {"A": "It makes the document look professional", "B": "It guides the reader and emphasizes important material", "C": "It allows the writer to express their feelings", "D": "It is a requirement for all documents"}, "answer": "B"}, {"id": "unit-1-q43", "number": 43, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of a Test Plan & Report?", "options": {"A": "To provide a financial breakdown of the project", "B": "To verify that the design meets its requirements and provides data for future improvements", "C": "To list all the team members", "D": "To explain how to use the final product"}, "answer": "B"}, {"id": "unit-1-q44", "number": 44, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "A good technical document presents content in \"short chunks\" and avoids \"long technical passages\" to be what?", "options": {"A": "More entertaining", "B": "More efficient and accessible", "C": "More scholarly", "D": "More challenging for the reader"}, "answer": "B"}, {"id": "unit-1-q45", "number": 45, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Which of the following is an example of an unethical communication?", "options": {"A": "Using technical jargon", "B": "Using a direct and simple tone", "C": "Inefficient style that confuses or misleads the audience", "D": "Presenting factual information"}, "answer": "C"}, {"id": "unit-1-q46", "number": 46, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the purpose of a Project Proposal?", "options": {"A": "To get a good grade", "B": "To secure funding and justify resource allocation", "C": "To provide a list of materials used", "D": "To summarize past projects"}, "answer": "B"}, {"id": "unit-1-q47", "number": 47, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the goal of academic papers and conference proceedings?", "options": {"A": "To get a promotion", "B": "To share research findings and establish credibility within the engineering community", "C": "To inform a non-technical audience", "D": "To provide step-by-step instructions"}, "answer": "B"}, {"id": "unit-1-q48", "number": 48, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "Why is it important to \"Embrace Feedback\" on your writing?", "options": {"A": "It shows you are not a good writer", "B": "It is a requirement for all technical writers", "C": "To learn from your mistakes and improve", "D": "To get others to do your work for you"}, "answer": "C"}, {"id": "unit-1-q49", "number": 49, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the recommended style for a technical document?", "options": {"A": "Informal and conversational", "B": "A style that promotes fluid reading and accurate understanding", "C": "A style that uses as many literary devices as possible", "D": "A style that focuses on the writer's personal feelings"}, "answer": "B"}, {"id": "unit-1-q50", "number": 50, "unit": "unit-1", "unitName": "Unit I: Introduction to Technical Communication", "question": "What is the role of digital technology in technical communication?", "options": {"A": "It has made communication less frequent", "B": "It has provided more ways to research and find information", "C": "It has eliminated the need for critical thinking", "D": "It has made professional standards for communication obsolete"}, "answer": "B"}]}, "unit2": {"title": "Unit II: The Research Process & Technical Evaluation", "total": 50, "questions": [{"id": "unit-2-q1", "number": 1, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "Major decisions in the workplace are based on what?", "options": {"A": "Personal opinions", "B": "Careful research with findings recorded in a report", "C": "Unverified assumptions", "D": "Quick judgments"}, "answer": "B"}, {"id": "unit-2-q2", "number": 2, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the first procedural stage of the research process?", "options": {"A": "Recording your findings", "B": "Writing the document", "C": "Searching for information", "D": "Documenting your sources"}, "answer": "C"}, {"id": "unit-2-q3", "number": 3, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "The stages of critical thinking in the research process begin with what action?", "options": {"A": "Evaluating your findings", "B": "Asking the right questions", "C": "Exploring a balance of views", "D": "Interpreting your findings"}, "answer": "B"}, {"id": "unit-2-q4", "number": 4, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "The answers you uncover will only be as good as the:", "options": {"A": "Sources you use", "B": "Time you spend", "C": "Questions you ask", "D": "Tools you have"}, "answer": "C"}, {"id": "unit-2-q5", "number": 5, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What does critical thinking help a researcher to do with essential questions?", "options": {"A": "Avoid them", "B": "Define and refine them", "C": "Make them simpler", "D": "Skip them"}, "answer": "B"}, {"id": "unit-2-q6", "number": 6, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the key to solving a problem in research?", "options": {"A": "Finding the most convenient answer", "B": "Avoiding a range of views", "C": "Clearly defining the problem", "D": "Rushing to a conclusion"}, "answer": "C"}, {"id": "unit-2-q7", "number": 7, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "Ethical researchers rely on evidence that represents what?", "options": {"A": "A single, definitive source", "B": "The most comforting answer", "C": "A fair balance of views", "D": "Only the author's own biases"}, "answer": "C"}, {"id": "unit-2-q8", "number": 8, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "Balanced research examines a broad range of evidence, while thorough research examines that evidence in:", "options": {"A": "Sufficient depth", "B": "A biased manner", "C": "A superficial way", "D": "Only a single viewpoint"}, "answer": "A"}, {"id": "unit-2-q9", "number": 9, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the main goal when evaluating your sources?", "options": {"A": "Emphasizing findings that support your own biases", "B": "Seeking out and reporting the most accurate answer", "C": "Accepting every finding as equal", "D": "Distorting the information"}, "answer": "B"}, {"id": "unit-2-q10", "number": 10, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "When interpreting findings, the document advises against forcing a simplistic conclusion on a complex issue, stating that a wrong conclusion is:", "options": {"A": "Better than no definite conclusion", "B": "Far worse than no definite conclusion at all", "C": "Always the best approach", "D": "The ultimate truth"}, "answer": "B"}, {"id": "unit-2-q11", "number": 11, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "Primary research is defined as getting information directly from the source by what methods?", "options": {"A": "Reading books and articles", "B": "Conducting interviews and surveys", "C": "Searching online databases", "D": "Watching a documentary"}, "answer": "B"}, {"id": "unit-2-q12", "number": 12, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is secondary research?", "options": {"A": "Information gathered from personal experience", "B": "Information obtained firsthand", "C": "Information obtained second hand by reading what other researchers have compiled", "D": "Information from an experiment you conducted"}, "answer": "C"}, {"id": "unit-2-q13", "number": 13, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "Most information found on the Internet is considered a:", "options": {"A": "Primary source", "B": "Tertiary source", "C": "Secondary source", "D": "Unreliable source"}, "answer": "C"}, {"id": "unit-2-q14", "number": 14, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "You should typically start your research with which type of source?", "options": {"A": "Primary sources", "B": "Secondary sources", "C": "Unsolicited inquiries", "D": "Personal communication"}, "answer": "B"}, {"id": "unit-2-q15", "number": 15, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "How can working with primary sources add to the credibility of your work?", "options": {"A": "They are readily available and simple to use.", "B": "They help you expand upon what others have learned and add your own findings.", "C": "They are always more accurate than secondary sources.", "D": "They do not require documentation."}, "answer": "B"}, {"id": "unit-2-q16", "number": 16, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a key characteristic of a subject directory?", "options": {"A": "It is a search engine that scans for keywords.", "B": "It is a list of Web sites compiled by editors.", "C": "It is a forum for discussion.", "D": "It is an academic journal."}, "answer": "B"}, {"id": "unit-2-q17", "number": 17, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a key characteristic of search engines like Google and Yahoo!?", "options": {"A": "They are indexes compiled by editors.", "B": "They scan for Web sites that best match your query.", "C": "They are exclusively used for academic research.", "D": "They always provide the final, accurate word on a topic."}, "answer": "B"}, {"id": "unit-2-q18", "number": 18, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "You should use a Wikipedia entry for what purpose?", "options": {"A": "As your final destination for information.", "B": "To get an overview of a topic and locate other sources.", "C": "To find peer-reviewed articles.", "D": "To find conclusive answers."}, "answer": "B"}, {"id": "unit-2-q19", "number": 19, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is \"gray literature\"?", "options": {"A": "Published books found in a library.", "B": "Information that is unpublished or not typically cataloged, like pamphlets or unpublished government documents.", "C": "Information from online encyclopedias.", "D": "Peer-reviewed journal articles."}, "answer": "B"}, {"id": "unit-2-q20", "number": 20, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a caution about using gray literature?", "options": {"A": "It is always carefully scrutinized for content by editors.", "B": "It is always a primary source.", "C": "It can be unreliable and should be backed up by information from other sources.", "D": "It is only available to experts."}, "answer": "C"}, {"id": "unit-2-q21", "number": 21, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is \"source bias\"?", "options": {"A": "A source that always reports the ultimate truth.", "B": "When a source understates or overstates certain facts depending on whose interests it represents.", "C": "An objective analysis of information.", "D": "A source that has been peer-reviewed."}, "answer": "B"}, {"id": "unit-2-q22", "number": 22, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What are the three distinct levels of certainty research can yield?", "options": {"A": "Fact, theory, and opinion", "B": "The ultimate truth, the probable answer, and the inconclusive answer", "C": "Confirmed, unconfirmed, and debated", "D": "Definitive, likely, and unlikely"}, "answer": "B"}, {"id": "unit-2-q23", "number": 23, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is an assumption?", "options": {"A": "A notion that has been proven to be true.", "B": "An idea we accept without proof.", "C": "A conclusion reached after research.", "D": "A type of primary source."}, "answer": "B"}, {"id": "unit-2-q24", "number": 24, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the process of rewriting a passage in your own words to make it shorter while still retaining its essential message?", "options": {"A": "Paraphrasing", "B": "Quoting", "C": "Summarizing", "D": "Plagiarizing"}, "answer": "C"}, {"id": "unit-2-q25", "number": 25, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the process of a restatement, in your own words, of someone else’s words?", "options": {"A": "Quoting", "B": "Summarizing", "C": "Paraphrasing", "D": "Plagiarizing"}, "answer": "C"}, {"id": "unit-2-q26", "number": 26, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "When must you use quotation marks in your notes?", "options": {"A": "When you paraphrase information.", "B": "When you summarize a passage.", "C": "When you copy someone else's words, even a mere two or three in a row.", "D": "Only when you quote a full paragraph."}, "answer": "C"}, {"id": "unit-2-q27", "number": 27, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a key reason for taking notes accurately?", "options": {"A": "To avoid getting a grade of C.", "B": "To ensure you can plagiarize without being caught.", "C": "To prevent unintentional plagiarism and ensure the quality of your finished product.", "D": "To make the document longer."}, "answer": "C"}, {"id": "unit-2-q28", "number": 28, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "You can use a Wikipedia entry to get an overview of a topic and what else?", "options": {"A": "Find the conclusive truth.", "B": "Locate other, more reliable sources.", "C": "Get a definitive peer review.", "D": "Find a single, unbiased viewpoint."}, "answer": "B"}, {"id": "unit-2-q29", "number": 29, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What does it mean for research to be \"reliable\"?", "options": {"A": "It produces findings that can be replicated.", "B": "It is published in a book.", "C": "It is based on opinions.", "D": "It is conducted by a well-known person."}, "answer": "A"}, {"id": "unit-2-q30", "number": 30, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "To what does the term \"relevance\" refer in the context of research depth?", "options": {"A": "The number of sources you find.", "B": "The quality and pertinence of the information you find.", "C": "The ease of finding information online.", "D": "The speed at which you conduct your search."}, "answer": "B"}, {"id": "unit-2-q31", "number": 31, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the primary function of documentation?", "options": {"A": "To make your document look more professional.", "B": "To help you acknowledge your debt to sources, establish credibility, and help readers find your sources.", "C": "To make the document longer.", "D": "To avoid having to write your own words."}, "answer": "B"}, {"id": "unit-2-q32", "number": 32, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "The failure to document a source, whether intentional or unintentional, is called:", "options": {"A": "Summarizing", "B": "Quoting", "C": "Paraphrasing", "D": "Plagiarism"}, "answer": "D"}, {"id": "unit-2-q33", "number": 33, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What three kinds of material should always be documented?", "options": {"A": "Common knowledge, opinions, and graphics.", "B": "Quotations, paraphrased ideas, and graphics.", "C": "Summaries, conclusions, and introductions.", "D": "Theories, facts, and beliefs."}, "answer": "B"}, {"id": "unit-2-q34", "number": 34, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "In APA style, for material that you have summarized or paraphrased, what must you include in the parentheses immediately following the borrowed information?", "options": {"A": "The author's name and the publication date.", "B": "The title and page number.", "C": "The author's last name and page number.", "D": "The volume and number."}, "answer": "A"}, {"id": "unit-2-q35", "number": 35, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "When citing a source with three to five authors for the first time in APA style, what should you do?", "options": {"A": "Include all the names.", "B": "Use only the first author's last name followed by et al.", "C": "Use the title of the work.", "D": "Use only the last author's name."}, "answer": "A"}, {"id": "unit-2-q36", "number": 36, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "In APA style, what should you do if the source has no author?", "options": {"A": "Use the phrase \"Unknown Author.\"", "B": "Use a shortened version of the title.", "C": "Omit the citation.", "D": "Use the phrase \"Anonymous.\""}, "answer": "B"}, {"id": "unit-2-q37", "number": 37, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "In APA style, what does \"n.d.\" stand for in an electronic citation?", "options": {"A": "No data", "B": "Not documented", "C": "No date", "D": "Non-digital"}, "answer": "C"}, {"id": "unit-2-q38", "number": 38, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "How is the reference list in APA style arranged?", "options": {"A": "Alphabetically by author's last name.", "B": "By date of publication.", "C": "By the order of citation in the text.", "D": "By the title of the work."}, "answer": "A"}, {"id": "unit-2-q39", "number": 39, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a key difference between APA and IEEE textual citations?", "options": {"A": "APA uses a numbered list, while IEEE uses the author's name and date.", "B": "APA uses the author's name and publication date, while IEEE uses bracketed numbers keyed to a reference list.", "C": "APA does not require page numbers, while IEEE always does.", "D": "APA uses only the title, while IEEE uses the author's name."}, "answer": "B"}, {"id": "unit-2-q40", "number": 40, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "In IEEE style, what happens once a reference has been listed?", "options": {"A": "It is not used again.", "B": "A new number is assigned each time it is cited.", "C": "The same number is used in all subsequent citations of that source.", "D": "The citation is omitted."}, "answer": "C"}, {"id": "unit-2-q41", "number": 41, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is an example of an informational interview?", "options": {"A": "A survey you conduct with 100 people.", "B": "An email to a company's general information account.", "C": "Spending time with an expert and asking pertinent questions.", "D": "Reading an article in a journal."}, "answer": "C"}, {"id": "unit-2-q42", "number": 42, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is one of the questions an ethical researcher should ask when evaluating a finding?", "options": {"A": "Is this information easy to find?", "B": "Does this finding support my personal bias?", "C": "Is this information accurate, reliable, and relatively unbiased?", "D": "Can I ignore conflicting information?"}, "answer": "C"}, {"id": "unit-2-q43", "number": 43, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "In the case study about EMFs, what additional question arose after preliminary reading?", "options": {"A": "Do townspeople care about the issue?", "B": "Do power lines present the greatest hazard as a source of EMFs?", "C": "How many people live in the town?", "D": "What is the public health manager's job title?"}, "answer": "B"}, {"id": "unit-2-q44", "number": 44, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the importance of a well-defined research question?", "options": {"A": "It guarantees an easy research process.", "B": "It guides the entire research work.", "C": "It eliminates the need for any further research.", "D": "It ensures the answer will be what you expected."}, "answer": "B"}, {"id": "unit-2-q45", "number": 45, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is one of the things you should skim in a book to gauge the quality and relevance of information?", "options": {"A": "The entire index.", "B": "A few paragraphs from different portions of the text.", "C": "The copyright date.", "D": "The front cover."}, "answer": "B"}, {"id": "unit-2-q46", "number": 46, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the process of rewriting a passage in your own words while retaining its essence?", "options": {"A": "Quoting", "B": "Plagiarizing", "C": "Summarizing", "D": "Citing"}, "answer": "C"}, {"id": "unit-2-q47", "number": 47, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "When using a reference work, what is it important to check to ensure you are accessing the most current information?", "options": {"A": "The number of pages", "B": "The title", "C": "The font size", "D": "The copyright date"}, "answer": "D"}, {"id": "unit-2-q48", "number": 48, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a key caution about using commercial (.com) or organizational (.org) websites for research?", "options": {"A": "They are always biased and should be avoided.", "B": "The information may be affected by an effort to sell something or a particular social/political agenda.", "C": "They are always peer-reviewed.", "D": "They do not need to be documented."}, "answer": "B"}, {"id": "unit-2-q49", "number": 49, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is a \"conclusive answer\" or \"ultimate truth\" in research?", "options": {"A": "What a single expert believes.", "B": "The answer that has been proven to be true and agreed upon by all who investigate it.", "C": "The most convenient answer.", "D": "An answer that is subject to revision."}, "answer": "B"}, {"id": "unit-2-q50", "number": 50, "unit": "unit-2", "unitName": "Unit II: Research Process & Evaluation", "question": "What is the stance on using a Google search for research?", "options": {"A": "It should be the only source you use.", "B": "It's fine to start with a Google search to brainstorm ideas, but you will need to narrow down your findings.", "C": "You should never use Google for research.", "D": "It is only useful for academic papers."}, "answer": "B"}]}};
+  </script>
+
+  <!-- Application Logic -->
+  <script>
+    // State management
+    const STORAGE_KEY_STATE = 'tech_writing_quiz_state_v1';
+    const STORAGE_KEY_HISTORY = 'tech_writing_quiz_history_v1';
+
+    let state = {
+      view: 'setup', // 'setup', 'test', 'review'
+      selectedScope: 'all', // 'all', 'unit1', 'unit2'
+      mode: 'exam', // 'exam' (timed, submit to see), 'practice' (instant feedback)
+      timeLimitMinutes: 60, // 0 = no timer
+      negativeMarking: false,
+      
+      // Active test state
+      activeQuestions: [], // subset based on scope
+      activeSection: 'unit-1', // 'unit-1' or 'unit-2'
+      currentIndex: 0,
+      answers: {}, // questionId: 'A' | 'B' | 'C' | 'D'
+      markedForReview: {}, // questionId: true
+      visited: {}, // questionId: true
+      
+      // Timer
+      timeRemaining: 3600,
+      timerRunning: false,
+      timerInterval: null,
+      
+      // Result
+      completedTestResult: null,
+      reviewFilter: 'all', // 'all', 'correct', 'incorrect', 'unattempted', 'marked'
+    };
+
+    function loadHistory() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_HISTORY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHistory(result) {
+      try {
+        const history = loadHistory();
+        history.unshift(result);
+        localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history.slice(0, 30)));
+      } catch (e) {
+        console.error('Failed to save history', e);
+      }
+    }
+
+    function clearHistory() {
+      if (confirm('Are you sure you want to clear all past test attempt history?')) {
+        localStorage.removeItem(STORAGE_KEY_HISTORY);
+        render();
+      }
+    }
+
+    // Initialize Questions
+    function initTest(scope, mode, timeMins, negMarking, customQuestions = null) {
+      state.selectedScope = scope;
+      state.mode = mode;
+      state.timeLimitMinutes = timeMins;
+      state.negativeMarking = negMarking;
+      
+      let qList = [];
+      if (customQuestions) {
+        qList = customQuestions;
+      } else {
+        if (scope === 'all' || scope === 'unit1') {
+          qList = qList.concat(QUIZ_DATA.unit1.questions);
+        }
+        if (scope === 'all' || scope === 'unit2') {
+          qList = qList.concat(QUIZ_DATA.unit2.questions);
+        }
+      }
+      
+      state.activeQuestions = qList;
+      state.currentIndex = 0;
+      state.activeSection = qList[0].unit;
+      state.answers = {};
+      state.markedForReview = {};
+      state.visited = { [qList[0].id]: true };
+      
+      state.timeRemaining = timeMins * 60;
+      state.timerRunning = (timeMins > 0);
+      state.view = 'test';
+      
+      startTimer();
+      render();
+    }
+
+    function startTimer() {
+      if (state.timerInterval) clearInterval(state.timerInterval);
+      if (state.timeLimitMinutes <= 0) return;
+      
+      state.timerInterval = setInterval(() => {
+        if (!state.timerRunning) return;
+        state.timeRemaining--;
+        updateTimerBadge();
+        
+        if (state.timeRemaining <= 0) {
+          clearInterval(state.timerInterval);
+          alert('Time is up! Submitting your test automatically.');
+          submitTest();
+        }
+      }, 1000);
+    }
+
+    function formatTime(seconds) {
+      if (seconds < 0) seconds = 0;
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = seconds % 60;
+      if (h > 0) {
+        return `${h}h ${m < 10 ? '0' : ''}${m}m ${s < 10 ? '0' : ''}${s}s`;
+      }
+      return `${m < 10 ? '0' : ''}${m}m ${s < 10 ? '0' : ''}${s}s`;
+    }
+
+    function selectOption(opt) {
+      const q = state.activeQuestions[state.currentIndex];
+      if (!q) return;
+      
+      if (state.answers[q.id] === opt) {
+        delete state.answers[q.id];
+      } else {
+        state.answers[q.id] = opt;
+      }
+      render();
+    }
+
+    function clearCurrentResponse() {
+      const q = state.activeQuestions[state.currentIndex];
+      if (q && state.answers[q.id]) {
+        delete state.answers[q.id];
+        render();
+      }
+    }
+
+    function toggleMarkForReview() {
+      const q = state.activeQuestions[state.currentIndex];
+      if (!q) return;
+      if (state.markedForReview[q.id]) {
+        delete state.markedForReview[q.id];
+      } else {
+        state.markedForReview[q.id] = true;
+      }
+      render();
+    }
+
+    function nextQuestion() {
+      if (state.currentIndex < state.activeQuestions.length - 1) {
+        state.currentIndex++;
+        const nextQ = state.activeQuestions[state.currentIndex];
+        state.visited[nextQ.id] = true;
+        state.activeSection = nextQ.unit;
+        render();
+      }
+    }
+
+    function prevQuestion() {
+      if (state.currentIndex > 0) {
+        state.currentIndex--;
+        const prevQ = state.activeQuestions[state.currentIndex];
+        state.visited[prevQ.id] = true;
+        state.activeSection = prevQ.unit;
+        render();
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      if (idx >= 0 && idx < state.activeQuestions.length) {
+        state.currentIndex = idx;
+        const q = state.activeQuestions[idx];
+        state.visited[q.id] = true;
+        state.activeSection = q.unit;
+        render();
+      }
+    }
+
+    function switchSection(secId) {
+      state.activeSection = secId;
+      // find first question belonging to this section
+      const idx = state.activeQuestions.findIndex(q => q.unit === secId);
+      if (idx !== -1) {
+        state.currentIndex = idx;
+        state.visited[state.activeQuestions[idx].id] = true;
+      }
+      render();
+    }
+
+    function submitTest() {
+      if (state.timerInterval) clearInterval(state.timerInterval);
+      
+      let u1Correct = 0, u1Wrong = 0, u1Unattempted = 0;
+      let u2Correct = 0, u2Wrong = 0, u2Unattempted = 0;
+      
+      state.activeQuestions.forEach(q => {
+        const userAns = state.answers[q.id];
+        const isU1 = (q.unit === 'unit-1');
+        
+        if (!userAns) {
+          if (isU1) u1Unattempted++; else u2Unattempted++;
+        } else if (userAns === q.answer) {
+          if (isU1) u1Correct++; else u2Correct++;
+        } else {
+          if (isU1) u1Wrong++; else u2Wrong++;
+        }
+      });
+      
+      const totalQuestions = state.activeQuestions.length;
+      const totalCorrect = u1Correct + u2Correct;
+      const totalWrong = u1Wrong + u2Wrong;
+      const totalUnattempted = u1Unattempted + u2Unattempted;
+      
+      const negPenalty = state.negativeMarking ? 0.25 : 0;
+      const rawScore = totalCorrect - (totalWrong * negPenalty);
+      const accuracy = (totalCorrect + totalWrong) > 0 ? ((totalCorrect / (totalCorrect + totalWrong)) * 100).toFixed(1) : '0.0';
+      const percentage = ((totalCorrect / totalQuestions) * 100).toFixed(1);
+      
+      const timeSpentSec = (state.timeLimitMinutes * 60) - state.timeRemaining;
+      
+      const resultObj = {
+        id: 'test-' + Date.now(),
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+        scope: state.selectedScope,
+        mode: state.mode,
+        negativeMarking: state.negativeMarking,
+        totalQuestions,
+        totalCorrect,
+        totalWrong,
+        totalUnattempted,
+        rawScore: parseFloat(rawScore.toFixed(2)),
+        percentage,
+        accuracy,
+        timeSpentSec: timeSpentSec > 0 ? timeSpentSec : 0,
+        unit1: { correct: u1Correct, wrong: u1Wrong, unattempted: u1Unattempted, total: QUIZ_DATA.unit1.total },
+        unit2: { correct: u2Correct, wrong: u2Wrong, unattempted: u2Unattempted, total: QUIZ_DATA.unit2.total },
+        answers: { ...state.answers },
+        questions: [...state.activeQuestions]
+      };
+      
+      saveHistory(resultObj);
+      state.completedTestResult = resultObj;
+      state.view = 'results';
+      state.reviewFilter = 'all';
+      render();
+    }
+
+    function retakeOnlyIncorrect() {
+      if (!state.completedTestResult) return;
+      const r = state.completedTestResult;
+      const missed = r.questions.filter(q => r.answers[q.id] !== q.answer);
+      if (missed.length === 0) {
+        alert('You scored 100%! No incorrect or missed questions to retake.');
+        return;
+      }
+      initTest('custom', 'practice', Math.ceil(missed.length * 1.2), false, missed);
+    }
+
+    // Keyboard Shortcuts Listener
+    window.addEventListener('keydown', (e) => {
+      if (state.view !== 'test') return;
+      const key = e.key.toUpperCase();
+      if (key === '1' || key === 'A') selectOption('A');
+      else if (key === '2' || key === 'B') selectOption('B');
+      else if (key === '3' || key === 'C') selectOption('C');
+      else if (key === '4' || key === 'D') selectOption('D');
+      else if (key === 'ENTER') nextQuestion();
+      else if (key === 'ARROWLEFT') prevQuestion();
+      else if (key === 'ARROWRIGHT') nextQuestion();
+      else if (key === 'M') toggleMarkForReview();
+      else if (key === 'ESCAPE') clearCurrentResponse();
+    });
+
+    function updateTimerBadge() {
+      const el = document.getElementById('timer-display');
+      if (el) {
+        el.innerText = formatTime(state.timeRemaining);
+        if (state.timeRemaining < 300) {
+          el.className = 'font-mono text-red-400 font-black animate-pulse';
+        }
+      }
+    }
+
+    // RENDER FUNCTIONS
+    function render() {
+      const app = document.getElementById('app');
+      if (state.view === 'setup') {
+        app.innerHTML = renderSetupView();
+      } else if (state.view === 'test') {
+        app.innerHTML = renderTestView();
+      } else if (state.view === 'results') {
+        app.innerHTML = renderResultsView();
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function renderSetupView() {
+      const history = loadHistory();
+      const bestAttempt = history.reduce((max, curr) => (parseFloat(curr.percentage) > max ? parseFloat(curr.percentage) : max), 0);
+      const avgScore = history.length > 0 ? (history.reduce((sum, c) => sum + parseFloat(c.percentage), 0) / history.length).toFixed(1) : 0;
+      
+      return `
+        <div class="max-w-4xl mx-auto w-full p-4 sm:p-8 flex-1 flex flex-col justify-center">
+          
+          <!-- Header Banner -->
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-wide uppercase mb-3">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              Official Exam Preparation Portal
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white mb-2">
+              Technical Writing MCQ Mastery
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+              Master Units I & II with 100 questions, sectional analytics, timer drills, and instant mistake forensics.
+            </p>
+          </div>
+
+          <!-- Quick Stats Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+            <div class="bg-[#101522] border border-[#1e2638] p-3.5 rounded-2xl text-center">
+              <div class="text-xs text-slate-400 font-semibold mb-1">Total Pool</div>
+              <div class="text-xl sm:text-2xl font-black text-white">100 MCQs</div>
+              <div class="text-[10px] text-blue-400 font-mono mt-0.5">50 + 50 Split</div>
+            </div>
+            <div class="bg-[#101522] border border-[#1e2638] p-3.5 rounded-2xl text-center">
+              <div class="text-xs text-slate-400 font-semibold mb-1">Unit I Coverage</div>
+              <div class="text-xl sm:text-2xl font-black text-emerald-400">50 Qs</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Intro to Tech Comm</div>
+            </div>
+            <div class="bg-[#101522] border border-[#1e2638] p-3.5 rounded-2xl text-center">
+              <div class="text-xs text-slate-400 font-semibold mb-1">Unit II Coverage</div>
+              <div class="text-xl sm:text-2xl font-black text-indigo-400">50 Qs</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Research & Analysis</div>
+            </div>
+            <div class="bg-[#101522] border border-[#1e2638] p-3.5 rounded-2xl text-center">
+              <div class="text-xs text-slate-400 font-semibold mb-1">Your Personal Best</div>
+              <div class="text-xl sm:text-2xl font-black text-amber-400">${history.length > 0 ? bestAttempt + '%' : '—'}</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">${history.length} Attempt(s)</div>
+            </div>
+          </div>
+
+          <!-- Configuration Form -->
+          <div class="bg-[#101522] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-2xl mb-6">
+            <h2 class="text-lg font-bold text-white mb-5 flex items-center gap-2">
+              <i data-lucide="sliders-horizontal" class="w-5 h-5 text-blue-400"></i>
+              Configure Your Test Session
+            </h2>
+
+            <!-- Scope Choice -->
+            <div class="mb-5">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+                Select Scope (Two-Section or Specific Unit)
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <button type="button" onclick="state.selectedScope='all'; render();" 
+                  class="p-3.5 rounded-2xl border text-left transition-all ${state.selectedScope === 'all' ? 'bg-blue-600/20 border-blue-500 text-white shadow-lg shadow-blue-500/10' : 'bg-[#151b2b] border-[#252f47] text-slate-300 hover:border-slate-600'}">
+                  <div class="font-bold text-sm flex items-center justify-between">
+                    <span>Full Exam (Both Sections)</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-mono">100 Qs</span>
+                  </div>
+                  <div class="text-xs text-slate-400 mt-1">Section 1: Unit I (50) + Section 2: Unit II (50)</div>
+                </button>
+
+                <button type="button" onclick="state.selectedScope='unit1'; render();" 
+                  class="p-3.5 rounded-2xl border text-left transition-all ${state.selectedScope === 'unit1' ? 'bg-blue-600/20 border-blue-500 text-white shadow-lg shadow-blue-500/10' : 'bg-[#151b2b] border-[#252f47] text-slate-300 hover:border-slate-600'}">
+                  <div class="font-bold text-sm flex items-center justify-between">
+                    <span>Unit I Only</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">50 Qs</span>
+                  </div>
+                  <div class="text-xs text-slate-400 mt-1">Introduction to Technical Communication</div>
+                </button>
+
+                <button type="button" onclick="state.selectedScope='unit2'; render();" 
+                  class="p-3.5 rounded-2xl border text-left transition-all ${state.selectedScope === 'unit2' ? 'bg-blue-600/20 border-blue-500 text-white shadow-lg shadow-blue-500/10' : 'bg-[#151b2b] border-[#252f47] text-slate-300 hover:border-slate-600'}">
+                  <div class="font-bold text-sm flex items-center justify-between">
+                    <span>Unit II Only</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">50 Qs</span>
+                  </div>
+                  <div class="text-xs text-slate-400 mt-1">Research Process & Evaluation Stages</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mode Choice -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Test Format Mode</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <button type="button" onclick="state.mode='exam'; render();"
+                    class="p-3 rounded-xl border text-center transition-all ${state.mode === 'exam' ? 'bg-blue-600 text-white font-bold border-blue-500 shadow-md' : 'bg-[#151b2b] border-[#252f47] text-slate-400 hover:text-slate-200'}">
+                    <div class="text-sm">⏱️ Timed Exam</div>
+                    <div class="text-[11px] opacity-80 mt-0.5">Submit to grade</div>
+                  </button>
+                  <button type="button" onclick="state.mode='practice'; render();"
+                    class="p-3 rounded-xl border text-center transition-all ${state.mode === 'practice' ? 'bg-blue-600 text-white font-bold border-blue-500 shadow-md' : 'bg-[#151b2b] border-[#252f47] text-slate-400 hover:text-slate-200'}">
+                    <div class="text-sm">🎯 Practice Mode</div>
+                    <div class="text-[11px] opacity-80 mt-0.5">Instant check & feedback</div>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Timer Duration</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" onclick="state.timeLimitMinutes=60; render();"
+                    class="p-3 rounded-xl border text-center text-xs transition-all ${state.timeLimitMinutes === 60 ? 'bg-blue-600 text-white font-bold border-blue-500' : 'bg-[#151b2b] border-[#252f47] text-slate-400 hover:text-slate-200'}">
+                    60 Mins
+                  </button>
+                  <button type="button" onclick="state.timeLimitMinutes=90; render();"
+                    class="p-3 rounded-xl border text-center text-xs transition-all ${state.timeLimitMinutes === 90 ? 'bg-blue-600 text-white font-bold border-blue-500' : 'bg-[#151b2b] border-[#252f47] text-slate-400 hover:text-slate-200'}">
+                    90 Mins
+                  </button>
+                  <button type="button" onclick="state.timeLimitMinutes=0; render();"
+                    class="p-3 rounded-xl border text-center text-xs transition-all ${state.timeLimitMinutes === 0 ? 'bg-blue-600 text-white font-bold border-blue-500' : 'bg-[#151b2b] border-[#252f47] text-slate-400 hover:text-slate-200'}">
+                    Untimed
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Negative Marking Toggle -->
+            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-[#151b2b] border border-[#252f47] mb-6">
+              <div>
+                <div class="text-sm font-bold text-white flex items-center gap-2">
+                  <span>Negative Marking (-0.25)</span>
+                  <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full ${state.negativeMarking ? 'bg-red-500/20 text-red-400' : 'bg-slate-700 text-slate-300'}">
+                    ${state.negativeMarking ? 'Enabled' : 'Disabled'}
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-0.5">Deduct 0.25 marks for each incorrect response (Competitive Exam rule)</div>
+              </div>
+              <button type="button" onclick="state.negativeMarking = !state.negativeMarking; render();"
+                class="w-12 h-6 rounded-full transition-colors relative ${state.negativeMarking ? 'bg-blue-600' : 'bg-slate-700'}">
+                <div class="w-4 h-4 rounded-full bg-white absolute top-1 transition-all ${state.negativeMarking ? 'right-1' : 'left-1'}"></div>
+              </button>
+            </div>
+
+            <!-- Start Button -->
+            <button type="button" onclick="initTest(state.selectedScope, state.mode, state.timeLimitMinutes, state.negativeMarking);" 
+              class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-base shadow-xl shadow-blue-600/30 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99]">
+              <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+              Start Examination Now
+            </button>
+          </div>
+
+          <!-- Past History Section -->
+          ${history.length > 0 ? `
+            <div class="bg-[#101522] border border-[#1e2638] rounded-3xl p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-sm text-white flex items-center gap-2">
+                  <i data-lucide="history" class="w-4 h-4 text-slate-400"></i>
+                  Recent Test Attempts (${history.length})
+                </h3>
+                <button type="button" onclick="clearHistory();" class="text-xs text-red-400 hover:text-red-300 transition-colors">
+                  Clear History
+                </button>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead>
+                    <tr class="border-b border-[#212a40] text-slate-400">
+                      <th class="pb-2.5 font-semibold">Date</th>
+                      <th class="pb-2.5 font-semibold">Scope</th>
+                      <th class="pb-2.5 font-semibold">Score</th>
+                      <th class="pb-2.5 font-semibold">Unit 1</th>
+                      <th class="pb-2.5 font-semibold">Unit 2</th>
+                      <th class="pb-2.5 font-semibold">Accuracy</th>
+                      <th class="pb-2.5 font-semibold">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[#1e2638]">
+                    ${history.slice(0, 5).map((item, idx) => `
+                      <tr class="hover:bg-[#141b2c] transition-colors">
+                        <td class="py-2.5 font-mono text-slate-400">${item.date}</td>
+                        <td class="py-2.5 capitalize font-bold text-slate-200">${item.scope}</td>
+                        <td class="py-2.5">
+                          <span class="font-bold font-mono ${parseFloat(item.percentage) >= 80 ? 'text-emerald-400' : parseFloat(item.percentage) >= 60 ? 'text-amber-400' : 'text-red-400'}">
+                            ${item.rawScore} / ${item.totalQuestions} (${item.percentage}%)
+                          </span>
+                        </td>
+                        <td class="py-2.5 font-mono text-slate-300">${item.unit1.correct}/${item.unit1.total}</td>
+                        <td class="py-2.5 font-mono text-slate-300">${item.unit2.correct}/${item.unit2.total}</td>
+                        <td class="py-2.5 font-mono text-blue-400 font-bold">${item.accuracy}%</td>
+                        <td class="py-2.5 font-mono text-slate-400">${formatTime(item.timeSpentSec)}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ` : ''}
+
+        </div>
+      `;
+    }
+
+    function renderTestView() {
+      const q = state.activeQuestions[state.currentIndex];
+      const total = state.activeQuestions.length;
+      const currentAns = state.answers[q.id];
+      const isMarked = !!state.markedForReview[q.id];
+      
+      // Compute section counts
+      const u1Questions = state.activeQuestions.filter(item => item.unit === 'unit-1');
+      const u2Questions = state.activeQuestions.filter(item => item.unit === 'unit-2');
+      
+      const u1Answered = u1Questions.filter(item => !!state.answers[item.id]).length;
+      const u2Answered = u2Questions.filter(item => !!state.answers[item.id]).length;
+      const totalAnswered = Object.keys(state.answers).length;
+      const totalMarked = Object.keys(state.markedForReview).length;
+
+      return `
+        <!-- Sticky Navigation Header -->
+        <header class="sticky top-0 z-40 bg-[#0d121f]/95 backdrop-blur border-b border-[#1f283d] px-4 sm:px-6 py-3 no-print">
+          <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            
+            <!-- Left: Exam Title & Section Switcher -->
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center font-black text-white text-sm shadow-md shadow-blue-500/20">
+                TW
+              </div>
+              <div class="hidden sm:block">
+                <div class="font-bold text-sm text-white flex items-center gap-2">
+                  <span>Technical Writing CBT</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded-full ${state.mode === 'practice' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'}">
+                    ${state.mode === 'practice' ? 'Practice Mode' : 'Exam Mode'}
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400">Total: ${total} Questions</div>
+              </div>
+            </div>
+
+            <!-- Center: Section Switcher Tabs -->
+            <div class="flex items-center gap-1.5 bg-[#141b2c] p-1 rounded-2xl border border-[#232f4a]">
+              ${u1Questions.length > 0 ? `
+                <button type="button" onclick="switchSection('unit-1');" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${state.activeSection === 'unit-1' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}">
+                  <span>Sec 1: Unit I</span>
+                  <span class="font-mono text-[10px] px-1.5 py-0.2 rounded-full ${state.activeSection === 'unit-1' ? 'bg-blue-700 text-white' : 'bg-slate-800 text-slate-300'}">
+                    ${u1Answered}/${u1Questions.length}
+                  </span>
+                </button>
+              ` : ''}
+
+              ${u2Questions.length > 0 ? `
+                <button type="button" onclick="switchSection('unit-2');" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${state.activeSection === 'unit-2' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}">
+                  <span>Sec 2: Unit II</span>
+                  <span class="font-mono text-[10px] px-1.5 py-0.2 rounded-full ${state.activeSection === 'unit-2' ? 'bg-blue-700 text-white' : 'bg-slate-800 text-slate-300'}">
+                    ${u2Answered}/${u2Questions.length}
+                  </span>
+                </button>
+              ` : ''}
+            </div>
+
+            <!-- Right: Timer & Submit Action -->
+            <div class="flex items-center gap-3">
+              ${state.timeLimitMinutes > 0 ? `
+                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141b2c] border border-[#232f4a] text-xs font-mono text-slate-200">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-400"></i>
+                  <span id="timer-display" class="font-bold">${formatTime(state.timeRemaining)}</span>
+                </div>
+              ` : ''}
+
+              <button type="button" onclick="if(confirm('Are you ready to submit your test and view comprehensive results?')) submitTest();" 
+                class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg shadow-emerald-600/20 flex items-center gap-1.5 transition-all">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                <span>Submit Test</span>
+              </button>
+            </div>
+
+          </div>
+        </header>
+
+        <!-- Main Test Body: Two-Column Layout -->
+        <main class="max-w-7xl mx-auto w-full p-4 sm:p-6 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- LEFT: Active Question Workspace (8 cols) -->
+          <div class="lg:col-span-8 flex flex-col justify-between bg-[#101522] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-xl">
+            
+            <div>
+              <!-- Question Header Meta -->
+              <div class="flex items-center justify-between border-b border-[#1f283d] pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xs font-mono font-bold">
+                    Q${state.currentIndex + 1} of ${total}
+                  </span>
+                  <span class="text-xs text-slate-400 font-semibold">
+                    ${q.unitName} (Q${q.number})
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  ${isMarked ? `
+                    <span class="flex items-center gap-1 text-[11px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full">
+                      <i data-lucide="flag" class="w-3 h-3 fill-current"></i>
+                      Marked for Review
+                    </span>
+                  ` : ''}
+                  <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
+                    +1.0 / ${state.negativeMarking ? '-0.25' : '0.0'}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Question Text -->
+              <div class="text-base sm:text-lg font-semibold text-slate-100 leading-relaxed mb-6">
+                ${q.question}
+              </div>
+
+              <!-- Options Grid -->
+              <div class="space-y-3 mb-6">
+                ${['A', 'B', 'C', 'D'].map(optKey => {
+                  const optText = q.options[optKey] || '';
+                  const isSelected = (currentAns === optKey);
+                  let stateClass = 'bg-[#151b2b] border-[#252f47] text-slate-300 hover:border-slate-500';
+                  let iconTag = `<div class="w-6 h-6 rounded-lg font-bold text-xs flex items-center justify-center ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'}">${optKey}</div>`;
+
+                  if (state.mode === 'practice' && currentAns) {
+                    if (optKey === q.answer) {
+                      stateClass = 'bg-emerald-950/40 border-emerald-500 text-emerald-100 font-bold';
+                      iconTag = `<div class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs"><i data-lucide="check" class="w-4 h-4"></i></div>`;
+                    } else if (isSelected && optKey !== q.answer) {
+                      stateClass = 'bg-red-950/40 border-red-500 text-red-100 font-bold';
+                      iconTag = `<div class="w-6 h-6 rounded-lg bg-red-600 text-white flex items-center justify-center font-bold text-xs"><i data-lucide="x" class="w-4 h-4"></i></div>`;
+                    }
+                  } else if (isSelected) {
+                    stateClass = 'bg-blue-600/20 border-blue-500 text-white font-bold shadow-lg shadow-blue-500/10';
+                  }
+
+                  return `
+                    <button type="button" onclick="selectOption('${optKey}');" 
+                      class="w-full text-left p-4 rounded-2xl border transition-all flex items-start gap-3.5 ${stateClass}">
+                      <div class="pt-0.5">${iconTag}</div>
+                      <div class="text-sm leading-snug flex-1">${optText}</div>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Instant Feedback Note in Practice Mode -->
+              ${state.mode === 'practice' && currentAns ? `
+                <div class="p-4 rounded-2xl mb-6 ${currentAns === q.answer ? 'bg-emerald-950/40 border border-emerald-500/40 text-emerald-200' : 'bg-red-950/40 border border-red-500/40 text-red-200'}">
+                  <div class="flex items-center gap-2 font-bold text-sm mb-1">
+                    <i data-lucide="${currentAns === q.answer ? 'check-circle' : 'alert-circle'}" class="w-4 h-4"></i>
+                    ${currentAns === q.answer ? 'Correct Answer!' : 'Incorrect Choice'}
+                  </div>
+                  <div class="text-xs opacity-90">
+                    The verified correct option is <strong>${q.answer}: ${q.options[q.answer]}</strong>.
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Bottom Navigation Actions -->
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#1f283d]">
+                
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="prevQuestion();" ${state.currentIndex === 0 ? 'disabled' : ''} 
+                    class="px-4 py-2.5 rounded-xl bg-[#171f33] hover:bg-[#1f2a45] disabled:opacity-30 disabled:cursor-not-allowed text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    <span>Previous</span>
+                  </button>
+
+                  <button type="button" onclick="clearCurrentResponse();" ${!currentAns ? 'disabled' : ''} 
+                    class="px-3.5 py-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-xs font-semibold text-slate-400 hover:text-slate-200 disabled:opacity-30 transition-colors">
+                    Clear
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="toggleMarkForReview();" 
+                    class="px-4 py-2.5 rounded-xl border text-xs font-bold transition-colors flex items-center gap-1.5 ${isMarked ? 'bg-amber-600/20 border-amber-500 text-amber-300' : 'bg-[#171f33] border-[#252f47] text-slate-300 hover:text-white'}">
+                    <i data-lucide="flag" class="w-3.5 h-3.5"></i>
+                    <span>${isMarked ? 'Unmark Review' : 'Mark for Review'}</span>
+                  </button>
+
+                  <button type="button" onclick="nextQuestion();" 
+                    class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-md shadow-blue-600/30 flex items-center gap-1.5 transition-all">
+                    <span>${state.currentIndex === total - 1 ? 'Last Question' : 'Save & Next'}</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+              </div>
+
+              <!-- Keyboard Hints Banner -->
+              <div class="hidden sm:flex items-center justify-between text-[11px] text-slate-500 font-mono mt-4 pt-2 border-t border-slate-800/40">
+                <span>[1-4 / A-D] Choose Option</span>
+                <span>[Enter] Next Question</span>
+                <span>[M] Toggle Mark</span>
+                <span>[Esc] Clear</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Question Palette & Section Matrix (4 cols) -->
+          <div class="lg:col-span-4 bg-[#101522] border border-[#1e2638] rounded-3xl p-5 shadow-xl flex flex-col justify-between">
+            <div>
+              
+              <!-- Section Title & Answered Stat -->
+              <div class="flex items-center justify-between mb-3 pb-3 border-b border-[#1f283d]">
+                <div>
+                  <div class="text-xs font-bold text-white uppercase tracking-wider">
+                    ${state.activeSection === 'unit-1' ? 'Section 1: Unit I' : 'Section 2: Unit II'}
+                  </div>
+                  <div class="text-[11px] text-slate-400">
+                    ${state.activeSection === 'unit-1' ? 'Introduction to Technical Comm' : 'Research Process & Evaluation'}
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs font-mono font-bold text-blue-400">
+                    ${totalAnswered}/${total} Answered
+                  </div>
+                  <div class="text-[10px] text-amber-400 font-mono">
+                    ${totalMarked} Marked
+                  </div>
+                </div>
+              </div>
+
+              <!-- Legend -->
+              <div class="grid grid-cols-2 gap-2 text-[10px] font-semibold text-slate-400 mb-4 bg-[#141b2c] p-2.5 rounded-xl">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded bg-emerald-500"></div>
+                  <span>Answered</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded bg-amber-500"></div>
+                  <span>Marked for Review</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded bg-purple-500"></div>
+                  <span>Answered & Marked</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-3 h-3 rounded bg-slate-700"></div>
+                  <span>Not Visited / Skipped</span>
+                </div>
+              </div>
+
+              <!-- Question Grid Numbers for current section -->
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                <span>Section Questions</span>
+                <span class="text-[10px] font-mono text-slate-500">Click to jump</span>
+              </div>
+
+              <div class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-2 max-h-[360px] overflow-y-auto pr-1 scrollbar-thin">
+                ${state.activeQuestions.map((item, idx) => {
+                  if (item.unit !== state.activeSection && state.selectedScope === 'all') {
+                    return ''; // only show active section in current palette tab
+                  }
+
+                  const hasAns = !!state.answers[item.id];
+                  const hasMarked = !!state.markedForReview[item.id];
+                  const isCurrent = (idx === state.currentIndex);
+                  
+                  let bgClass = 'bg-slate-800 text-slate-400 hover:bg-slate-700';
+                  if (hasAns && hasMarked) {
+                    bgClass = 'bg-purple-600 text-white font-bold';
+                  } else if (hasAns) {
+                    bgClass = 'bg-emerald-600 text-white font-bold';
+                  } else if (hasMarked) {
+                    bgClass = 'bg-amber-600 text-white font-bold';
+                  } else if (state.visited[item.id]) {
+                    bgClass = 'bg-slate-700 text-slate-300';
+                  }
+
+                  return `
+                    <button type="button" onclick="jumpToQuestion(${idx});" 
+                      class="h-9 rounded-xl text-xs font-mono font-bold transition-all relative ${bgClass} ${isCurrent ? 'ring-2 ring-white ring-offset-2 ring-offset-[#101522]' : ''}">
+                      ${item.number}
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+
+            </div>
+
+            <!-- Quick Section Switcher Footer -->
+            <div class="mt-4 pt-3 border-t border-[#1f283d] flex items-center justify-between gap-2">
+              <button type="button" onclick="switchSection('unit-1');" 
+                class="flex-1 py-2 text-center rounded-xl text-xs font-bold transition-all ${state.activeSection === 'unit-1' ? 'bg-blue-600 text-white' : 'bg-[#151b2b] text-slate-400 hover:text-slate-200'}">
+                Unit I (1–50)
+              </button>
+              <button type="button" onclick="switchSection('unit-2');" 
+                class="flex-1 py-2 text-center rounded-xl text-xs font-bold transition-all ${state.activeSection === 'unit-2' ? 'bg-blue-600 text-white' : 'bg-[#151b2b] text-slate-400 hover:text-slate-200'}">
+                Unit II (1–50)
+              </button>
+            </div>
+
+          </div>
+
+        </main>
+      `;
+    }
+
+    function renderResultsView() {
+      const r = state.completedTestResult;
+      if (!r) return renderSetupView();
+
+      const pct = parseFloat(r.percentage);
+      let gradeColor = 'text-emerald-400';
+      let gradeLabel = 'Mastery Achieved (Grade A+)';
+      let gradeBadge = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+      
+      if (pct < 60) {
+        gradeColor = 'text-red-400';
+        gradeLabel = 'Needs Revision';
+        gradeBadge = 'bg-red-500/20 text-red-400 border border-red-500/30';
+      } else if (pct < 80) {
+        gradeColor = 'text-amber-400';
+        gradeLabel = 'Good Foundation (Grade B)';
+        gradeBadge = 'bg-amber-500/20 text-amber-400 border border-amber-500/30';
+      }
+
+      // Filter questions for review
+      let filteredReview = r.questions;
+      if (state.reviewFilter === 'correct') {
+        filteredReview = r.questions.filter(q => r.answers[q.id] === q.answer);
+      } else if (state.reviewFilter === 'incorrect') {
+        filteredReview = r.questions.filter(q => !!r.answers[q.id] && r.answers[q.id] !== q.answer);
+      } else if (state.reviewFilter === 'unattempted') {
+        filteredReview = r.questions.filter(q => !r.answers[q.id]);
+      } else if (state.reviewFilter === 'marked') {
+        filteredReview = r.questions.filter(q => !!state.markedForReview[q.id]);
+      }
+
+      return `
+        <div class="max-w-5xl mx-auto w-full p-4 sm:p-8 flex-1">
+          
+          <!-- Top Breadcrumb & Action Bar -->
+          <div class="flex items-center justify-between mb-6 no-print">
+            <button type="button" onclick="state.view='setup'; render();" 
+              class="px-3.5 py-2 rounded-xl bg-[#151b2b] hover:bg-[#1f283d] text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              <span>Back to Setup</span>
+            </button>
+
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="window.print();" 
+                class="px-3.5 py-2 rounded-xl bg-[#151b2b] hover:bg-[#1f283d] text-xs font-bold text-slate-300 transition-colors flex items-center gap-1.5">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>Print Scorecard</span>
+              </button>
+              
+              <button type="button" onclick="retakeOnlyIncorrect();" 
+                class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold shadow-lg shadow-amber-600/20 flex items-center gap-1.5 transition-all">
+                <i data-lucide="repeat" class="w-4 h-4"></i>
+                <span>Drill Incorrect Qs (${r.totalWrong + r.totalUnattempted})</span>
+              </button>
+
+              <button type="button" onclick="initTest(r.scope, r.mode, 60, r.negativeMarking);" 
+                class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-lg shadow-blue-600/20 flex items-center gap-1.5 transition-all">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                <span>Retake Full Test</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Scorecard Card -->
+          <div class="bg-[#101522] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-2xl mb-8 print-card">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-[#1f283d]">
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full ${gradeBadge} text-xs font-bold uppercase tracking-wider mb-2">
+                  <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                  ${gradeLabel}
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-black text-white">
+                  Exam Forensic Performance Report
+                </h1>
+                <div class="text-xs text-slate-400 font-mono mt-1">
+                  Completed on ${r.date} • Scope: ${r.scope.toUpperCase()} • Mode: ${r.mode.toUpperCase()}
+                </div>
+              </div>
+
+              <div class="text-center sm:text-right">
+                <div class="text-4xl sm:text-5xl font-black font-mono ${gradeColor}">
+                  ${r.rawScore} <span class="text-xl text-slate-400">/ ${r.totalQuestions}</span>
+                </div>
+                <div class="text-xs font-mono text-slate-400 mt-1">
+                  Raw Percentage: <strong class="text-white">${r.percentage}%</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 Metric Badges -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-6">
+              <div class="p-4 rounded-2xl bg-[#151b2b] border border-[#232f4a] text-center">
+                <div class="text-xs text-slate-400 font-semibold mb-1">Accuracy Rate</div>
+                <div class="text-2xl font-black text-blue-400 font-mono">${r.accuracy}%</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">${r.totalCorrect} correct / ${r.totalCorrect + r.totalWrong} attempted</div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[#151b2b] border border-[#232f4a] text-center">
+                <div class="text-xs text-slate-400 font-semibold mb-1">Correct Answers</div>
+                <div class="text-2xl font-black text-emerald-400 font-mono">${r.totalCorrect}</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">+${r.totalCorrect} marks earned</div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[#151b2b] border border-[#232f4a] text-center">
+                <div class="text-xs text-slate-400 font-semibold mb-1">Incorrect Answers</div>
+                <div class="text-2xl font-black text-red-400 font-mono">${r.totalWrong}</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">${r.negativeMarking ? `-${(r.totalWrong * 0.25).toFixed(2)} penalty` : 'No penalty'}</div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[#151b2b] border border-[#232f4a] text-center">
+                <div class="text-xs text-slate-400 font-semibold mb-1">Total Time Spent</div>
+                <div class="text-2xl font-black text-amber-400 font-mono">${formatTime(r.timeSpentSec)}</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">Avg ${(r.timeSpentSec / r.totalQuestions).toFixed(0)}s per question</div>
+              </div>
+            </div>
+
+            <!-- Two-Section Comparative Progress -->
+            <div class="pt-4 border-t border-[#1f283d]">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                Two-Section Comparative Breakdown
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Unit 1 Card -->
+                <div class="p-4 rounded-2xl bg-[#141b2c] border border-[#232f4a]">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-sm text-white">Section 1: Unit I (Intro to Tech Comm)</span>
+                    <span class="font-mono text-xs font-bold ${r.unit1.correct >= 40 ? 'text-emerald-400' : 'text-amber-400'}">
+                      ${r.unit1.correct} / ${r.unit1.total} (${((r.unit1.correct / r.unit1.total)*100).toFixed(0)}%)
+                    </span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden mb-2">
+                    <div class="h-full bg-blue-500 rounded-full" style="width: ${(r.unit1.correct / r.unit1.total)*100}%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>Correct: <strong class="text-emerald-400">${r.unit1.correct}</strong></span>
+                    <span>Wrong: <strong class="text-red-400">${r.unit1.wrong}</strong></span>
+                    <span>Skipped: <strong class="text-slate-400">${r.unit1.unattempted}</strong></span>
+                  </div>
+                </div>
+
+                <!-- Unit 2 Card -->
+                <div class="p-4 rounded-2xl bg-[#141b2c] border border-[#232f4a]">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-sm text-white">Section 2: Unit II (Research Process)</span>
+                    <span class="font-mono text-xs font-bold ${r.unit2.correct >= 40 ? 'text-emerald-400' : 'text-amber-400'}">
+                      ${r.unit2.correct} / ${r.unit2.total} (${((r.unit2.correct / r.unit2.total)*100).toFixed(0)}%)
+                    </span>
+                  </div>
+                  <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden mb-2">
+                    <div class="h-full bg-indigo-500 rounded-full" style="width: ${(r.unit2.correct / r.unit2.total)*100}%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>Correct: <strong class="text-emerald-400">${r.unit2.correct}</strong></span>
+                    <span>Wrong: <strong class="text-red-400">${r.unit2.wrong}</strong></span>
+                    <span>Skipped: <strong class="text-slate-400">${r.unit2.unattempted}</strong></span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Question Review Section with Filters -->
+          <div class="bg-[#101522] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-xl print-card">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#1f283d] mb-6">
+              <div>
+                <h3 class="font-bold text-lg text-white">Detailed Question Forensic Review</h3>
+                <p class="text-xs text-slate-400">Review your choices against verified answer keys</p>
+              </div>
+
+              <!-- Filter Tabs -->
+              <div class="flex flex-wrap items-center gap-1.5 no-print">
+                <button type="button" onclick="state.reviewFilter='all'; render();" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${state.reviewFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200'}">
+                  All (${r.totalQuestions})
+                </button>
+                <button type="button" onclick="state.reviewFilter='incorrect'; render();" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${state.reviewFilter === 'incorrect' ? 'bg-red-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200'}">
+                  ❌ Incorrect (${r.totalWrong})
+                </button>
+                <button type="button" onclick="state.reviewFilter='unattempted'; render();" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${state.reviewFilter === 'unattempted' ? 'bg-slate-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200'}">
+                  ⚪ Skipped (${r.totalUnattempted})
+                </button>
+                <button type="button" onclick="state.reviewFilter='correct'; render();" 
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${state.reviewFilter === 'correct' ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200'}">
+                  ✅ Correct (${r.totalCorrect})
+                </button>
+              </div>
+            </div>
+
+            <!-- List of Questions -->
+            <div class="space-y-4">
+              ${filteredReview.length === 0 ? `
+                <div class="py-12 text-center text-slate-500 text-sm">
+                  No questions match the selected filter (${state.reviewFilter}).
+                </div>
+              ` : filteredReview.map((q, idx) => {
+                const userAns = r.answers[q.id];
+                const isCorrect = (userAns === q.answer);
+                const isSkipped = !userAns;
+
+                return `
+                  <div class="p-5 rounded-2xl border transition-all ${isCorrect ? 'bg-emerald-950/20 border-emerald-500/30' : isSkipped ? 'bg-slate-900/40 border-slate-800' : 'bg-red-950/20 border-red-500/30'}">
+                    
+                    <div class="flex items-center justify-between mb-2.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-md ${isCorrect ? 'bg-emerald-600 text-white' : isSkipped ? 'bg-slate-700 text-slate-300' : 'bg-red-600 text-white'}">
+                          Q${q.number} (${q.unit === 'unit-1' ? 'Unit I' : 'Unit II'})
+                        </span>
+                        <span class="text-xs text-slate-400">${q.unitName}</span>
+                      </div>
+
+                      <div class="text-xs font-bold flex items-center gap-1.5">
+                        ${isCorrect ? `
+                          <span class="text-emerald-400 flex items-center gap-1">
+                            <i data-lucide="check" class="w-4 h-4"></i> Correct (+1.0)
+                          </span>
+                        ` : isSkipped ? `
+                          <span class="text-slate-400">Skipped (0.0)</span>
+                        ` : `
+                          <span class="text-red-400 flex items-center gap-1">
+                            <i data-lucide="x" class="w-4 h-4"></i> Incorrect (${r.negativeMarking ? '-0.25' : '0.0'})
+                          </span>
+                        `}
+                      </div>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="text-sm font-semibold text-slate-100 mb-3 leading-snug">
+                      ${q.question}
+                    </div>
+
+                    <!-- Options Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-3">
+                      ${['A', 'B', 'C', 'D'].map(optKey => {
+                        const optText = q.options[optKey] || '';
+                        let optStyle = 'bg-[#151b2b] border-[#252f47] text-slate-400';
+                        
+                        if (optKey === q.answer) {
+                          optStyle = 'bg-emerald-900/40 border-emerald-500 text-emerald-200 font-bold';
+                        } else if (userAns === optKey && !isCorrect) {
+                          optStyle = 'bg-red-900/40 border-red-500 text-red-200 font-bold';
+                        }
+
+                        return `
+                          <div class="p-2.5 rounded-xl border flex items-start gap-2 ${optStyle}">
+                            <span class="font-mono font-bold">${optKey})</span>
+                            <span class="leading-tight">${optText}</span>
+                          </div>
+                        `;
+                      }).join('')}
+                    </div>
+
+                    <!-- Footer Note -->
+                    <div class="text-[11px] font-mono text-slate-400 flex items-center gap-4 pt-2 border-t border-[#1f283d]">
+                      <span>Your Response: <strong class="${isCorrect ? 'text-emerald-400' : isSkipped ? 'text-slate-400' : 'text-red-400'}">${userAns || 'None (Unattempted)'}</strong></span>
+                      <span>Correct Key: <strong class="text-emerald-400">${q.answer}</strong></span>
+                    </div>
+
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+          </div>
+
+        </div>
+      `;
+    }
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>
