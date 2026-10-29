@@ -13,8 +13,8 @@ export interface DailyChecklist {
 
 interface ProgressStore {
   // Active Navigation Tab
-  activeView: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz';
-  setActiveView: (view: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz') => void;
+  activeView: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors';
+  setActiveView: (view: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors') => void;
 
   // Active 18-Week Day Selection
   activeDayNumber: number;
@@ -90,7 +90,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
   };
 
   return {
-    activeView: 'blueprint',
+    activeView: 'today',
     setActiveView: (view) => set({ activeView: view }),
 
     activeDayNumber: initialActiveDay,

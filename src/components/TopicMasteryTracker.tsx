@@ -37,25 +37,25 @@ export const TopicMasteryTracker: React.FC = () => {
     <div className="space-y-6 max-w-5xl mx-auto">
       
       {/* Header & Filter Bar */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xl">
+      <div className="bg-[#10131d] border border-[#1b2234] rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
         <div>
-          <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">
-            <Sparkles className="w-4 h-4" />
-            <span>BITS HD Embedded Marks Engine</span>
+          <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-1 font-mono">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>BITS HD (ECE) Syllabus Engine</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Embedded Syllabus Essentials Tracker
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Topic-by-Topic Progress Tracker
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-1">
-            Check off the 4 essentials for every high-yield topic to lock in your 185+ BITS HD Safe Space.
+          <p className="text-slate-400 text-xs mt-0.5">
+            Check off essentials for each topic to steadily accumulate towards your 185+ marks target.
           </p>
         </div>
 
         {/* Tier Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-[#181d2a] p-1.5 rounded-2xl border border-[#262f43] text-xs font-semibold">
+        <div className="flex flex-wrap items-center gap-1.5 bg-[#141824] p-1 rounded-xl border border-[#202738] text-xs font-semibold">
           <button
             onClick={() => setFilterTier('all')}
-            className={`px-3 py-1.5 rounded-xl transition-colors ${
+            className={`px-3 py-1.5 rounded-lg transition-colors ${
               filterTier === 'all' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -63,15 +63,15 @@ export const TopicMasteryTracker: React.FC = () => {
           </button>
           <button
             onClick={() => setFilterTier('embedded')}
-            className={`px-3 py-1.5 rounded-xl transition-colors ${
+            className={`px-3 py-1.5 rounded-lg transition-colors ${
               filterTier === 'embedded' ? 'bg-cyan-600 text-white font-bold' : 'text-cyan-400 hover:text-white'
             }`}
           >
-            Embedded Drivers
+            Digital & MP
           </button>
           <button
             onClick={() => setFilterTier('tier1')}
-            className={`px-3 py-1.5 rounded-xl transition-colors ${
+            className={`px-3 py-1.5 rounded-lg transition-colors ${
               filterTier === 'tier1' ? 'bg-emerald-600 text-white font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -79,7 +79,7 @@ export const TopicMasteryTracker: React.FC = () => {
           </button>
           <button
             onClick={() => setFilterTier('tier2')}
-            className={`px-3 py-1.5 rounded-xl transition-colors ${
+            className={`px-3 py-1.5 rounded-lg transition-colors ${
               filterTier === 'tier2' ? 'bg-amber-600 text-white font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -87,7 +87,7 @@ export const TopicMasteryTracker: React.FC = () => {
           </button>
           <button
             onClick={() => setFilterTier('tier3')}
-            className={`px-3 py-1.5 rounded-xl transition-colors ${
+            className={`px-3 py-1.5 rounded-lg transition-colors ${
               filterTier === 'tier3' ? 'bg-purple-600 text-white font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -195,7 +195,7 @@ export const TopicMasteryTracker: React.FC = () => {
                               )}
                               {topic.isEmbeddedCore && (
                                 <span className="px-2 py-0.5 rounded-md bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 text-[10px] font-mono font-bold uppercase tracking-wider">
-                                  Embedded Core
+                                  Core Topic
                                 </span>
                               )}
                               <h4 className="font-bold text-sm text-slate-100">{topic.name}</h4>

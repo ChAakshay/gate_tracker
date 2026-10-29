@@ -4,21 +4,18 @@ import {
   CheckCircle2, 
   Circle, 
   Flame, 
-  Sparkles, 
   BookOpen, 
   Target, 
   BrainCircuit, 
-  ShieldAlert, 
   Award, 
   ChevronRight, 
   ChevronLeft,
-  TrendingUp, 
-  HardDrive, 
-  Download, 
-  CalendarDays,
-  Layers,
   ArrowRight,
-  Check
+  Check,
+  ShieldAlert,
+  Sparkles,
+  Layers,
+  Edit3
 } from 'lucide-react';
 
 export const DailyEssentialsCard: React.FC = () => {
@@ -29,17 +26,17 @@ export const DailyEssentialsCard: React.FC = () => {
     toggleMvdMode, 
     streak,
     getSecuredMarks,
-    getTotalTargetMarks,
     setActiveView,
     activeDayNumber,
     setActiveDayNumber,
     dayPlans
   } = useProgressStore();
 
-  const [copiedBackup, setCopiedBackup] = useState(false);
+  const [notesDraft, setNotesDraft] = useState<string>(todayChecklist.notes || '');
+  const [notesSaved, setNotesSaved] = useState<boolean>(false);
 
   const securedMarks = getSecuredMarks();
-  const bitsHdBenchmark = 185; // 185–190+ Safe Space Target floor
+  const bitsHdTargetMarks = 185; // 185+ Safe space for BITS Pilani M.E. Embedded
 
   // Active day details from 18-week plan
   const currentDayPlan = dayPlans.find(d => d.dayNumber === activeDayNumber) || dayPlans[0];
@@ -48,127 +45,97 @@ export const DailyEssentialsCard: React.FC = () => {
   const isPyqDone = todayChecklist.pyqsCount >= pyqGoal;
   const isTodayComplete = todayChecklist.theoryChecked && isPyqDone && todayChecklist.retentionChecked;
 
-  // Export JSON backup
-  const handleExportBackup = () => {
-    const backupData = {
-      timestamp: new Date().toISOString(),
-      securedMarks,
-      streak,
-      activeDayNumber,
-      todayChecklist,
-      subjects: localStorage.getItem('gate_subjects_mastery'),
-      errorLogs: localStorage.getItem('gate_enhanced_error_logs'),
-      formulaSheets: localStorage.getItem('gate_formula_sheets'),
-      dayPlans: localStorage.getItem('gate_day_plans')
-    };
+  // Save notes handler
+  const handleNotesChange = (val: string) => {
+    setNotesDraft(val);
+    updateTodayChecklist({ notes: val });
+    setNotesSaved(true);
+    setTimeout(() => setNotesSaved(false), 2000);
+  };
 
-    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `GATE-OS-Progress-Backup-${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    setCopiedBackup(true);
-    setTimeout(() => setCopiedBackup(false), 2500);
+  // Advance to next day
+  const handleAdvanceNextDay = () => {
+    if (activeDayNumber < dayPlans.length) {
+      setActiveDayNumber(activeDayNumber + 1);
+      updateTodayChecklist({ theoryChecked: false, pyqsCount: 0, retentionChecked: false, notes: '' });
+      setNotesDraft('');
+    }
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-4xl mx-auto">
       
-      {/* 🎯 TOP BENCHMARK & SECURED MARKS BANNER */}
-      <div className="bg-gradient-to-br from-[#131b2e] via-[#10131f] to-[#0c0e17] border border-blue-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+      {/* 🧭 CALM FOCUS: PROGRESS & BENCHMARK BAR */}
+      <div className="bg-[#10131d] border border-[#1b2234] rounded-2xl p-5 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <Award className="w-4 h-4 text-blue-400" />
-              <span>BITS Pilani M.E. Embedded Systems Benchmark</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                BITS Pilani Target
+              </span>
+              <span className="text-xs text-slate-400">
+                M.E. Embedded Systems Safe Space
+              </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              BITS HD Exam Mastery
-            </h1>
-            <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
-              Safe Space: <strong className="text-white">185–190+ Marks</strong> out of 300 (Test I: 73M + Test II: 120M). Securing daily essentials guarantees Iteration 1 Pilani admission.
-            </p>
-            <div className="mt-3">
-              <button
-                onClick={() => setActiveView('blueprint')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 text-xs font-bold border border-blue-500/40 transition-colors"
-              >
-                <span>Open BITS HD Master Blueprint</span>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
+            <div className="text-xl sm:text-2xl font-bold text-white tracking-tight mt-1 flex items-baseline gap-2">
+              <span>{securedMarks}</span>
+              <span className="text-xs text-slate-400 font-normal">/ {bitsHdTargetMarks} Marks Target</span>
+              <span className="text-xs font-mono font-medium text-emerald-400 ml-1">
+                ({Math.min(100, Math.round((securedMarks / bitsHdTargetMarks) * 100))}% secured)
+              </span>
             </div>
           </div>
 
-          {/* Live Marks Counter Card */}
-          <div className="flex items-center gap-4 bg-[#141824]/90 p-4 sm:p-5 rounded-2xl border border-[#232b40] shadow-inner">
-            <div className="text-right">
-              <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Secured Marks</div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-mono tracking-tight">
-                {securedMarks} <span className="text-sm font-sans text-slate-500 font-normal">/ {bitsHdBenchmark}</span>
-              </div>
-              <div className="text-[10px] text-emerald-400 font-medium mt-0.5">Safe Space: 185M</div>
+          <div className="flex items-center gap-2 self-start sm:self-center">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141824] border border-[#202738] text-xs font-mono font-bold text-amber-400">
+              <Flame className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+              <span>{streak} Day Streak</span>
             </div>
-            <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-              <TrendingUp className="w-7 h-7" />
-            </div>
+
+            <button
+              onClick={() => setActiveView('blueprint')}
+              className="px-3 py-1.5 rounded-xl bg-[#141824] hover:bg-slate-800 text-xs text-slate-300 font-semibold border border-[#202738] transition-colors"
+            >
+              185+ Blueprint
+            </button>
           </div>
         </div>
 
-        {/* Global Marks Progress Bar */}
-        <div className="mt-6 pt-6 border-t border-slate-800/80">
-          <div className="flex justify-between items-center text-xs mb-2">
-            <span className="text-slate-400 flex items-center gap-1.5">
-              Progress to BITS Pilani Embedded Systems Safe Space (185 Marks)
-            </span>
-            <span className="font-mono font-bold text-blue-300">
-              {Math.min(100, Math.round((securedMarks / bitsHdBenchmark) * 100))}% Reached
-            </span>
-          </div>
-          <div className="w-full bg-[#161a26] h-3 rounded-full overflow-hidden border border-slate-800 p-0.5">
-            <div 
-              className="h-full bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-400 rounded-full transition-all duration-700 ease-out"
-              style={{ width: `${Math.min(100, (securedMarks / bitsHdBenchmark) * 100)}%` }}
-            />
-          </div>
+        {/* Minimal Progress Bar */}
+        <div className="w-full bg-[#161a26] h-2 rounded-full overflow-hidden border border-slate-800/80 mt-4">
+          <div 
+            className="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${Math.min(100, (securedMarks / bitsHdTargetMarks) * 100)}%` }}
+          />
         </div>
       </div>
 
-      {/* 🗺️ ACTIVE 18-WEEK DAY TARGET MISSION CARD (CONNECTED TO ROADMAP & TOPIC TRACKER) */}
-      <div className="bg-[#12141c] border border-blue-500/40 rounded-3xl p-6 sm:p-7 shadow-xl space-y-4">
+      {/* 🎯 TODAY'S MISSION CARD */}
+      <div className="bg-[#10131d] border border-[#1b2234] rounded-2xl p-5 sm:p-7 shadow-sm space-y-5">
         
-        {/* Day Selector & Status Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#1f2433]">
-          
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/30">
-              <CalendarDays className="w-5 h-5" />
+        {/* Navigation & Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#1b2234]">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-bold text-blue-400 bg-blue-950/60 px-2.5 py-0.5 rounded-md border border-blue-900/60">
+                Day {currentDayPlan.dayNumber} of 126
+              </span>
+              <span className="text-xs font-semibold text-emerald-400">
+                +{currentDayPlan.targetMarksValue} Marks Value
+              </span>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-blue-400 uppercase bg-blue-950 px-2.5 py-0.5 rounded-full border border-blue-800">
-                  Week {currentDayPlan.weekNumber} • Day {currentDayPlan.dayNumber}
-                </span>
-                <span className="text-xs font-bold text-emerald-400">
-                  +{currentDayPlan.targetMarksValue} Marks Focus
-                </span>
-              </div>
-              <h2 className="text-lg sm:text-xl font-extrabold text-white mt-1">
-                {currentDayPlan.topicTitle}
-              </h2>
-            </div>
+            <h1 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+              {currentDayPlan.topicTitle.split(':')[1]?.trim() || currentDayPlan.topicTitle}
+            </h1>
           </div>
 
-          {/* Day Navigation Controls */}
-          <div className="flex items-center gap-2 self-end sm:self-center">
+          {/* Quick Day Stepper */}
+          <div className="flex items-center gap-1.5 self-start sm:self-center">
             <button
               onClick={() => setActiveDayNumber(Math.max(1, activeDayNumber - 1))}
               disabled={activeDayNumber <= 1}
-              className="p-2 rounded-xl bg-[#181d2a] hover:bg-slate-700 disabled:opacity-30 text-slate-300 border border-slate-700 transition-colors"
-              title="Previous Day Plan"
+              className="p-2 rounded-lg bg-[#141824] hover:bg-slate-800 disabled:opacity-30 text-slate-300 border border-[#202738] transition-colors"
+              title="Previous Day"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -176,11 +143,11 @@ export const DailyEssentialsCard: React.FC = () => {
             <select
               value={activeDayNumber}
               onChange={(e) => setActiveDayNumber(parseInt(e.target.value, 10))}
-              className="bg-[#181d2a] border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white font-bold font-mono outline-none"
+              className="bg-[#141824] border border-[#202738] rounded-lg px-2.5 py-1.5 text-xs text-slate-200 font-mono font-bold outline-none"
             >
               {dayPlans.map(d => (
                 <option key={d.dayNumber} value={d.dayNumber}>
-                  Day {d.dayNumber}: {d.topicTitle.split(':')[1] || d.topicTitle}
+                  Day {d.dayNumber}: {d.topicTitle.split(':')[1]?.trim() || d.topicTitle}
                 </option>
               ))}
             </select>
@@ -188,311 +155,225 @@ export const DailyEssentialsCard: React.FC = () => {
             <button
               onClick={() => setActiveDayNumber(Math.min(dayPlans.length, activeDayNumber + 1))}
               disabled={activeDayNumber >= dayPlans.length}
-              className="p-2 rounded-xl bg-[#181d2a] hover:bg-slate-700 disabled:opacity-30 text-slate-300 border border-slate-700 transition-colors"
-              title="Next Day Plan"
+              className="p-2 rounded-lg bg-[#141824] hover:bg-slate-800 disabled:opacity-30 text-slate-300 border border-[#202738] transition-colors"
+              title="Next Day"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* Granular Day Targets */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-          
-          <div className="p-3.5 rounded-2xl bg-[#161a26] border border-[#232a3c]">
-            <div className="text-[10px] text-blue-400 uppercase font-bold flex items-center gap-1 mb-1">
-              <BookOpen className="w-3.5 h-3.5" /> Theory Goal
-            </div>
-            <div className="text-slate-200 font-medium leading-relaxed">
-              {currentDayPlan.theoryTarget}
-            </div>
+        {/* Minimum Viable Day Toggle (Small, Clean) */}
+        <div className="flex items-center justify-between bg-[#141824]/60 p-3 rounded-xl border border-[#1b2234] text-xs">
+          <div className="flex items-center gap-2 text-slate-300">
+            <ShieldAlert className={`w-4 h-4 ${isMvdMode ? 'text-amber-400' : 'text-slate-500'}`} />
+            <span>
+              <strong>Minimum Viable Day (MVD Mode):</strong> {isMvdMode ? 'Active (5 questions target)' : 'Standard (20 questions target)'}
+            </span>
           </div>
-
-          <div className="p-3.5 rounded-2xl bg-[#161a26] border border-[#232a3c]">
-            <div className="text-[10px] text-purple-400 uppercase font-bold flex items-center gap-1 mb-1">
-              <Target className="w-3.5 h-3.5" /> Active PYQ Target
-            </div>
-            <div className="text-slate-200 font-medium leading-relaxed">
-              {isMvdMode ? '5 PYQs (MVD Mode)' : `${currentDayPlan.pyqTargetCount} Active GATE PYQs`}
-            </div>
-          </div>
-
-          <div className="p-3.5 rounded-2xl bg-[#161a26] border border-[#232a3c]">
-            <div className="text-[10px] text-amber-400 uppercase font-bold flex items-center gap-1 mb-1">
-              <BrainCircuit className="w-3.5 h-3.5" /> Retention & Error Log
-            </div>
-            <div className="text-slate-200 font-medium leading-relaxed">
-              {currentDayPlan.retentionFocus}
-            </div>
-          </div>
-
-        </div>
-
-        {/* Sync Info Indicator */}
-        <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Auto-syncs with <strong>Topic Marks Tracker</strong> & <strong>18-Week Roadmap</strong></span>
-          </div>
-
           <button
-            onClick={() => setActiveView('syllabus')}
-            className="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1"
+            onClick={toggleMvdMode}
+            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+              isMvdMode ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-white'
+            }`}
           >
-            <span>View Connected Topic in Master Checklist</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            {isMvdMode ? 'Enabled' : 'Enable MVD'}
           </button>
         </div>
 
-      </div>
-
-      {/* 📋 TODAY'S DAILY ESSENTIALS CHECKLIST CARD */}
-      <div className={`p-6 sm:p-8 rounded-3xl border transition-all duration-500 ${
-        isTodayComplete 
-          ? 'bg-gradient-to-br from-emerald-950/40 via-[#12141c] to-[#12141c] border-emerald-500/50 shadow-[0_0_40px_rgba(16,185,129,0.1)]' 
-          : 'bg-[#12141c] border-[#1f2433]'
-      } text-white shadow-xl space-y-6`}>
-        
-        {/* Header & Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#1f2433]">
-          <div>
-            <div className="flex items-center gap-3">
-              <h2 className="text-2xl font-bold text-white">
-                Today's Daily Output Check-off
-              </h2>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold tracking-wide">
-                <Flame className="w-4 h-4 fill-amber-500 text-amber-500" />
-                <span>{streak} DAY STREAK</span>
-              </div>
-            </div>
-            <p className="text-slate-400 text-xs sm:text-sm mt-1">
-              Check off these 3 outputs to automatically mark Day {activeDayNumber} complete on your 18-week plan.
-            </p>
+        {/* 3 DAILY ESSENTIALS (THE CORE FOCUS) */}
+        <div className="space-y-3">
+          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono">
+            Today's 3 Outputs (Check each to secure today's mark)
           </div>
 
-          {/* Minimum Viable Day Toggle */}
-          <div className="flex items-center gap-3 bg-[#181c28] p-2.5 rounded-xl border border-[#262c3e]">
-            <div className="flex flex-col">
-              <span className="text-xs font-semibold text-slate-300 flex items-center gap-1">
-                <ShieldAlert className={`w-3.5 h-3.5 ${isMvdMode ? 'text-amber-400' : 'text-slate-500'}`} />
-                MVD Mode
-              </span>
-              <span className="text-[10px] text-slate-500">{isMvdMode ? 'Target: 5 PYQs' : `Standard: ${currentDayPlan.pyqTargetCount} PYQs`}</span>
-            </div>
-            <button
-              type="button"
-              onClick={toggleMvdMode}
-              className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                isMvdMode ? 'bg-amber-600' : 'bg-slate-700'
-              }`}
-            >
-              <span
-                className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                  isMvdMode ? 'translate-x-5' : 'translate-x-0'
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* The 3 Essential Checkboxes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          
-          {/* Essential 1: Theory Input */}
+          {/* 1. Theory Task */}
           <div
             onClick={() => updateTodayChecklist({ theoryChecked: !todayChecklist.theoryChecked })}
-            className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
-              todayChecklist.theoryChecked
-                ? 'bg-blue-950/30 border-blue-500/50 shadow-sm'
-                : 'bg-[#161a26] border-[#22293d] hover:border-slate-600'
+            className={`cursor-pointer p-4 rounded-xl border transition-all flex items-start justify-between gap-3 ${
+              todayChecklist.theoryChecked 
+                ? 'bg-blue-950/20 border-blue-500/40 text-slate-200' 
+                : 'bg-[#141824] border-[#1f273a] hover:border-slate-600 text-slate-300'
             }`}
           >
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                  <BookOpen className="w-5 h-5" />
-                </div>
-                {todayChecklist.theoryChecked ? (
-                  <CheckCircle2 className="w-6 h-6 text-blue-400" />
-                ) : (
-                  <Circle className="w-6 h-6 text-slate-600" />
-                )}
+            <div className="flex items-start gap-3">
+              <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
+                todayChecklist.theoryChecked ? 'bg-blue-600 text-white' : 'border border-slate-600'
+              }`}>
+                {todayChecklist.theoryChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
               </div>
-              <h3 className="font-bold text-base text-slate-100 mb-1">1. Theory & Concepts</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                {currentDayPlan.theoryTarget}
-              </p>
+              <div>
+                <div className="text-sm font-semibold text-white flex items-center gap-2">
+                  <span>1. Core Theory & Concept Extraction</span>
+                  <span className="text-[10px] text-slate-400 font-normal">~2.0 hrs</span>
+                </div>
+                <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                  {currentDayPlan.theoryTarget}
+                </p>
+              </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs">
-              <span className={todayChecklist.theoryChecked ? 'text-blue-400 font-semibold' : 'text-slate-500'}>
-                {todayChecklist.theoryChecked ? '✓ Completed & Synced' : 'Pending'}
-              </span>
-              <span className="text-[10px] text-slate-500">~2.5 hrs</span>
-            </div>
+            <span className={`text-[11px] font-mono font-medium ${todayChecklist.theoryChecked ? 'text-blue-400' : 'text-slate-500'}`}>
+              {todayChecklist.theoryChecked ? 'Done' : 'Pending'}
+            </span>
           </div>
 
-          {/* Essential 2: Problem Solving (PYQs) */}
-          <div
-            className={`p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
-              isPyqDone
-                ? 'bg-purple-950/30 border-purple-500/50 shadow-sm'
-                : 'bg-[#161a26] border-[#22293d]'
-            }`}
-          >
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="p-2 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                  <Target className="w-5 h-5" />
+          {/* 2. Problem Solving (PYQs) */}
+          <div className={`p-4 rounded-xl border transition-all space-y-3 ${
+            isPyqDone 
+              ? 'bg-purple-950/20 border-purple-500/40' 
+              : 'bg-[#141824] border-[#1f273a]'
+          }`}>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
+                  isPyqDone ? 'bg-purple-600 text-white' : 'border border-slate-600'
+                }`}>
+                  {isPyqDone && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
-                {isPyqDone ? (
-                  <CheckCircle2 className="w-6 h-6 text-purple-400" />
-                ) : (
-                  <Circle className="w-6 h-6 text-slate-600" />
-                )}
+                <div>
+                  <div className="text-sm font-semibold text-white flex items-center gap-2">
+                    <span>2. Active Problem Solving</span>
+                    <span className="text-[10px] text-slate-400 font-normal">~1.5 hrs</span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    Target: solve standard questions on <strong className="text-slate-200">{currentDayPlan.topicTitle.split(':')[1]?.trim() || currentDayPlan.topicTitle}</strong>.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-bold text-base text-slate-100 mb-1">
-                2. Active PYQs ({todayChecklist.pyqsCount}/{pyqGoal})
-              </h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Solve target GATE PYQs on {currentDayPlan.topicTitle.split(':')[1] || currentDayPlan.topicTitle}.
-              </p>
+
+              <div className="text-right">
+                <span className={`text-sm font-mono font-bold ${isPyqDone ? 'text-purple-400' : 'text-slate-300'}`}>
+                  {todayChecklist.pyqsCount} / {pyqGoal}
+                </span>
+                <div className="text-[10px] text-slate-500">questions</div>
+              </div>
             </div>
 
-            <div className="mt-4 space-y-2">
-              <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-full transition-all duration-300"
+            {/* Progress & Quick Buttons */}
+            <div className="flex items-center gap-2 pt-1">
+              <div className="flex-1 bg-slate-800/80 h-2 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-purple-500 transition-all duration-300"
                   style={{ width: `${Math.min(100, (todayChecklist.pyqsCount / pyqGoal) * 100)}%` }}
                 />
               </div>
-              <div className="flex items-center gap-2">
+
+              <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => updateTodayChecklist({ pyqsCount: Math.max(0, todayChecklist.pyqsCount - 1) })}
-                  className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-lg font-bold"
+                  className="px-2 py-1 rounded-md bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-mono font-bold"
+                  title="Minus 1"
                 >
                   -1
                 </button>
                 <button
                   onClick={() => updateTodayChecklist({ pyqsCount: todayChecklist.pyqsCount + 1 })}
-                  className="flex-1 py-1.5 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-lg font-bold shadow-sm"
+                  className="px-3 py-1 rounded-md bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-colors"
                 >
-                  +1 PYQ Solved
+                  +1 Solved
+                </button>
+                <button
+                  onClick={() => updateTodayChecklist({ pyqsCount: todayChecklist.pyqsCount + 5 })}
+                  className="px-2.5 py-1 rounded-md bg-[#1c2233] hover:bg-slate-700 text-purple-300 text-xs font-bold"
+                >
+                  +5
                 </button>
                 <button
                   onClick={() => updateTodayChecklist({ pyqsCount: pyqGoal })}
-                  className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-lg font-bold"
-                  title="Mark all target PYQs done"
+                  className="px-2.5 py-1 rounded-md bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-bold"
+                  title="Mark All Completed"
                 >
-                  All
+                  Done
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Essential 3: Retention & Error Log */}
+          {/* 3. Retention & Formula Lock */}
           <div
             onClick={() => updateTodayChecklist({ retentionChecked: !todayChecklist.retentionChecked })}
-            className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
-              todayChecklist.retentionChecked
-                ? 'bg-amber-950/30 border-amber-500/50 shadow-sm'
-                : 'bg-[#161a26] border-[#22293d] hover:border-slate-600'
+            className={`cursor-pointer p-4 rounded-xl border transition-all flex items-start justify-between gap-3 ${
+              todayChecklist.retentionChecked 
+                ? 'bg-amber-950/20 border-amber-500/40 text-slate-200' 
+                : 'bg-[#141824] border-[#1f273a] hover:border-slate-600 text-slate-300'
             }`}
           >
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                  <BrainCircuit className="w-5 h-5" />
-                </div>
-                {todayChecklist.retentionChecked ? (
-                  <CheckCircle2 className="w-6 h-6 text-amber-400" />
-                ) : (
-                  <Circle className="w-6 h-6 text-slate-600" />
-                )}
+            <div className="flex items-start gap-3">
+              <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
+                todayChecklist.retentionChecked ? 'bg-amber-600 text-white' : 'border border-slate-600'
+              }`}>
+                {todayChecklist.retentionChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
               </div>
-              <h3 className="font-bold text-base text-slate-100 mb-1">3. Retention & Notes</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                {currentDayPlan.retentionFocus}
-              </p>
+              <div>
+                <div className="text-sm font-semibold text-white flex items-center gap-2">
+                  <span>3. Retention, Formula Card & Error Check</span>
+                  <span className="text-[10px] text-slate-400 font-normal">~45 mins</span>
+                </div>
+                <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                  {currentDayPlan.retentionFocus}
+                </p>
+              </div>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs">
-              <span className={todayChecklist.retentionChecked ? 'text-amber-400 font-semibold' : 'text-slate-500'}>
-                {todayChecklist.retentionChecked ? '✓ Completed & Synced' : 'Pending'}
-              </span>
-              <span className="text-[10px] text-slate-500">~1.0 hr</span>
-            </div>
+            <span className={`text-[11px] font-mono font-medium ${todayChecklist.retentionChecked ? 'text-amber-400' : 'text-slate-500'}`}>
+              {todayChecklist.retentionChecked ? 'Done' : 'Pending'}
+            </span>
           </div>
-
         </div>
 
-        {/* Completion Message */}
+        {/* 🏆 COMPLETION CELEBRATION & ONE-CLICK ADVANCE */}
         {isTodayComplete ? (
-          <div className="p-4 rounded-2xl bg-emerald-900/30 border border-emerald-500/40 flex items-center justify-between animate-in fade-in duration-300">
-            <div className="flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-emerald-400 animate-bounce" />
+          <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all animate-in fade-in">
+            <div className="flex items-center gap-2.5">
+              <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0" />
               <div>
-                <div className="font-bold text-emerald-200 text-sm sm:text-base">
-                  Day {activeDayNumber} Target Locked In!
+                <div className="font-bold text-sm text-emerald-300">
+                  Day {activeDayNumber} Essentials Complete!
                 </div>
                 <div className="text-xs text-emerald-400/80">
-                  Automatically marked complete on your 18-week roadmap & topic tracker.
+                  +{currentDayPlan.targetMarksValue} marks locked toward BITS Pilani M.E. Embedded.
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-2">
-              <button
-                onClick={() => {
-                  if (activeDayNumber < dayPlans.length) {
-                    setActiveDayNumber(activeDayNumber + 1);
-                    updateTodayChecklist({ theoryChecked: false, pyqsCount: 0, retentionChecked: false });
-                  }
-                }}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md"
-              >
-                <span>Advance to Day {activeDayNumber + 1}</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+            <button
+              onClick={handleAdvanceNextDay}
+              className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold font-mono transition-all flex items-center gap-1.5 shadow-sm"
+            >
+              <span>Lock & Start Day {activeDayNumber + 1}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         ) : (
-          <div className="flex justify-between items-center text-xs text-slate-400 bg-[#161a26] p-3 rounded-xl border border-slate-800">
-            <span>Daily Focus: Finish today's 3 outputs for Day {activeDayNumber}.</span>
+          <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
+            <span>Tick off all 3 essentials above to mark Day {activeDayNumber} complete.</span>
             <button
               onClick={() => setActiveView('syllabus')}
-              className="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1"
+              className="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1"
             >
-              <span>View Full Syllabus Matrix</span>
+              <span>Topic Checklist</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         )}
 
-      </div>
-
-      {/* 💾 STORAGE & BACKUP CONTROL PANEL */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
-            <HardDrive className="w-4 h-4" />
+        {/* 📝 MINIMAL DAILY TAKEAWAY / FORMULA MEMO */}
+        <div className="pt-3 border-t border-[#1b2234] space-y-2">
+          <div className="flex items-center justify-between text-xs text-slate-400">
+            <span className="flex items-center gap-1.5 font-medium">
+              <Edit3 className="w-3.5 h-3.5 text-slate-500" />
+              <span>Today's Formula / Shortcut Takeaway</span>
+            </span>
+            {notesSaved && <span className="text-[10px] text-emerald-400 font-mono">Saved</span>}
           </div>
-          <div>
-            <div className="font-bold text-slate-200 flex items-center gap-2">
-              <span>Storage Status: Local-First Persistent Engine</span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            </div>
-            <div className="text-slate-400 text-[11px]">
-              All daily checks, 18-week roadmap completions, formula cards, and error logs stay permanently in your browser.
-            </div>
-          </div>
+          <input
+            type="text"
+            value={notesDraft}
+            onChange={(e) => handleNotesChange(e.target.value)}
+            placeholder="e.g., Det(adj A) = |A|^(n-1); TRAP vector = 0024H; 1-step shortcut..."
+            className="w-full bg-[#141824] border border-[#202738] rounded-xl px-3.5 py-2 text-xs text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-blue-500/50"
+          />
         </div>
 
-        <button
-          onClick={handleExportBackup}
-          className="px-4 py-2 rounded-xl bg-[#181d2a] hover:bg-[#20273a] text-slate-300 hover:text-white border border-slate-700 font-semibold flex items-center gap-2 transition-colors self-start sm:self-center"
-        >
-          {copiedBackup ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Download className="w-3.5 h-3.5 text-blue-400" />}
-          <span>{copiedBackup ? 'Backup Downloaded!' : 'Export Progress Backup (.json)'}</span>
-        </button>
       </div>
 
     </div>

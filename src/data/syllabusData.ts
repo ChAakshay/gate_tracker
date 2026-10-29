@@ -92,7 +92,7 @@ export const GATE_ECE_SUBJECTS: SubjectModule[] = [
   },
   {
     id: 'digital',
-    name: 'Digital Circuits (Embedded Core)',
+    name: 'Digital Circuits',
     shortCode: 'DC',
     totalMarksRange: '8 – 10 Marks',
     targetMarks: 9.0,
@@ -109,20 +109,20 @@ export const GATE_ECE_SUBJECTS: SubjectModule[] = [
   },
   {
     id: 'microprocessors',
-    name: 'Microprocessors & Embedded Systems (8085/8086)',
+    name: 'Microprocessors (8085 & 8086)',
     shortCode: 'MP',
-    totalMarksRange: '18 – 24 Marks (BITS HD Exclusive)',
-    targetMarks: 21,
+    totalMarksRange: '15 – 20 Marks (BITS HD Core)',
+    targetMarks: 18,
     priorityTier: 'Tier 1 (High Yield / Fast Marks)',
     phase: 2,
     color: '#06b6d4',
     examSection: 'Test II',
     topics: [
-      { id: 'mp-8085-arch', name: '8085 Architecture, Flags, Pinout & Bus Demux (ALE, IO/M)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
-      { id: 'mp-8085-instr', name: '8085 Instructions, Addressing Modes & Machine Cycles (T-States)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
-      { id: 'mp-8085-interrupt', name: 'Vector Interrupts (TRAP, RST 7.5/6.5/5.5, RST n Formula: n×8)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
-      { id: 'mp-8085-interfacing', name: 'Address Decoding (74LS138) & 8255 PPI (Mode 0, 1, 2, BSR)', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
-      { id: 'mp-8086-arch', name: '8086 Microprocessor: BIU/EU, Segmentation & Pipelining Basics', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-arch', name: '8085 Architecture, Flags, Pinout & Bus Demux (ALE, IO/M)', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-instr', name: '8085 Instructions, Addressing Modes & Machine Cycles (T-States)', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-interrupt', name: 'Vector Interrupts (TRAP, RST 7.5/6.5/5.5, RST n Formula: n×8)', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-interfacing', name: 'Address Decoding (74LS138) & 8255 PPI (Mode 0, 1, 2, BSR)', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8086-arch', name: '8086 Microprocessor: BIU/EU, Segmentation & Pipelining Basics', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
     ]
   },
   {
