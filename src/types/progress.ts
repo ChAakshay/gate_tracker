@@ -9,6 +9,7 @@ export interface SubTopic {
   formulaCardAdded: boolean;
   errorLogged: boolean;
   notes?: string;
+  isEmbeddedCore?: boolean;
 }
 
 export interface SubjectModule {
@@ -21,6 +22,7 @@ export interface SubjectModule {
   phase: number; // 1, 2, 3
   color: string;
   topics: SubTopic[];
+  examSection?: 'Test I' | 'Test II';
 }
 
 export interface DayPlan {

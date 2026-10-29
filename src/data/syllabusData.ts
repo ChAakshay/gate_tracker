@@ -3,13 +3,14 @@ import { SubjectModule, DayPlan } from '../types/progress';
 export const GATE_ECE_SUBJECTS: SubjectModule[] = [
   {
     id: 'math',
-    name: 'Engineering Mathematics',
+    name: 'Engineering Mathematics (Test I)',
     shortCode: 'EM',
-    totalMarksRange: '13 Marks',
-    targetMarks: 13,
+    totalMarksRange: '15 Qs / 45 Marks',
+    targetMarks: 36,
     priorityTier: 'Tier 1 (High Yield / Fast Marks)',
     phase: 1,
     color: '#3b82f6',
+    examSection: 'Test I',
     topics: [
       { id: 'math-la-eigen', name: 'Eigenvalues, Eigenvectors & Cayley-Hamilton', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false },
       { id: 'math-la-rank', name: 'Rank, Determinants & System of Linear Equations', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
@@ -22,18 +23,20 @@ export const GATE_ECE_SUBJECTS: SubjectModule[] = [
   },
   {
     id: 'aptitude',
-    name: 'General Aptitude',
-    shortCode: 'GA',
-    totalMarksRange: '15 Marks',
-    targetMarks: 15,
+    name: 'English & Logical Reasoning (Test I)',
+    shortCode: 'ELR',
+    totalMarksRange: '15 Qs / 45 Marks',
+    targetMarks: 41,
     priorityTier: 'Tier 1 (High Yield / Fast Marks)',
     phase: 1,
     color: '#10b981',
+    examSection: 'Test I',
     topics: [
-      { id: 'apt-quant-arith', name: 'Quantitative: Ratio, Percentage, Time & Work, Speed-Distance', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false },
-      { id: 'apt-quant-geo', name: 'Geometry, Mensuration & Elementary Statistics', marksWeight: 3.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
-      { id: 'apt-spatial', name: 'Spatial Aptitude: Paper Folding, Mirroring & Rotations', marksWeight: 3.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
-      { id: 'apt-verbal', name: 'Verbal: Grammar, Vocabulary, Critical Reasoning & Reading Comprehension', marksWeight: 5.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false },
+      { id: 'apt-verbal-vocab', name: 'English: Contextual Vocabulary, Synonyms & Antonyms', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false },
+      { id: 'apt-verbal-grammar', name: 'English: Subject-Verb Agreement, Prepositions & Sentence Completion', marksWeight: 5.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false },
+      { id: 'apt-verbal-rc', name: 'English: Reading Comprehension & Rapid Theme Extraction', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
+      { id: 'apt-logic-series', name: 'Logical Reasoning: Number/Letter Series & Coding-Decoding', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false },
+      { id: 'apt-logic-deductive', name: 'Logical Reasoning: Syllogisms, Blood Relations & Direction Sense', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false },
     ]
   },
   {
@@ -89,34 +92,54 @@ export const GATE_ECE_SUBJECTS: SubjectModule[] = [
   },
   {
     id: 'digital',
-    name: 'Digital Circuits',
+    name: 'Digital Circuits (Embedded Core)',
     shortCode: 'DC',
-    totalMarksRange: '7 – 8 Marks',
-    targetMarks: 7.5,
-    priorityTier: 'Tier 2 (Core Heavy Duty)',
+    totalMarksRange: '8 – 10 Marks',
+    targetMarks: 9.0,
+    priorityTier: 'Tier 1 (High Yield / Fast Marks)',
     phase: 2,
     color: '#f59e0b',
+    examSection: 'Test II',
     topics: [
-      { id: 'dc-bool', name: 'Boolean Algebra, Logic Gates & K-Maps Minimization', marksWeight: 1.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 15, formulaCardAdded: false, errorLogged: false },
-      { id: 'dc-comb', name: 'Combinational Circuits: MUX, Decoders, Adders & Encoders', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false },
-      { id: 'dc-seq', name: 'Sequential Circuits: Latches, Flip-Flops, Setup/Hold Time', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
-      { id: 'dc-counters', name: 'Synchronous & Asynchronous Counters, Shift Registers & FSM', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
+      { id: 'dc-bool', name: 'Boolean Algebra, Logic Gates & K-Maps Minimization', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 15, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'dc-comb', name: 'Combinational Circuits: MUX, Decoders, Adders & Encoders', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'dc-seq', name: 'Sequential Circuits: Latches, Flip-Flops, Setup/Hold Time Slack', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'dc-counters', name: 'Synchronous & Asynchronous Counters, Shift Registers & FSM Design', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+    ]
+  },
+  {
+    id: 'microprocessors',
+    name: 'Microprocessors & Embedded Systems (8085/8086)',
+    shortCode: 'MP',
+    totalMarksRange: '18 – 24 Marks (BITS HD Exclusive)',
+    targetMarks: 21,
+    priorityTier: 'Tier 1 (High Yield / Fast Marks)',
+    phase: 2,
+    color: '#06b6d4',
+    examSection: 'Test II',
+    topics: [
+      { id: 'mp-8085-arch', name: '8085 Architecture, Flags, Pinout & Bus Demux (ALE, IO/M)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-instr', name: '8085 Instructions, Addressing Modes & Machine Cycles (T-States)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-interrupt', name: 'Vector Interrupts (TRAP, RST 7.5/6.5/5.5, RST n Formula: n×8)', marksWeight: 4.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8085-interfacing', name: 'Address Decoding (74LS138) & 8255 PPI (Mode 0, 1, 2, BSR)', marksWeight: 4.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'mp-8086-arch', name: '8086 Microprocessor: BIU/EU, Segmentation & Pipelining Basics', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
     ]
   },
   {
     id: 'analog',
-    name: 'Analog Circuits',
+    name: 'Analog Circuits & Op-Amps',
     shortCode: 'AC',
     totalMarksRange: '8 – 9 Marks',
     targetMarks: 8.5,
-    priorityTier: 'Tier 2 (Core Heavy Duty)',
+    priorityTier: 'Tier 1 (High Yield / Fast Marks)',
     phase: 2,
     color: '#e11d48',
+    examSection: 'Test II',
     topics: [
       { id: 'ac-diodes', name: 'Diode Circuits: Clippers, Clampers, Rectifiers & Zener Regulators', marksWeight: 2.0, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 20, formulaCardAdded: false, errorLogged: false },
       { id: 'ac-bjt-mosfet', name: 'BJT & MOSFET Biasing, Small Signal Amplifiers & AC Analysis', marksWeight: 2.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 25, formulaCardAdded: false, errorLogged: false },
-      { id: 'ac-opamp', name: 'Operational Amplifiers: Linear & Non-linear Applications, Schmitt Trigger', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false },
-      { id: 'ac-feedback', name: 'Feedback Amplifiers, Oscillators & 555 Timers', marksWeight: 1.5, isHighYield: false, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 15, formulaCardAdded: false, errorLogged: false },
+      { id: 'ac-opamp', name: 'Operational Amplifiers: Linear/Non-linear, Schmitt Trigger & Timers', marksWeight: 3.5, isHighYield: true, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 30, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
+      { id: 'ac-feedback', name: 'Feedback Amplifiers, Oscillators & 555 Timers', marksWeight: 1.5, isHighYield: false, theoryCompleted: false, pyqsSolvedCount: 0, targetPyqs: 15, formulaCardAdded: false, errorLogged: false, isEmbeddedCore: true },
     ]
   },
   {
@@ -222,3 +245,5 @@ export const INITIAL_DAY_PLANS: DayPlan[] = [
   { dayNumber: 41, weekNumber: 6, subjectId: 'signals', topicTitle: 'Day 41: Sampling Theorem, Nyquist Rate & Aliasing', targetMarksValue: 2.0, theoryTarget: 'Bandpass sampling, Flat-top & Ideal sampling, Reconstruction filters', pyqTargetCount: 22, retentionFocus: 'Nyquist rate formula card for product/sum signals', isCompleted: false, isMvd: false },
   { dayNumber: 42, weekNumber: 6, subjectId: 'signals', topicTitle: 'Day 42: Phase 1 Grand Revision & Sectional Mock', targetMarksValue: 3.5, theoryTarget: 'Phase 1 Audit (Math + Aptitude + Networks + Signals = ~36 Marks)', pyqTargetCount: 35, retentionFocus: 'Full Phase 1 Formula Sheet audit', isCompleted: false, isMvd: false }
 ];
+
+export const BITS_HD_SUBJECTS = GATE_ECE_SUBJECTS;

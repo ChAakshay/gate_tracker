@@ -39,7 +39,7 @@ export const DailyEssentialsCard: React.FC = () => {
   const [copiedBackup, setCopiedBackup] = useState(false);
 
   const securedMarks = getSecuredMarks();
-  const iiitbBenchmark = 70; // 68-74 target range
+  const bitsHdBenchmark = 185; // 185–190+ Safe Space Target floor
 
   // Active day details from 18-week plan
   const currentDayPlan = dayPlans.find(d => d.dayNumber === activeDayNumber) || dayPlans[0];
@@ -84,14 +84,23 @@ export const DailyEssentialsCard: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Award className="w-4 h-4 text-blue-400" />
-              <span>IIIT Bangalore M.Tech Target Benchmark</span>
+              <span>BITS Pilani M.E. Embedded Systems Benchmark</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              GATE ECE Marks Mastery
+              BITS HD Exam Mastery
             </h1>
             <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
-              Target: <strong className="text-white">68–74 Raw Marks</strong> (GATE Score ≥ 650). Ticking off today's essentials directly locks in raw marks on your master tracker.
+              Safe Space: <strong className="text-white">185–190+ Marks</strong> out of 300 (Test I: 73M + Test II: 120M). Securing daily essentials guarantees Iteration 1 Pilani admission.
             </p>
+            <div className="mt-3">
+              <button
+                onClick={() => setActiveView('blueprint')}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 text-xs font-bold border border-blue-500/40 transition-colors"
+              >
+                <span>Open BITS HD Master Blueprint</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
           {/* Live Marks Counter Card */}
@@ -99,8 +108,9 @@ export const DailyEssentialsCard: React.FC = () => {
             <div className="text-right">
               <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Secured Marks</div>
               <div className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-mono tracking-tight">
-                {securedMarks} <span className="text-sm font-sans text-slate-500 font-normal">/ {iiitbBenchmark}</span>
+                {securedMarks} <span className="text-sm font-sans text-slate-500 font-normal">/ {bitsHdBenchmark}</span>
               </div>
+              <div className="text-[10px] text-emerald-400 font-medium mt-0.5">Safe Space: 185M</div>
             </div>
             <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
               <TrendingUp className="w-7 h-7" />
@@ -112,16 +122,16 @@ export const DailyEssentialsCard: React.FC = () => {
         <div className="mt-6 pt-6 border-t border-slate-800/80">
           <div className="flex justify-between items-center text-xs mb-2">
             <span className="text-slate-400 flex items-center gap-1.5">
-              Progress to IIIT-B Admission Cutoff (~70 Marks)
+              Progress to BITS Pilani Embedded Systems Safe Space (185 Marks)
             </span>
             <span className="font-mono font-bold text-blue-300">
-              {Math.min(100, Math.round((securedMarks / iiitbBenchmark) * 100))}% Reached
+              {Math.min(100, Math.round((securedMarks / bitsHdBenchmark) * 100))}% Reached
             </span>
           </div>
           <div className="w-full bg-[#161a26] h-3 rounded-full overflow-hidden border border-slate-800 p-0.5">
             <div 
               className="h-full bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-400 rounded-full transition-all duration-700 ease-out"
-              style={{ width: `${Math.min(100, (securedMarks / iiitbBenchmark) * 100)}%` }}
+              style={{ width: `${Math.min(100, (securedMarks / bitsHdBenchmark) * 100)}%` }}
             />
           </div>
         </div>

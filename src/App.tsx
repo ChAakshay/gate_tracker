@@ -1,6 +1,7 @@
 import React from 'react';
 import { useProgressStore } from './store/useProgressStore';
 import { DailyEssentialsCard } from './components/DailyEssentialsCard';
+import { BitsHdBlueprint } from './components/BitsHdBlueprint';
 import { TopicMasteryTracker } from './components/TopicMasteryTracker';
 import { FormulaVault } from './components/FormulaVault';
 import { DailyRoadmapPlanner } from './components/DailyRoadmapPlanner';
@@ -15,7 +16,8 @@ import {
   Flame, 
   Cpu, 
   Award,
-  BookOpen
+  BookOpen,
+  ShieldCheck
 } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -23,11 +25,12 @@ export const App: React.FC = () => {
   const securedMarks = getSecuredMarks();
 
   const navigationTabs = [
+    { id: 'blueprint', label: 'BITS HD Blueprint', icon: ShieldCheck },
     { id: 'today', label: "Today's Essentials", icon: CheckSquare },
     { id: 'quiz', label: 'Unit 1 & 2 Quiz', icon: BookOpen },
-    { id: 'syllabus', label: 'Topic Marks Tracker', icon: Layers },
+    { id: 'syllabus', label: 'Embedded Syllabus Tracker', icon: Layers },
     { id: 'formula', label: 'Formula Vault', icon: ImageIcon },
-    { id: 'roadmap', label: '18-Week Roadmap', icon: CalendarDays },
+    { id: 'roadmap', label: 'Roadmap & Schedule', icon: CalendarDays },
     { id: 'errors', label: '3-Line Error Log', icon: FileWarning },
   ] as const;
 
@@ -39,18 +42,18 @@ export const App: React.FC = () => {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveView('today')}>
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-emerald-500 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-blue-400/30">
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveView('blueprint')}>
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-blue-400/30">
               <Cpu className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="font-black text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400 flex items-center gap-2">
-                <span>GATE-OS</span>
+                <span>BITS HD APEX</span>
                 <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
-                  Target 70+
+                  Target 185+ / 300
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400 font-medium">IIIT Bangalore Marks Mastery</div>
+              <div className="text-[11px] text-slate-400 font-medium">BITS Pilani M.E. Embedded Systems Safe Space</div>
             </div>
           </div>
 
@@ -78,9 +81,9 @@ export const App: React.FC = () => {
 
           {/* Quick Metrics (Secured Marks & Streak) */}
           <div className="flex items-center gap-2.5">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141824] border border-[#232a3d] text-xs font-mono font-bold text-blue-400" title="Secured Marks toward IIIT Bangalore">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141824] border border-[#232a3d] text-xs font-mono font-bold text-blue-400" title="Secured Marks toward 185+ Safe Space">
               <Award className="w-4 h-4 text-blue-400" />
-              <span>{securedMarks}M</span>
+              <span>{securedMarks}M / 185M</span>
             </div>
 
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141824] border border-[#232a3d] text-xs font-mono font-bold text-amber-400" title="Active Study Streak">
@@ -113,6 +116,7 @@ export const App: React.FC = () => {
 
       {/* Main View Area */}
       <main className="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-8">
+        {activeView === 'blueprint' && <BitsHdBlueprint />}
         {activeView === 'today' && <DailyEssentialsCard />}
         {activeView === 'syllabus' && <TopicMasteryTracker />}
         {activeView === 'formula' && <FormulaVault />}
@@ -123,7 +127,7 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-[#1a1f2c] py-6 px-4 text-center text-xs text-slate-500">
-        GATE-OS • Progress, Formula Vault & Daily Essentials System • Target: IIIT Bangalore (GATE Score ≥ 650)
+        BITS HD APEX • M.E. Embedded Systems Preparation System • Target: BITS Pilani Main Campus (Composite Score ≥ 185/300) with GATE Checkpoint
       </footer>
     </div>
   );

@@ -13,8 +13,8 @@ export interface DailyChecklist {
 
 interface ProgressStore {
   // Active Navigation Tab
-  activeView: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz';
-  setActiveView: (view: 'today' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz') => void;
+  activeView: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz';
+  setActiveView: (view: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'quiz') => void;
 
   // Active 18-Week Day Selection
   activeDayNumber: number;
@@ -53,7 +53,30 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
   const storedStreak = localStorage.getItem('gate_user_streak');
   const storedActiveDay = localStorage.getItem('gate_active_day');
 
-  const initialSubjects: SubjectModule[] = storedSubjects ? JSON.parse(storedSubjects) : GATE_ECE_SUBJECTS;
+  let initialSubjects: SubjectModule[] = GATE_ECE_SUBJECTS;
+  if (storedSubjects) {
+    try {
+      const parsed: SubjectModule[] = JSON.parse(storedSubjects);
+      const existingIds = new Set(parsed.map(s => s.id));
+      const missing = GATE_ECE_SUBJECTS.filter(s => !existingIds.has(s.id));
+      // Also update name & properties if altered
+      initialSubjects = parsed.map(p => {
+        const fresh = GATE_ECE_SUBJECTS.find(f => f.id === p.id);
+        if (fresh) {
+          return {
+            ...fresh,
+            topics: fresh.topics.map(ft => {
+              const pt = p.topics.find(t => t.id === ft.id);
+              return pt ? { ...ft, ...pt } : ft;
+            })
+          };
+        }
+        return p;
+      }).concat(missing);
+    } catch {
+      initialSubjects = GATE_ECE_SUBJECTS;
+    }
+  }
   const initialDayPlans: DayPlan[] = storedDayPlans ? JSON.parse(storedDayPlans) : INITIAL_DAY_PLANS;
   const initialActiveDay = storedActiveDay ? parseInt(storedActiveDay, 10) : 1;
 
@@ -67,7 +90,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
   };
 
   return {
-    activeView: 'today',
+    activeView: 'blueprint',
     setActiveView: (view) => set({ activeView: view }),
 
     activeDayNumber: initialActiveDay,
