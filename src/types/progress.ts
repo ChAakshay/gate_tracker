@@ -1,3 +1,12 @@
+export interface BookReference {
+  bookTitle: string;
+  author: string;
+  edition: string;
+  chapters: string;
+  pages: string;
+  keyConcepts?: string[];
+}
+
 export interface SubTopic {
   id: string;
   name: string;
@@ -10,6 +19,7 @@ export interface SubTopic {
   errorLogged: boolean;
   notes?: string;
   isEmbeddedCore?: boolean;
+  bookRef?: BookReference;
 }
 
 export interface SubjectModule {
@@ -23,6 +33,32 @@ export interface SubjectModule {
   color: string;
   topics: SubTopic[];
   examSection?: 'Test I' | 'Test II';
+}
+
+export interface TopicPairSlot {
+  subjectId: string;
+  subjectName: string;
+  subjectColor: string;
+  topicId: string;
+  topicName: string;
+  marksWeight: number;
+  targetPyqs: number;
+  bookRef: BookReference;
+  theoryCompleted?: boolean;
+  pyqsSolvedCount?: number;
+}
+
+export interface TopicPair {
+  id: string; // e.g. 'pair-1'
+  pairNumber: number;
+  title: string;
+  archetype: 'Hardware Core' | 'System & Signal' | 'Speed & Accuracy' | 'Logic & Physics' | 'Custom Mix';
+  synergyRationale: string;
+  topicA: TopicPairSlot;
+  topicB: TopicPairSlot;
+  combinedMarks: number;
+  estMinutes: number;
+  isCompleted: boolean;
 }
 
 export interface DayPlan {

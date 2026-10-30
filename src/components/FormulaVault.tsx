@@ -58,7 +58,9 @@ const KEYWORD_SUBJECT_MAP: Record<string, string> = {
   // Comm
   'am': 'comm', 'fm': 'comm', 'pm': 'comm', 'dsb': 'comm', 'ssb': 'comm', 'carson': 'comm', 'pcm': 'comm', 'dpcm': 'comm', 'bpsk': 'comm', 'qpsk': 'comm', 'qam': 'comm', 'matched filter': 'comm', 'ber': 'comm', 'snr': 'comm', 'noise': 'comm', 'entropy': 'comm', 'shannon': 'comm', 'modulation': 'comm', 'constellation': 'comm',
   // EMTL
-  'transmission line': 'emtl', 'smith chart': 'emtl', 'smith': 'emtl', 'swr': 'emtl', 'reflection coefficient': 'emtl', 'poynting': 'emtl', 'plane wave': 'emtl', 'skin depth': 'emtl', 'polarization': 'emtl', 'waveguide': 'emtl', 'maxwell': 'emtl'
+  'transmission line': 'emtl', 'smith chart': 'emtl', 'smith': 'emtl', 'swr': 'emtl', 'reflection coefficient': 'emtl', 'poynting': 'emtl', 'plane wave': 'emtl', 'skin depth': 'emtl', 'polarization': 'emtl', 'waveguide': 'emtl', 'maxwell': 'emtl',
+  // Microprocessors (BITS HD Core)
+  '8085': 'microprocessors', '8086': 'microprocessors', 'microprocessor': 'microprocessors', 'trap': 'microprocessors', 'rst': 'microprocessors', 'ale': 'microprocessors', 'opcode': 'microprocessors', 't-state': 'microprocessors', '8255': 'microprocessors', 'ppi': 'microprocessors', 'segmentation': 'microprocessors'
 };
 
 const SAMPLE_FORMULA_CARDS: FormulaSheet[] = [

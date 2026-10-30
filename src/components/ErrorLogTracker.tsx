@@ -95,6 +95,15 @@ const QUICK_TEMPLATES = [
     misconception: 'Used Bandwidth = 2Δf instead of Carson\'s full approximation.',
     truth: 'BW = 2(Δf + f_m) = 2f_m(1 + β).',
     safeguard: 'Write out the full bandwidth equation with modulating frequency included.'
+  },
+  {
+    label: '⚡ 8085 TRAP Vector Address Slip',
+    subjectId: 'microprocessors',
+    topic: 'Vector Interrupts (TRAP, RST 7.5/6.5/5.5, RST n Formula: n×8)',
+    type: 'calculation' as const,
+    misconception: 'Calculated TRAP (RST 4.5) vector in decimal (36) and wrote 0036H instead of 0024H.',
+    truth: 'Vector address is (4.5 × 8) = 36 in decimal, which equals 0024H in hexadecimal.',
+    safeguard: 'Always convert the decimal product (n × 8) to Hex (36 / 16 = 2 rem 4 => 0024H).'
   }
 ];
 

@@ -15,7 +15,8 @@ import {
   Flame, 
   Cpu, 
   Award,
-  Target
+  Target,
+  Shuffle
 } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -24,9 +25,9 @@ export const App: React.FC = () => {
 
   const navigationTabs = [
     { id: 'today', label: "Today's Essentials", icon: CheckSquare },
+    { id: 'roadmap', label: 'Topic Pairs Variety Hub', icon: Shuffle },
+    { id: 'syllabus', label: 'Topic Mastery & Books', icon: Layers },
     { id: 'blueprint', label: '185+ Blueprint & Cutoffs', icon: Target },
-    { id: 'syllabus', label: 'Topic Mastery', icon: Layers },
-    { id: 'roadmap', label: 'Daily Roadmap', icon: CalendarDays },
     { id: 'formula', label: 'Formula Vault', icon: ImageIcon },
     { id: 'errors', label: '3-Line Error Log', icon: FileWarning },
   ] as const;
