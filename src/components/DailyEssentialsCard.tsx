@@ -5,34 +5,32 @@ import {
   Flame, 
   BookOpen, 
   Target, 
-  BrainCircuit, 
   ChevronRight, 
   ChevronLeft,
   ArrowRight,
   ShieldAlert,
   Sparkles,
-  Layers,
   Edit3,
-  Bookmark,
-  ExternalLink,
   Info,
-  CheckCircle2,
   Shuffle
 } from 'lucide-react';
 import { BookReference } from '../types/progress';
 
 export const DailyEssentialsCard: React.FC = () => {
   const { 
-    dailyPairChecklist, 
-    updateDailyPairChecklist, 
+    subjects,
+    toggleTopicField,
+    updateTopicPyqCount,
+    activePairId,
+    setActivePairId,
+    topicPairs,
+    dailyPairChecklist,
+    updateDailyPairChecklist,
     isMvdMode, 
     toggleMvdMode, 
     streak,
     getSecuredMarks,
     setActiveView,
-    activePairId,
-    setActivePairId,
-    topicPairs,
     getCompletedPairsCount
   } = useProgressStore();
 
@@ -47,10 +45,21 @@ export const DailyEssentialsCard: React.FC = () => {
   const currentPair = topicPairs.find(p => p.id === activePairId) || topicPairs[0];
   const currentPairIndex = topicPairs.findIndex(p => p.id === currentPair.id);
 
-  const pyqGoalPerTopic = isMvdMode ? 5 : 10;
-  const isTopicADone = dailyPairChecklist.topicAChecked && dailyPairChecklist.topicAPyqs >= pyqGoalPerTopic;
-  const isTopicBDone = dailyPairChecklist.topicBChecked && dailyPairChecklist.topicBPyqs >= pyqGoalPerTopic;
-  const isPairComplete = isTopicADone && isTopicBDone && dailyPairChecklist.retentionChecked;
+  // 🔗 REAL-TIME BI-DIRECTIONAL SYNC: Read directly from subjects (Single Source of Truth)
+  const subA = subjects.find(s => s.id === currentPair.topicA.subjectId);
+  const liveTopicA = subA?.topics.find(t => t.id === currentPair.topicA.topicId);
+
+  const subB = subjects.find(s => s.id === currentPair.topicB.subjectId);
+  const liveTopicB = subB?.topics.find(t => t.id === currentPair.topicB.topicId);
+
+  const pyqGoalA = isMvdMode ? 5 : (liveTopicA?.targetPyqs ? Math.min(10, liveTopicA.targetPyqs) : 10);
+  const pyqGoalB = isMvdMode ? 5 : (liveTopicB?.targetPyqs ? Math.min(10, liveTopicB.targetPyqs) : 10);
+
+  const isTopicADone = !!liveTopicA?.theoryCompleted && (liveTopicA?.pyqsSolvedCount || 0) >= pyqGoalA;
+  const isTopicBDone = !!liveTopicB?.theoryCompleted && (liveTopicB?.pyqsSolvedCount || 0) >= pyqGoalB;
+  const isRetentionDone = !!(liveTopicA?.formulaCardAdded && liveTopicB?.formulaCardAdded) || dailyPairChecklist.retentionChecked;
+
+  const isPairComplete = isTopicADone && isTopicBDone && isRetentionDone;
 
   // Notes update
   const handleNotesChange = (val: string) => {
@@ -58,6 +67,18 @@ export const DailyEssentialsCard: React.FC = () => {
     updateDailyPairChecklist({ notes: val });
     setNotesSaved(true);
     setTimeout(() => setNotesSaved(false), 2000);
+  };
+
+  // Retention Checkbox toggle: updates formulaCardAdded for both topics
+  const handleRetentionToggle = () => {
+    const nextVal = !isRetentionDone;
+    updateDailyPairChecklist({ retentionChecked: nextVal });
+    if (liveTopicA && liveTopicA.formulaCardAdded !== nextVal) {
+      toggleTopicField(currentPair.topicA.subjectId, currentPair.topicA.topicId, 'formulaCardAdded');
+    }
+    if (liveTopicB && liveTopicB.formulaCardAdded !== nextVal) {
+      toggleTopicField(currentPair.topicB.subjectId, currentPair.topicB.topicId, 'formulaCardAdded');
+    }
   };
 
   // Next Pair
@@ -263,18 +284,18 @@ export const DailyEssentialsCard: React.FC = () => {
 
             {/* Topic A Checkbox: Theory */}
             <div
-              onClick={() => updateDailyPairChecklist({ topicAChecked: !dailyPairChecklist.topicAChecked })}
+              onClick={() => toggleTopicField(currentPair.topicA.subjectId, currentPair.topicA.topicId, 'theoryCompleted')}
               className={`cursor-pointer p-2.5 rounded-lg border transition-all flex items-center justify-between gap-2 text-xs ${
-                dailyPairChecklist.topicAChecked 
+                liveTopicA?.theoryCompleted 
                   ? 'bg-blue-600/10 border-blue-500/40 text-blue-200' 
                   : 'bg-[#181d2c] border-[#22293b] text-slate-300 hover:border-slate-600'
               }`}
             >
               <div className="flex items-center gap-2">
                 <div className={`w-4 h-4 rounded flex items-center justify-center ${
-                  dailyPairChecklist.topicAChecked ? 'bg-blue-600 text-white' : 'border border-slate-600'
+                  liveTopicA?.theoryCompleted ? 'bg-blue-600 text-white' : 'border border-slate-600'
                 }`}>
-                  {dailyPairChecklist.topicAChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                  {liveTopicA?.theoryCompleted && <Check className="w-3 h-3 stroke-[3]" />}
                 </div>
                 <span className="font-medium">1. Theory & Key Formulas</span>
               </div>
@@ -286,37 +307,37 @@ export const DailyEssentialsCard: React.FC = () => {
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-400 font-medium">2. Standard Questions</span>
                 <span className="font-mono font-bold text-white">
-                  {dailyPairChecklist.topicAPyqs} / {pyqGoalPerTopic} solved
+                  {liveTopicA?.pyqsSolvedCount || 0} / {pyqGoalA} solved
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="flex-1 bg-slate-800/80 h-2 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-blue-500 transition-all duration-300"
-                    style={{ width: `${Math.min(100, (dailyPairChecklist.topicAPyqs / pyqGoalPerTopic) * 100)}%` }}
+                    style={{ width: `${Math.min(100, ((liveTopicA?.pyqsSolvedCount || 0) / pyqGoalA) * 100)}%` }}
                   />
                 </div>
                 <div className="flex items-center gap-1">
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicAPyqs: Math.max(0, dailyPairChecklist.topicAPyqs - 1) })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicA.subjectId, currentPair.topicA.topicId, Math.max(0, (liveTopicA?.pyqsSolvedCount || 0) - 1))}
                     className="px-1.5 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-mono"
                   >
                     -1
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicAPyqs: dailyPairChecklist.topicAPyqs + 1 })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicA.subjectId, currentPair.topicA.topicId, (liveTopicA?.pyqsSolvedCount || 0) + 1)}
                     className="px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold"
                   >
                     +1
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicAPyqs: dailyPairChecklist.topicAPyqs + 5 })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicA.subjectId, currentPair.topicA.topicId, (liveTopicA?.pyqsSolvedCount || 0) + 5)}
                     className="px-2 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-blue-300 text-xs font-bold"
                   >
                     +5
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicAPyqs: pyqGoalPerTopic })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicA.subjectId, currentPair.topicA.topicId, pyqGoalA)}
                     className="px-2 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-bold"
                   >
                     Done
@@ -373,18 +394,18 @@ export const DailyEssentialsCard: React.FC = () => {
 
             {/* Topic B Checkbox: Theory */}
             <div
-              onClick={() => updateDailyPairChecklist({ topicBChecked: !dailyPairChecklist.topicBChecked })}
+              onClick={() => toggleTopicField(currentPair.topicB.subjectId, currentPair.topicB.topicId, 'theoryCompleted')}
               className={`cursor-pointer p-2.5 rounded-lg border transition-all flex items-center justify-between gap-2 text-xs ${
-                dailyPairChecklist.topicBChecked 
+                liveTopicB?.theoryCompleted 
                   ? 'bg-purple-600/10 border-purple-500/40 text-purple-200' 
                   : 'bg-[#181d2c] border-[#22293b] text-slate-300 hover:border-slate-600'
               }`}
             >
               <div className="flex items-center gap-2">
                 <div className={`w-4 h-4 rounded flex items-center justify-center ${
-                  dailyPairChecklist.topicBChecked ? 'bg-purple-600 text-white' : 'border border-slate-600'
+                  liveTopicB?.theoryCompleted ? 'bg-purple-600 text-white' : 'border border-slate-600'
                 }`}>
-                  {dailyPairChecklist.topicBChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                  {liveTopicB?.theoryCompleted && <Check className="w-3 h-3 stroke-[3]" />}
                 </div>
                 <span className="font-medium">1. Theory & Key Formulas</span>
               </div>
@@ -396,37 +417,37 @@ export const DailyEssentialsCard: React.FC = () => {
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-400 font-medium">2. Standard Questions</span>
                 <span className="font-mono font-bold text-white">
-                  {dailyPairChecklist.topicBPyqs} / {pyqGoalPerTopic} solved
+                  {liveTopicB?.pyqsSolvedCount || 0} / {pyqGoalB} solved
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="flex-1 bg-slate-800/80 h-2 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-purple-500 transition-all duration-300"
-                    style={{ width: `${Math.min(100, (dailyPairChecklist.topicBPyqs / pyqGoalPerTopic) * 100)}%` }}
+                    style={{ width: `${Math.min(100, ((liveTopicB?.pyqsSolvedCount || 0) / pyqGoalB) * 100)}%` }}
                   />
                 </div>
                 <div className="flex items-center gap-1">
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicBPyqs: Math.max(0, dailyPairChecklist.topicBPyqs - 1) })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicB.subjectId, currentPair.topicB.topicId, Math.max(0, (liveTopicB?.pyqsSolvedCount || 0) - 1))}
                     className="px-1.5 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-mono"
                   >
                     -1
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicBPyqs: dailyPairChecklist.topicBPyqs + 1 })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicB.subjectId, currentPair.topicB.topicId, (liveTopicB?.pyqsSolvedCount || 0) + 1)}
                     className="px-2 py-0.5 rounded bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold"
                   >
                     +1
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicBPyqs: dailyPairChecklist.topicBPyqs + 5 })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicB.subjectId, currentPair.topicB.topicId, (liveTopicB?.pyqsSolvedCount || 0) + 5)}
                     className="px-2 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-purple-300 text-xs font-bold"
                   >
                     +5
                   </button>
                   <button
-                    onClick={() => updateDailyPairChecklist({ topicBPyqs: pyqGoalPerTopic })}
+                    onClick={() => updateTopicPyqCount(currentPair.topicB.subjectId, currentPair.topicB.topicId, pyqGoalB)}
                     className="px-2 py-0.5 rounded bg-[#1c2233] hover:bg-slate-700 text-slate-300 text-xs font-bold"
                   >
                     Done
@@ -441,18 +462,18 @@ export const DailyEssentialsCard: React.FC = () => {
 
         {/* 3. RETENTION & CROSS-TOPIC CONSOLIDATION CHECK */}
         <div
-          onClick={() => updateDailyPairChecklist({ retentionChecked: !dailyPairChecklist.retentionChecked })}
+          onClick={handleRetentionToggle}
           className={`cursor-pointer p-4 rounded-xl border transition-all flex items-start justify-between gap-3 ${
-            dailyPairChecklist.retentionChecked 
+            isRetentionDone 
               ? 'bg-amber-950/20 border-amber-500/40 text-slate-200' 
               : 'bg-[#141824] border-[#1f273a] hover:border-slate-600 text-slate-300'
           }`}
         >
           <div className="flex items-start gap-3">
             <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
-              dailyPairChecklist.retentionChecked ? 'bg-amber-600 text-white' : 'border border-slate-600'
+              isRetentionDone ? 'bg-amber-600 text-white' : 'border border-slate-600'
             }`}>
-              {dailyPairChecklist.retentionChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+              {isRetentionDone && <Check className="w-3.5 h-3.5 stroke-[3]" />}
             </div>
             <div>
               <div className="text-sm font-semibold text-white flex items-center gap-2">
@@ -464,8 +485,8 @@ export const DailyEssentialsCard: React.FC = () => {
               </p>
             </div>
           </div>
-          <span className={`text-[11px] font-mono font-medium ${dailyPairChecklist.retentionChecked ? 'text-amber-400' : 'text-slate-500'}`}>
-            {dailyPairChecklist.retentionChecked ? 'Done' : 'Pending'}
+          <span className={`text-[11px] font-mono font-medium ${isRetentionDone ? 'text-amber-400' : 'text-slate-500'}`}>
+            {isRetentionDone ? 'Done' : 'Pending'}
           </span>
         </div>
 

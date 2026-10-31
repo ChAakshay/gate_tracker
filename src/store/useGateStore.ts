@@ -6,6 +6,16 @@ import { TargetQuest, ErrorLogEntry, Question } from '../types/gate';
 export const useGateStore = () => {
   const store = useProgressStore();
 
+  const curPair = store.topicPairs.find(p => p.id === store.activePairId) || store.topicPairs[0];
+  const subA = store.subjects.find(s => s.id === curPair.topicA.subjectId);
+  const topA = subA?.topics.find(t => t.id === curPair.topicA.topicId);
+  const subB = store.subjects.find(s => s.id === curPair.topicB.subjectId);
+  const topB = subB?.topics.find(t => t.id === curPair.topicB.topicId);
+
+  const isTheory = !!(topA?.theoryCompleted && topB?.theoryCompleted);
+  const totalPyqs = (topA?.pyqsSolvedCount || 0) + (topB?.pyqsSolvedCount || 0);
+  const isRet = !!(topA?.formulaCardAdded && topB?.formulaCardAdded) || store.dailyPairChecklist.retentionChecked;
+
   return {
     // Navigation mapping
     activeTab: (store.activeView === 'cbt' ? 'cbt' : store.activeView === 'pyq' ? 'pyq' : 'dashboard') as 'dashboard' | 'pyq' | 'cbt' | 'calculator' | 'errorlog' | 'roadmap',
@@ -21,21 +31,19 @@ export const useGateStore = () => {
       }
     },
 
-    // Daily quest synthesis
+    // Daily quest synthesis (live computed from master subjects)
     todayQuest: {
       date: new Date().toISOString().split('T')[0],
-      theoryCompleted: store.dailyPairChecklist.topicAChecked && store.dailyPairChecklist.topicBChecked,
-      pyqsCompletedCount: store.dailyPairChecklist.topicAPyqs + store.dailyPairChecklist.topicBPyqs,
-      retentionCompleted: store.dailyPairChecklist.retentionChecked,
-      status: (store.dailyPairChecklist.topicAChecked && store.dailyPairChecklist.topicBChecked) ? 'completed' : 'pending'
+      theoryCompleted: isTheory,
+      pyqsCompletedCount: totalPyqs,
+      retentionCompleted: isRet,
+      status: (isTheory && totalPyqs >= 20) ? 'completed' : isTheory ? 'partial' : 'pending'
     } as TargetQuest,
     streak: store.streak,
     updateTodayQuest: (partial: Partial<TargetQuest>) => {
-      store.updateDailyPairChecklist({
-        topicAChecked: partial.theoryCompleted ?? store.dailyPairChecklist.topicAChecked,
-        topicAPyqs: partial.pyqsCompletedCount ?? store.dailyPairChecklist.topicAPyqs,
-        retentionChecked: partial.retentionCompleted ?? store.dailyPairChecklist.retentionChecked
-      });
+      if (partial.retentionCompleted !== undefined) {
+        store.updateDailyPairChecklist({ retentionChecked: partial.retentionCompleted });
+      }
     },
 
     // Question Bank & Responses

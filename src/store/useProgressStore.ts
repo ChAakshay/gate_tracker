@@ -7,12 +7,8 @@ import { INITIAL_QUESTIONS } from '../data/mockQuestions';
 
 export interface DailyPairChecklist {
   date: string;
-  topicAChecked: boolean;
-  topicAPyqs: number;
-  topicBChecked: boolean;
-  topicBPyqs: number;
-  retentionChecked: boolean;
   notes: string;
+  retentionChecked: boolean;
 }
 
 // Retain legacy interface for smooth backward compatibility
@@ -41,7 +37,7 @@ export interface ProgressStore {
   activeDayNumber: number;
   setActiveDayNumber: (day: number) => void;
 
-  // Subjects & Subtopic Tracking
+  // Subjects & Subtopic Tracking (Single Source of Truth)
   subjects: SubjectModule[];
   toggleTopicField: (subjectId: string, topicId: string, field: 'theoryCompleted' | 'formulaCardAdded' | 'errorLogged') => void;
   updateTopicPyqCount: (subjectId: string, topicId: string, count: number) => void;
@@ -105,6 +101,21 @@ const pruneObsoleteBloat = () => {
   });
 };
 
+// Check if a topic pair is fully completed from subjects progress
+const isPairMastered = (pair: TopicPair, subs: SubjectModule[], isMvd: boolean): boolean => {
+  const subA = subs.find(s => s.id === pair.topicA.subjectId);
+  const topA = subA?.topics.find(t => t.id === pair.topicA.topicId);
+  const subB = subs.find(s => s.id === pair.topicB.subjectId);
+  const topB = subB?.topics.find(t => t.id === pair.topicB.topicId);
+
+  const targetA = isMvd ? 5 : 10;
+  const targetB = isMvd ? 5 : 10;
+
+  const doneA = !!topA?.theoryCompleted && (topA?.pyqsSolvedCount || 0) >= targetA;
+  const doneB = !!topB?.theoryCompleted && (topB?.pyqsSolvedCount || 0) >= targetB;
+  return doneA && doneB;
+};
+
 export const useProgressStore = create<ProgressStore>((set, get) => {
   // Prune legacy bloat on initialization
   pruneObsoleteBloat();
@@ -151,16 +162,20 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
   }
 
   // Topic Pairs initialization
-  let initialTopicPairs: TopicPair[] = CURATED_TOPIC_PAIRS;
+  let initialTopicPairs: TopicPair[] = CURATED_TOPIC_PAIRS.map(cp => ({
+    ...cp,
+    isCompleted: isPairMastered(cp, initialSubjects, false)
+  }));
+
   if (storedPairs) {
     try {
       const parsedPairs: TopicPair[] = JSON.parse(storedPairs);
-      initialTopicPairs = CURATED_TOPIC_PAIRS.map(cp => {
+      initialTopicPairs = initialTopicPairs.map(cp => {
         const found = parsedPairs.find(p => p.id === cp.id);
-        return found ? { ...cp, isCompleted: found.isCompleted } : cp;
+        return found ? { ...cp, isCompleted: found.isCompleted || cp.isCompleted } : cp;
       });
     } catch {
-      initialTopicPairs = CURATED_TOPIC_PAIRS;
+      // ignore parse error
     }
   }
 
@@ -168,12 +183,8 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
 
   const initialDailyPair: DailyPairChecklist = storedDailyPair ? JSON.parse(storedDailyPair) : {
     date: getTodayDateString(),
-    topicAChecked: false,
-    topicAPyqs: 0,
-    topicBChecked: false,
-    topicBPyqs: 0,
-    retentionChecked: false,
-    notes: ''
+    notes: '',
+    retentionChecked: false
   };
 
   const initialDayPlans: DayPlan[] = INITIAL_DAY_PLANS;
@@ -213,17 +224,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     activePairId: initialActivePairId,
     setActivePairId: (pairId) => {
       safeSave('gate_active_pair_id', pairId);
-      const resetChecklist: DailyPairChecklist = {
-        date: getTodayDateString(),
-        topicAChecked: false,
-        topicAPyqs: 0,
-        topicBChecked: false,
-        topicBPyqs: 0,
-        retentionChecked: false,
-        notes: ''
-      };
-      safeSave('gate_daily_pair_checklist', resetChecklist);
-      set({ activePairId: pairId, dailyPairChecklist: resetChecklist });
+      set({ activePairId: pairId });
     },
 
     togglePairCompletion: (pairId) => set((state) => {
@@ -253,7 +254,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
 
     subjects: initialSubjects,
     toggleTopicField: (subjectId, topicId, field) => set((state) => {
-      const updated = state.subjects.map(s => {
+      const updatedSubjects = state.subjects.map(s => {
         if (s.id !== subjectId) return s;
         return {
           ...s,
@@ -263,12 +264,23 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
           })
         };
       });
-      persistSubjectsProgress(updated);
-      return { subjects: updated };
+      persistSubjectsProgress(updatedSubjects);
+
+      // Bi-directionally sync pair completion across all topic pairs
+      const updatedPairs = state.topicPairs.map(p => {
+        const isNowMastered = isPairMastered(p, updatedSubjects, state.isMvdMode);
+        return { ...p, isCompleted: isNowMastered };
+      });
+      safeSave('gate_topic_pairs_mastery', updatedPairs.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
+
+      return { 
+        subjects: updatedSubjects,
+        topicPairs: updatedPairs
+      };
     }),
 
     updateTopicPyqCount: (subjectId, topicId, count) => set((state) => {
-      const updated = state.subjects.map(s => {
+      const updatedSubjects = state.subjects.map(s => {
         if (s.id !== subjectId) return s;
         return {
           ...s,
@@ -278,65 +290,26 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
           })
         };
       });
-      persistSubjectsProgress(updated);
-      return { subjects: updated };
+      persistSubjectsProgress(updatedSubjects);
+
+      // Bi-directionally sync pair completion across all topic pairs
+      const updatedPairs = state.topicPairs.map(p => {
+        const isNowMastered = isPairMastered(p, updatedSubjects, state.isMvdMode);
+        return { ...p, isCompleted: isNowMastered };
+      });
+      safeSave('gate_topic_pairs_mastery', updatedPairs.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
+
+      return { 
+        subjects: updatedSubjects,
+        topicPairs: updatedPairs
+      };
     }),
 
     dailyPairChecklist: initialDailyPair,
     updateDailyPairChecklist: (patch) => set((state) => {
       const updatedChecklist = { ...state.dailyPairChecklist, ...patch };
       safeSave('gate_daily_pair_checklist', updatedChecklist);
-
-      const curPair = state.topicPairs.find(p => p.id === state.activePairId) || state.topicPairs[0];
-      const targetA = state.isMvdMode ? 5 : 10;
-      const targetB = state.isMvdMode ? 5 : 10;
-      const isPairComplete = updatedChecklist.topicAChecked && 
-                             updatedChecklist.topicAPyqs >= targetA &&
-                             updatedChecklist.topicBChecked && 
-                             updatedChecklist.topicBPyqs >= targetB &&
-                             updatedChecklist.retentionChecked;
-
-      const updatedTopicPairs = state.topicPairs.map(p => {
-        if (p.id !== curPair.id) return p;
-        return { ...p, isCompleted: isPairComplete };
-      });
-      safeSave('gate_topic_pairs_mastery', updatedTopicPairs.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
-
-      let updatedSubjects = state.subjects;
-      if (curPair) {
-        updatedSubjects = state.subjects.map(sub => {
-          let modified = false;
-          const updatedTopics = sub.topics.map(t => {
-            if (sub.id === curPair.topicA.subjectId && t.id === curPair.topicA.topicId) {
-              modified = true;
-              return {
-                ...t,
-                theoryCompleted: updatedChecklist.topicAChecked ? true : t.theoryCompleted,
-                pyqsSolvedCount: Math.max(t.pyqsSolvedCount, updatedChecklist.topicAPyqs),
-                formulaCardAdded: updatedChecklist.retentionChecked ? true : t.formulaCardAdded
-              };
-            }
-            if (sub.id === curPair.topicB.subjectId && t.id === curPair.topicB.topicId) {
-              modified = true;
-              return {
-                ...t,
-                theoryCompleted: updatedChecklist.topicBChecked ? true : t.theoryCompleted,
-                pyqsSolvedCount: Math.max(t.pyqsSolvedCount, updatedChecklist.topicBPyqs),
-                formulaCardAdded: updatedChecklist.retentionChecked ? true : t.formulaCardAdded
-              };
-            }
-            return t;
-          });
-          return modified ? { ...sub, topics: updatedTopics } : sub;
-        });
-        persistSubjectsProgress(updatedSubjects);
-      }
-
-      return {
-        dailyPairChecklist: updatedChecklist,
-        topicPairs: updatedTopicPairs,
-        subjects: updatedSubjects
-      };
+      return { dailyPairChecklist: updatedChecklist };
     }),
 
     todayChecklist: initialDaily,
@@ -347,7 +320,14 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     }),
 
     isMvdMode: false,
-    toggleMvdMode: () => set((state) => ({ isMvdMode: !state.isMvdMode })),
+    toggleMvdMode: () => set((state) => {
+      const nextMvd = !state.isMvdMode;
+      const updatedPairs = state.topicPairs.map(p => ({
+        ...p,
+        isCompleted: isPairMastered(p, state.subjects, nextMvd)
+      }));
+      return { isMvdMode: nextMvd, topicPairs: updatedPairs };
+    }),
 
     streak: storedStreak ? parseInt(storedStreak, 10) : 5,
 
