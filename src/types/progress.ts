@@ -1,3 +1,5 @@
+import { Question } from './gate';
+
 export interface BookReference {
   bookTitle: string;
   author: string;
@@ -82,3 +84,5 @@ export interface ProgressSummary {
   totalPyqsSolved: number;
   streakDays: number;
 }
+
+export type ActiveNavView = 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'cbt' | 'pyq';

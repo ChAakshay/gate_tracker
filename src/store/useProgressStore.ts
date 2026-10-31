@@ -1,7 +1,9 @@
 import { create } from 'zustand';
-import { SubjectModule, DayPlan, TopicPair } from '../types/progress';
+import { SubjectModule, DayPlan, TopicPair, ActiveNavView } from '../types/progress';
+import { Question } from '../types/gate';
 import { GATE_ECE_SUBJECTS, INITIAL_DAY_PLANS } from '../data/syllabusData';
 import { CURATED_TOPIC_PAIRS } from '../data/topicPairsData';
+import { INITIAL_QUESTIONS } from '../data/mockQuestions';
 
 export interface DailyPairChecklist {
   date: string;
@@ -23,10 +25,10 @@ export interface DailyChecklist {
   notes: string;
 }
 
-interface ProgressStore {
-  // Active Navigation Tab
-  activeView: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors';
-  setActiveView: (view: 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors') => void;
+export interface ProgressStore {
+  // Navigation
+  activeView: ActiveNavView;
+  setActiveView: (view: ActiveNavView) => void;
 
   // Active Topic Pair System
   topicPairs: TopicPair[];
@@ -58,6 +60,15 @@ interface ProgressStore {
   dayPlans: DayPlan[];
   toggleDayCompletion: (dayNumber: number) => void;
 
+  // CBT Exam & PYQ Arena Unified State
+  questions: Question[];
+  currentQuestionIndex: number;
+  setCurrentQuestionIndex: (idx: number) => void;
+  userResponses: Record<string, string | string[]>;
+  recordResponse: (questionId: string, answer: string | string[]) => void;
+  isCalcOpen: boolean;
+  toggleCalc: () => void;
+
   // Computed Metrics
   getSecuredMarks: () => number;
   getTotalTargetMarks: () => number;
@@ -68,37 +79,72 @@ interface ProgressStore {
 
 const getTodayDateString = () => new Date().toISOString().split('T')[0];
 
+// Safe localStorage helper to prevent quota exceeded bloat
+const safeSave = (key: string, value: any) => {
+  try {
+    localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value));
+  } catch (e) {
+    console.warn(`[gate_tracker] localStorage save quota reached for ${key}:`, e);
+  }
+};
+
+// 🧹 Clean up obsolete legacy bloat keys from earlier versions
+const pruneObsoleteBloat = () => {
+  const bloatKeys = [
+    'gate_today_quest',
+    'gate_legacy_progress',
+    'gate_storage_v1',
+    'gate_storage_backup',
+    'gate_exam_state',
+    'gate_day_plans'
+  ];
+  bloatKeys.forEach(k => {
+    try {
+      localStorage.removeItem(k);
+    } catch {}
+  });
+};
+
 export const useProgressStore = create<ProgressStore>((set, get) => {
+  // Prune legacy bloat on initialization
+  pruneObsoleteBloat();
+
   // Load saved state from localStorage
   const storedSubjects = localStorage.getItem('gate_subjects_mastery');
   const storedPairs = localStorage.getItem('gate_topic_pairs_mastery');
   const storedActivePair = localStorage.getItem('gate_active_pair_id');
   const storedDailyPair = localStorage.getItem('gate_daily_pair_checklist');
-  const storedDayPlans = localStorage.getItem('gate_day_plans');
   const storedDaily = localStorage.getItem('gate_today_checklist');
   const storedStreak = localStorage.getItem('gate_user_streak');
   const storedActiveDay = localStorage.getItem('gate_active_day');
+  const storedResponses = localStorage.getItem('gate_cbt_responses');
 
-  // Subjects & Topics initialization with smart migration
+  // Subjects & Topics initialization with lightweight delta merging
   let initialSubjects: SubjectModule[] = GATE_ECE_SUBJECTS;
   if (storedSubjects) {
     try {
-      const parsed: SubjectModule[] = JSON.parse(storedSubjects);
-      const existingIds = new Set(parsed.map(s => s.id));
-      const missing = GATE_ECE_SUBJECTS.filter(s => !existingIds.has(s.id));
-      initialSubjects = parsed.map(p => {
-        const fresh = GATE_ECE_SUBJECTS.find(f => f.id === p.id);
-        if (fresh) {
-          return {
-            ...fresh,
-            topics: fresh.topics.map(ft => {
-              const pt = p.topics.find(t => t.id === ft.id);
-              return pt ? { ...ft, ...pt, bookRef: ft.bookRef } : ft;
-            })
-          };
-        }
-        return p;
-      }).concat(missing);
+      const parsed: any = JSON.parse(storedSubjects);
+      if (Array.isArray(parsed)) {
+        initialSubjects = GATE_ECE_SUBJECTS.map(fresh => {
+          const matched = parsed.find((p: any) => p.id === fresh.id);
+          if (matched && matched.topics) {
+            return {
+              ...fresh,
+              topics: fresh.topics.map(ft => {
+                const pt = matched.topics.find((t: any) => t.id === ft.id);
+                return pt ? { 
+                  ...ft, 
+                  theoryCompleted: !!pt.theoryCompleted,
+                  pyqsSolvedCount: pt.pyqsSolvedCount || 0,
+                  formulaCardAdded: !!pt.formulaCardAdded,
+                  errorLogged: !!pt.errorLogged 
+                } : ft;
+              })
+            };
+          }
+          return fresh;
+        });
+      }
     } catch {
       initialSubjects = GATE_ECE_SUBJECTS;
     }
@@ -130,7 +176,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     notes: ''
   };
 
-  const initialDayPlans: DayPlan[] = storedDayPlans ? JSON.parse(storedDayPlans) : INITIAL_DAY_PLANS;
+  const initialDayPlans: DayPlan[] = INITIAL_DAY_PLANS;
   const initialActiveDay = storedActiveDay ? parseInt(storedActiveDay, 10) : 1;
 
   const initialDaily: DailyChecklist = storedDaily ? JSON.parse(storedDaily) : {
@@ -142,6 +188,23 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     notes: ''
   };
 
+  const initialResponses = storedResponses ? JSON.parse(storedResponses) : {};
+
+  // Helper to persist only lightweight progress deltas
+  const persistSubjectsProgress = (subs: SubjectModule[]) => {
+    const compact = subs.map(s => ({
+      id: s.id,
+      topics: s.topics.map(t => ({
+        id: t.id,
+        theoryCompleted: t.theoryCompleted,
+        pyqsSolvedCount: t.pyqsSolvedCount,
+        formulaCardAdded: t.formulaCardAdded,
+        errorLogged: t.errorLogged
+      }))
+    }));
+    safeSave('gate_subjects_mastery', compact);
+  };
+
   return {
     activeView: 'today',
     setActiveView: (view) => set({ activeView: view }),
@@ -149,8 +212,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     topicPairs: initialTopicPairs,
     activePairId: initialActivePairId,
     setActivePairId: (pairId) => {
-      localStorage.setItem('gate_active_pair_id', pairId);
-      // Reset checklist for new pair view
+      safeSave('gate_active_pair_id', pairId);
       const resetChecklist: DailyPairChecklist = {
         date: getTodayDateString(),
         topicAChecked: false,
@@ -160,7 +222,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
         retentionChecked: false,
         notes: ''
       };
-      localStorage.setItem('gate_daily_pair_checklist', JSON.stringify(resetChecklist));
+      safeSave('gate_daily_pair_checklist', resetChecklist);
       set({ activePairId: pairId, dailyPairChecklist: resetChecklist });
     },
 
@@ -169,7 +231,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
         if (p.id !== pairId) return p;
         return { ...p, isCompleted: !p.isCompleted };
       });
-      localStorage.setItem('gate_topic_pairs_mastery', JSON.stringify(updated));
+      safeSave('gate_topic_pairs_mastery', updated.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
       return { topicPairs: updated };
     }),
 
@@ -178,14 +240,14 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
       const updated = exists 
         ? state.topicPairs.map(p => p.id === customPair.id ? customPair : p)
         : [customPair, ...state.topicPairs];
-      localStorage.setItem('gate_topic_pairs_mastery', JSON.stringify(updated));
-      localStorage.setItem('gate_active_pair_id', customPair.id);
+      safeSave('gate_topic_pairs_mastery', updated.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
+      safeSave('gate_active_pair_id', customPair.id);
       return { topicPairs: updated, activePairId: customPair.id };
     }),
 
     activeDayNumber: initialActiveDay,
     setActiveDayNumber: (dayNumber) => {
-      localStorage.setItem('gate_active_day', dayNumber.toString());
+      safeSave('gate_active_day', dayNumber.toString());
       set({ activeDayNumber: dayNumber });
     },
 
@@ -201,7 +263,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
           })
         };
       });
-      localStorage.setItem('gate_subjects_mastery', JSON.stringify(updated));
+      persistSubjectsProgress(updated);
       return { subjects: updated };
     }),
 
@@ -216,16 +278,15 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
           })
         };
       });
-      localStorage.setItem('gate_subjects_mastery', JSON.stringify(updated));
+      persistSubjectsProgress(updated);
       return { subjects: updated };
     }),
 
     dailyPairChecklist: initialDailyPair,
     updateDailyPairChecklist: (patch) => set((state) => {
       const updatedChecklist = { ...state.dailyPairChecklist, ...patch };
-      localStorage.setItem('gate_daily_pair_checklist', JSON.stringify(updatedChecklist));
+      safeSave('gate_daily_pair_checklist', updatedChecklist);
 
-      // Find current active pair
       const curPair = state.topicPairs.find(p => p.id === state.activePairId) || state.topicPairs[0];
       const targetA = state.isMvdMode ? 5 : 10;
       const targetB = state.isMvdMode ? 5 : 10;
@@ -235,14 +296,12 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
                              updatedChecklist.topicBPyqs >= targetB &&
                              updatedChecklist.retentionChecked;
 
-      // Update pair completion
       const updatedTopicPairs = state.topicPairs.map(p => {
         if (p.id !== curPair.id) return p;
         return { ...p, isCompleted: isPairComplete };
       });
-      localStorage.setItem('gate_topic_pairs_mastery', JSON.stringify(updatedTopicPairs));
+      safeSave('gate_topic_pairs_mastery', updatedTopicPairs.map(p => ({ id: p.id, isCompleted: p.isCompleted })));
 
-      // Sync progress into syllabus subjects
       let updatedSubjects = state.subjects;
       if (curPair) {
         updatedSubjects = state.subjects.map(sub => {
@@ -270,7 +329,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
           });
           return modified ? { ...sub, topics: updatedTopics } : sub;
         });
-        localStorage.setItem('gate_subjects_mastery', JSON.stringify(updatedSubjects));
+        persistSubjectsProgress(updatedSubjects);
       }
 
       return {
@@ -283,7 +342,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
     todayChecklist: initialDaily,
     updateTodayChecklist: (patch) => set((state) => {
       const updated = { ...state.todayChecklist, ...patch };
-      localStorage.setItem('gate_today_checklist', JSON.stringify(updated));
+      safeSave('gate_today_checklist', updated);
       return { todayChecklist: updated };
     }),
 
@@ -298,9 +357,22 @@ export const useProgressStore = create<ProgressStore>((set, get) => {
         if (d.dayNumber !== dayNumber) return d;
         return { ...d, isCompleted: !d.isCompleted };
       });
-      localStorage.setItem('gate_day_plans', JSON.stringify(updated));
       return { dayPlans: updated };
     }),
+
+    // CBT & PYQ Unified State
+    questions: INITIAL_QUESTIONS,
+    currentQuestionIndex: 0,
+    setCurrentQuestionIndex: (idx) => set({ currentQuestionIndex: idx }),
+    userResponses: initialResponses,
+    recordResponse: (qId, ans) => set((state) => {
+      const updated = { ...state.userResponses, [qId]: ans };
+      safeSave('gate_cbt_responses', updated);
+      return { userResponses: updated };
+    }),
+
+    isCalcOpen: false,
+    toggleCalc: () => set((state) => ({ isCalcOpen: !state.isCalcOpen })),
 
     getSecuredMarks: () => {
       const { subjects } = get();

@@ -127,8 +127,18 @@ export const FormulaVault: React.FC = () => {
   const { toggleTopicField } = useProgressStore();
 
   const [cards, setCards] = useState<FormulaSheet[]>(() => {
-    const saved = localStorage.getItem('gate_formula_sheets');
-    return saved ? JSON.parse(saved) : SAMPLE_FORMULA_CARDS;
+    try {
+      const saved = localStorage.getItem('gate_formula_sheets');
+      if (saved) {
+        const parsed: FormulaSheet[] = JSON.parse(saved);
+        // Deduplicate and combine sample cards with saved custom cards without bloating localStorage
+        const customOnly = parsed.filter(c => !SAMPLE_FORMULA_CARDS.some(s => s.id === c.id));
+        return [...SAMPLE_FORMULA_CARDS, ...customOnly];
+      }
+    } catch {
+      // ignore JSON parse error
+    }
+    return SAMPLE_FORMULA_CARDS;
   });
 
   const [isUploadOpen, setIsUploadOpen] = useState(false);
@@ -162,7 +172,13 @@ export const FormulaVault: React.FC = () => {
 
   const persistCards = (newCards: FormulaSheet[]) => {
     setCards(newCards);
-    localStorage.setItem('gate_formula_sheets', JSON.stringify(newCards));
+    try {
+      // Persist only custom cards to prevent localStorage bloat from sample SVGs
+      const customOnly = newCards.filter(c => !SAMPLE_FORMULA_CARDS.some(s => s.id === c.id));
+      localStorage.setItem('gate_formula_sheets', JSON.stringify(customOnly));
+    } catch (e) {
+      console.warn('LocalStorage save failed:', e);
+    }
   };
 
   useEffect(() => {
