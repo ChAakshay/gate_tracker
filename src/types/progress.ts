@@ -85,4 +85,4 @@ export interface ProgressSummary {
   streakDays: number;
 }
 
-export type ActiveNavView = 'today' | 'blueprint' | 'syllabus' | 'formula' | 'roadmap' | 'errors' | 'cbt' | 'pyq';
+export type ActiveNavView = 'today' | 'roadmap' | 'syllabus' | 'blueprint' | 'formula' | 'errors';

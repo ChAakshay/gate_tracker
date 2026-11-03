@@ -409,14 +409,14 @@ export const ErrorLogTracker: React.FC = () => {
     <div className="max-w-5xl mx-auto space-y-6">
       
       {/* 🚀 Top Intelligence Dashboard */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+      <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
-              <Zap className="w-4 h-4 text-amber-400" />
+            <div className="flex items-center gap-2 text-[#e0b579] text-xs font-bold uppercase tracking-wider mb-1">
+              <Zap className="w-4 h-4 text-[#e0b579]" />
               <span>Cognitive Trap Intelligence System</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               3-Line Error Log & Analytics
             </h1>
             <p className="text-slate-400 text-xs sm:text-sm mt-1">
@@ -426,7 +426,7 @@ export const ErrorLogTracker: React.FC = () => {
 
           <button
             onClick={() => setIsFormOpen(!isFormOpen)}
-            className="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-xl shadow-blue-600/30 transition-transform active:scale-95 self-start sm:self-center"
+            className="px-6 py-3 rounded-2xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-[#3b69a1]/20 transition-all active:scale-95 self-start sm:self-center"
           >
             <Plus className="w-4 h-4" />
             <span>Log New Mistake</span>
@@ -436,35 +436,35 @@ export const ErrorLogTracker: React.FC = () => {
         {/* 📊 Leakage Analytics Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
           
-          <div className="bg-[#161a26] border border-[#232a3d] p-4 rounded-2xl">
+          <div className="bg-[#10141f] border border-[#1e2638] p-4 rounded-2xl">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Active Errors</div>
-            <div className="text-2xl font-black text-amber-400 font-mono mt-1">
+            <div className="text-2xl font-bold text-[#e0b579] font-mono mt-1">
               {stats.active} <span className="text-xs font-sans text-slate-500 font-normal">unresolved</span>
             </div>
           </div>
 
-          <div className="bg-[#161a26] border border-[#232a3d] p-4 rounded-2xl">
+          <div className="bg-[#10141f] border border-[#1e2638] p-4 rounded-2xl">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Cured / Mastered</div>
-            <div className="text-2xl font-black text-emerald-400 font-mono mt-1">
+            <div className="text-2xl font-bold text-[#7fd2a9] font-mono mt-1">
               {stats.cured} <span className="text-xs font-sans text-slate-500 font-normal">traps</span>
             </div>
           </div>
 
-          <div className="bg-[#161a26] border border-[#232a3d] p-4 rounded-2xl">
+          <div className="bg-[#10141f] border border-[#1e2638] p-4 rounded-2xl">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">#1 Leakage Area</div>
-            <div className="text-sm font-bold text-red-400 truncate mt-1.5" title={stats.topLeakage.name}>
+            <div className="text-sm font-bold text-rose-300 truncate mt-1.5" title={stats.topLeakage.name}>
               {stats.topLeakage.name}
             </div>
           </div>
 
-          <div className="bg-[#161a26] border border-[#232a3d] p-4 rounded-2xl">
+          <div className="bg-[#10141f] border border-[#1e2638] p-4 rounded-2xl">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Taxonomy Split</div>
             <div className="flex items-center gap-1.5 mt-2 text-xs font-mono">
-              <span className="text-purple-400" title="Conceptual">C:{stats.conceptCount}</span>
+              <span className="text-[#b0a9db]" title="Conceptual">C:{stats.conceptCount}</span>
               <span className="text-slate-600">•</span>
-              <span className="text-red-400" title="Calculation">M:{stats.calcCount}</span>
+              <span className="text-rose-300" title="Calculation">M:{stats.calcCount}</span>
               <span className="text-slate-600">•</span>
-              <span className="text-amber-400" title="Reading">R:{stats.readCount}</span>
+              <span className="text-[#e0b579]" title="Reading">R:{stats.readCount}</span>
             </div>
           </div>
 
@@ -473,7 +473,7 @@ export const ErrorLogTracker: React.FC = () => {
         {/* ⚡ Quick Fill Shortcuts */}
         <div className="pt-2">
           <div className="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <Sparkles className="w-3.5 h-3.5 text-[#6ba4e8]" />
             <span>Frequent Trap Templates (1-Click Fill):</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -481,7 +481,7 @@ export const ErrorLogTracker: React.FC = () => {
               <button
                 key={idx}
                 onClick={() => applyTemplate(tpl)}
-                className="px-3 py-1.5 rounded-xl bg-[#181d2a] hover:bg-[#202738] border border-[#273247] text-xs text-slate-300 font-medium transition-all hover:border-slate-500 hover:text-white"
+                className="px-3 py-1.5 rounded-xl bg-[#10141f] hover:bg-[#181f2f] border border-[#1e2638] text-xs text-slate-300 font-medium transition-all hover:border-slate-500 hover:text-white"
               >
                 {tpl.label}
               </button>
@@ -492,11 +492,11 @@ export const ErrorLogTracker: React.FC = () => {
 
       {/* ✍️ DYNAMIC ADD ERROR MODAL / DRAWER */}
       {isFormOpen && (
-        <div className="bg-gradient-to-b from-[#161a28] to-[#12141e] border-2 border-blue-500/50 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 relative">
+        <div className="bg-[#141824] border-2 border-[#3b69a1]/40 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 relative">
           
-          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div className="flex items-center justify-between border-b border-[#1e2638] pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              <div className="p-2 rounded-xl bg-[#3b69a1]/15 text-[#6ba4e8] border border-[#3b69a1]/30">
                 <AlertTriangle className="w-5 h-5" />
               </div>
               <div>
@@ -505,7 +505,7 @@ export const ErrorLogTracker: React.FC = () => {
               </div>
             </div>
 
-            <button onClick={resetForm} className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800">
+            <button onClick={resetForm} className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1a2233]">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -517,7 +517,7 @@ export const ErrorLogTracker: React.FC = () => {
             <div className="relative" ref={autocompleteRef}>
               <label className="text-xs font-bold text-slate-300 block mb-1.5 flex items-center justify-between">
                 <span>Topic Name (Start typing for autocomplete)</span>
-                <span className="text-[10px] text-blue-400 font-normal">GATE ECE Syllabus Connected</span>
+                <span className="text-[10px] text-[#6ba4e8] font-normal">GATE ECE Syllabus Connected</span>
               </label>
               
               <div className="relative">
@@ -527,32 +527,32 @@ export const ErrorLogTracker: React.FC = () => {
                   onFocus={() => setIsAutocompleteOpen(true)}
                   onChange={(e) => handleTopicType(e.target.value)}
                   placeholder="e.g. Eigenvalues, Transients, Bode Plot, Op-Amp..."
-                  className="w-full bg-[#0d1017] border border-slate-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-xs sm:text-sm text-white outline-none font-medium pr-10"
+                  className="w-full bg-[#10141f] border border-[#1e2638] focus:border-[#3b69a1] rounded-xl px-4 py-3 text-xs sm:text-sm text-white outline-none font-medium pr-10"
                 />
                 <Search className="w-4 h-4 text-slate-500 absolute right-3 top-3.5 pointer-events-none" />
               </div>
 
               {/* Autocomplete Dropdown Menu */}
               {isAutocompleteOpen && autocompleteSuggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-[#131722] border border-[#2b364c] rounded-2xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto">
-                  <div className="p-2 text-[10px] uppercase font-bold text-slate-400 tracking-wider bg-[#0f121b] border-b border-slate-800 px-3">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#141824] border border-[#222c40] rounded-2xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto">
+                  <div className="p-2 text-[10px] uppercase font-bold text-slate-400 tracking-wider bg-[#10141f] border-b border-[#1e2638] px-3">
                     Matching Syllabus Topics
                   </div>
                   {autocompleteSuggestions.map((sug, idx) => (
                     <div
                       key={idx}
                       onClick={() => selectTopicSuggestion(sug)}
-                      className="p-3 hover:bg-[#1c2233] cursor-pointer flex items-center justify-between border-b border-slate-800/60 last:border-none transition-colors"
+                      className="p-3 hover:bg-[#1a2233] cursor-pointer flex items-center justify-between border-b border-[#1e2638] last:border-none transition-colors"
                     >
                       <div>
                         <div className="text-xs font-bold text-slate-200">{sug.topicName}</div>
                         <div className="text-[10px] text-slate-400 mt-0.5 flex items-center gap-2">
                           <span style={{ color: sug.subjectColor }} className="font-semibold">{sug.subjectName}</span>
                           <span>•</span>
-                          <span className="text-emerald-400">+{sug.marksWeight} Marks</span>
+                          <span className="text-[#7fd2a9]">+{sug.marksWeight} Marks</span>
                         </div>
                       </div>
-                      <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Select</span>
+                      <span className="text-[10px] bg-[#10141f] text-slate-300 px-2 py-0.5 rounded border border-[#1e2638]">Select</span>
                     </div>
                   ))}
                 </div>
@@ -570,7 +570,7 @@ export const ErrorLogTracker: React.FC = () => {
                     setSelectedSubject({ id: sub.id, name: sub.name, color: sub.color });
                   }
                 }}
-                className="w-full bg-[#0d1017] border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-white outline-none focus:border-blue-500 font-medium"
+                className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl px-4 py-3 text-xs sm:text-sm text-white outline-none focus:border-[#3b69a1] font-medium"
               >
                 {GATE_ECE_SUBJECTS.map(s => (
                   <option key={s.id} value={s.id}>{s.name} ({s.totalMarksRange})</option>
@@ -598,12 +598,12 @@ export const ErrorLogTracker: React.FC = () => {
                     onClick={() => setErrorType(item.id as any)}
                     className={`p-3 rounded-2xl border text-left transition-all ${
                       isSel 
-                        ? 'bg-blue-600/20 border-blue-500 text-white shadow-md' 
-                        : 'bg-[#0d1017] border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                        ? 'bg-[#3b69a1]/20 border-[#3b69a1] text-white shadow-sm' 
+                        : 'bg-[#10141f] border-[#1e2638] text-slate-400 hover:text-slate-200 hover:border-slate-700'
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <Icon className={`w-4 h-4 ${isSel ? 'text-blue-400' : 'text-slate-500'}`} />
+                      <Icon className={`w-4 h-4 ${isSel ? 'text-[#6ba4e8]' : 'text-slate-500'}`} />
                       <span className="text-xs font-bold">{item.label}</span>
                     </div>
                     <div className="text-[10px] text-slate-500 leading-tight">{item.desc}</div>
@@ -614,8 +614,8 @@ export const ErrorLogTracker: React.FC = () => {
           </div>
 
           {/* Row 3: The 3-Line Input Fields (KaTeX supported) */}
-          <div className="space-y-3.5 bg-[#0d1017] p-5 rounded-2xl border border-slate-800">
-            <div className="text-xs font-bold text-blue-400 uppercase tracking-wider">
+          <div className="space-y-3.5 bg-[#10141f] p-5 rounded-2xl border border-[#1e2638]">
+            <div className="text-xs font-bold text-[#6ba4e8] uppercase tracking-wider">
               The 3-Line Scientific Breakdown (LaTeX Math $...$ Supported)
             </div>
 
@@ -628,7 +628,7 @@ export const ErrorLogTracker: React.FC = () => {
                 value={line1}
                 onChange={(e) => setLine1(e.target.value)}
                 placeholder="e.g. Assumed GM equals AM without computing nullity of (A - λI)"
-                className="w-full bg-[#131722] border border-slate-700 rounded-xl p-3 text-xs text-white outline-none focus:border-blue-500"
+                className="w-full bg-[#141824] border border-[#1e2638] rounded-xl p-3 text-xs text-white outline-none focus:border-[#3b69a1]"
               />
             </div>
 
@@ -641,7 +641,7 @@ export const ErrorLogTracker: React.FC = () => {
                 value={line2}
                 onChange={(e) => setLine2(e.target.value)}
                 placeholder="e.g. GM = n - rank(A - λI). It represents the number of independent eigenvectors."
-                className="w-full bg-[#131722] border border-slate-700 rounded-xl p-3 text-xs text-white outline-none focus:border-blue-500"
+                className="w-full bg-[#141824] border border-[#1e2638] rounded-xl p-3 text-xs text-white outline-none focus:border-[#3b69a1]"
               />
             </div>
 
@@ -654,7 +654,7 @@ export const ErrorLogTracker: React.FC = () => {
                 value={line3}
                 onChange={(e) => setLine3(e.target.value)}
                 placeholder="e.g. Whenever matrix has off-diagonal non-zeros, compute rank(A-λI) explicitly."
-                className="w-full bg-[#131722] border border-slate-700 rounded-xl p-3 text-xs text-white outline-none focus:border-blue-500"
+                className="w-full bg-[#141824] border border-[#1e2638] rounded-xl p-3 text-xs text-white outline-none focus:border-[#3b69a1]"
               />
             </div>
           </div>
@@ -664,7 +664,7 @@ export const ErrorLogTracker: React.FC = () => {
             <button
               type="button"
               onClick={resetForm}
-              className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold"
+              className="px-5 py-2.5 rounded-xl bg-[#10141f] hover:bg-[#1a2233] text-slate-300 text-xs font-bold transition-colors"
             >
               Cancel
             </button>
@@ -672,7 +672,7 @@ export const ErrorLogTracker: React.FC = () => {
               type="button"
               onClick={handleAddError}
               disabled={!topicInput.trim() || !line1.trim() || !line2.trim()}
-              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white font-bold text-xs shadow-lg shadow-blue-600/30 transition-all"
+              className="px-6 py-2.5 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] disabled:opacity-40 text-white font-bold text-xs shadow-md shadow-[#3b69a1]/20 transition-all"
             >
               Save to Error Repository
             </button>
@@ -682,7 +682,7 @@ export const ErrorLogTracker: React.FC = () => {
       )}
 
       {/* 🔍 Search & Multi-Filter Bar */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3 shadow-lg">
+      <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-3 shadow-sm">
         
         {/* Search Bar */}
         <div className="relative w-full md:w-80">
@@ -691,7 +691,7 @@ export const ErrorLogTracker: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search topic, formula, or concept..."
-            className="w-full bg-[#161a26] border border-slate-800 rounded-2xl pl-10 pr-4 py-2.5 text-xs text-white outline-none focus:border-blue-500"
+            className="w-full bg-[#10141f] border border-[#1e2638] rounded-2xl pl-10 pr-4 py-2.5 text-xs text-white outline-none focus:border-[#3b69a1]"
           />
           <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-3 pointer-events-none" />
         </div>
@@ -703,7 +703,7 @@ export const ErrorLogTracker: React.FC = () => {
           <select
             value={selectedSubjectFilter}
             onChange={(e) => setSelectedSubjectFilter(e.target.value)}
-            className="bg-[#161a26] border border-slate-800 rounded-xl px-3 py-2 text-slate-300 outline-none"
+            className="bg-[#10141f] border border-[#1e2638] rounded-xl px-3 py-2 text-slate-300 outline-none"
           >
             <option value="all">All Subjects</option>
             {GATE_ECE_SUBJECTS.map(s => (
@@ -715,7 +715,7 @@ export const ErrorLogTracker: React.FC = () => {
           <select
             value={selectedTypeFilter}
             onChange={(e) => setSelectedTypeFilter(e.target.value)}
-            className="bg-[#161a26] border border-slate-800 rounded-xl px-3 py-2 text-slate-300 outline-none"
+            className="bg-[#10141f] border border-[#1e2638] rounded-xl px-3 py-2 text-slate-300 outline-none"
           >
             <option value="all">All Types</option>
             <option value="calculation">Calculation</option>
@@ -725,22 +725,22 @@ export const ErrorLogTracker: React.FC = () => {
           </select>
 
           {/* Status Filter */}
-          <div className="flex bg-[#161a26] border border-slate-800 rounded-xl p-1">
+          <div className="flex bg-[#10141f] border border-[#1e2638] rounded-xl p-1">
             <button
               onClick={() => setStatusFilter('all')}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'all' ? 'bg-blue-600 text-white' : 'text-slate-400'}`}
+              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'all' ? 'bg-[#3b69a1] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               All
             </button>
             <button
               onClick={() => setStatusFilter('active')}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'active' ? 'bg-amber-600 text-white' : 'text-slate-400'}`}
+              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'active' ? 'bg-[#b5823e] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               Active
             </button>
             <button
               onClick={() => setStatusFilter('cured')}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'cured' ? 'bg-emerald-600 text-white' : 'text-slate-400'}`}
+              className={`px-2.5 py-1 rounded-lg transition-colors ${statusFilter === 'cured' ? 'bg-[#489874] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               Cured
             </button>
@@ -752,8 +752,8 @@ export const ErrorLogTracker: React.FC = () => {
       {/* 📚 Rendered Error Entries List */}
       <div className="space-y-4">
         {filteredEntries.length === 0 ? (
-          <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-12 text-center space-y-3">
-            <CheckCircle2 className="w-12 h-12 text-emerald-500/60 mx-auto" />
+          <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-12 text-center space-y-3">
+            <CheckCircle2 className="w-12 h-12 text-[#7fd2a9] mx-auto opacity-70" />
             <div className="text-base font-bold text-slate-200">No matching mistakes found!</div>
             <p className="text-xs text-slate-500 max-w-sm mx-auto">
               Either your filters are active or you have solved your problems with zero leakage.
@@ -768,14 +768,14 @@ export const ErrorLogTracker: React.FC = () => {
             return (
               <div
                 key={entry.id}
-                className={`rounded-3xl border transition-all duration-300 p-6 space-y-4 shadow-xl ${
+                className={`rounded-3xl border transition-all duration-300 p-6 space-y-4 shadow-sm ${
                   isCured
-                    ? 'bg-[#10131d]/60 border-emerald-500/30 opacity-80'
-                    : 'bg-[#12141c] border-[#1f2433] hover:border-slate-700'
+                    ? 'bg-[#101a18] border-[#489874]/40 opacity-85'
+                    : 'bg-[#141824] border-[#1e2638] hover:border-slate-700'
                 }`}
               >
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#1e2638]">
                   <div className="flex flex-wrap items-center gap-2.5">
                     
                     {/* Subject Pill */}
@@ -784,7 +784,7 @@ export const ErrorLogTracker: React.FC = () => {
                       style={{ 
                         backgroundColor: `${entry.subjectColor}15`, 
                         color: entry.subjectColor, 
-                        borderColor: `${entry.subjectColor}40` 
+                        borderColor: `${entry.subjectColor}35` 
                       }}
                     >
                       {entry.subjectName}
@@ -797,7 +797,7 @@ export const ErrorLogTracker: React.FC = () => {
                     </span>
 
                     {/* Topic Title */}
-                    <h3 className="font-extrabold text-sm sm:text-base text-white">
+                    <h3 className="font-bold text-sm sm:text-base text-white">
                       {entry.topic}
                     </h3>
                   </div>
@@ -810,8 +810,8 @@ export const ErrorLogTracker: React.FC = () => {
                       onClick={() => toggleStatus(entry.id)}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
                         isCured
-                          ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30'
-                          : 'bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20'
+                          ? 'bg-[#489874]/20 text-[#7fd2a9] border border-[#489874]/40 hover:bg-[#489874]/30'
+                          : 'bg-[#b5823e]/15 text-[#e0b579] border border-[#b5823e]/30 hover:bg-[#b5823e]/25'
                       }`}
                     >
                       <CheckCircle2 className="w-3.5 h-3.5" />
@@ -821,16 +821,16 @@ export const ErrorLogTracker: React.FC = () => {
                     {/* Quick Copy Markdown */}
                     <button
                       onClick={() => copyEntryMarkdown(entry)}
-                      className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                      className="p-2 rounded-xl bg-[#10141f] hover:bg-[#1a2233] text-slate-400 hover:text-white border border-[#1e2638] transition-colors"
                       title="Copy clean markdown summary"
                     >
-                      {copiedId === entry.id ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                      {copiedId === entry.id ? <Check className="w-4 h-4 text-[#7fd2a9]" /> : <Copy className="w-4 h-4" />}
                     </button>
 
                     {/* Delete */}
                     <button
                       onClick={() => handleDelete(entry.id)}
-                      className="p-2 rounded-xl bg-slate-800/80 hover:bg-red-900/40 text-slate-500 hover:text-red-300 transition-colors"
+                      className="p-2 rounded-xl bg-[#10141f] hover:bg-red-950/40 text-slate-500 hover:text-red-300 border border-[#1e2638] transition-colors"
                       title="Delete Entry"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -842,8 +842,8 @@ export const ErrorLogTracker: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   
                   {/* Line 1: Misconception */}
-                  <div className="bg-[#0b0e15] p-4 rounded-2xl border border-red-950/40 space-y-1.5">
-                    <div className="text-[10px] uppercase font-bold text-red-400 flex items-center gap-1">
+                  <div className="bg-[#10141f] p-4 rounded-2xl border border-rose-950/40 space-y-1.5">
+                    <div className="text-[10px] uppercase font-bold text-rose-300 flex items-center gap-1">
                       <span>1. Cognitive Misconception</span>
                     </div>
                     <div className="text-xs text-slate-300 leading-relaxed font-sans">
@@ -852,8 +852,8 @@ export const ErrorLogTracker: React.FC = () => {
                   </div>
 
                   {/* Line 2: Mathematical Truth */}
-                  <div className="bg-[#0b0e15] p-4 rounded-2xl border border-blue-950/40 space-y-1.5">
-                    <div className="text-[10px] uppercase font-bold text-blue-400 flex items-center gap-1">
+                  <div className="bg-[#10141f] p-4 rounded-2xl border border-[#3b69a1]/30 space-y-1.5">
+                    <div className="text-[10px] uppercase font-bold text-[#6ba4e8] flex items-center gap-1">
                       <span>2. Mathematical Truth</span>
                     </div>
                     <div className="text-xs text-slate-200 font-semibold leading-relaxed font-sans">
@@ -862,11 +862,11 @@ export const ErrorLogTracker: React.FC = () => {
                   </div>
 
                   {/* Line 3: Future Safeguard */}
-                  <div className="bg-[#0b0e15] p-4 rounded-2xl border border-amber-950/40 space-y-1.5">
-                    <div className="text-[10px] uppercase font-bold text-amber-400 flex items-center gap-1">
+                  <div className="bg-[#10141f] p-4 rounded-2xl border border-[#b5823e]/30 space-y-1.5">
+                    <div className="text-[10px] uppercase font-bold text-[#e0b579] flex items-center gap-1">
                       <span>3. Future Safeguard</span>
                     </div>
-                    <div className="text-xs text-amber-300/90 leading-relaxed font-sans">
+                    <div className="text-xs text-[#e0b579]/90 leading-relaxed font-sans">
                       <MathView content={entry.safeguard} />
                     </div>
                   </div>
@@ -883,7 +883,7 @@ export const ErrorLogTracker: React.FC = () => {
 
                   <button
                     onClick={() => incrementReview(entry.id)}
-                    className="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1"
+                    className="text-[#6ba4e8] hover:text-[#92bde8] font-bold flex items-center gap-1 transition-colors"
                   >
                     <span>+1 Review Touch</span>
                     <ArrowRight className="w-3 h-3" />

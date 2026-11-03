@@ -5,24 +5,26 @@
 @layer base {
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0e1117;
+    color: #f1f5f9;
   }
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
   }
 }
 
-/* Custom scrollbar for sleek engineering aesthetic */
+/* Custom scrollbar for soothing Nordic aesthetic */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d1017;
+  background: #0e1117;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232a3b;
+  background: #1e2638;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #2a344d;
 }

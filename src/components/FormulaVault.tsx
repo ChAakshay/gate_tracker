@@ -389,13 +389,13 @@ export const FormulaVault: React.FC = () => {
     <div className="max-w-6xl mx-auto space-y-6">
       
       {/* Header Banner */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">
-            <Layers className="w-4 h-4 text-blue-400" />
+          <div className="flex items-center gap-2 text-[#6ba4e8] text-xs font-bold uppercase tracking-wider mb-1">
+            <Layers className="w-4 h-4 text-[#6ba4e8]" />
             <span>High-Yield Visual Formula Vault</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Formula Sheets & Short Notes Repository
           </h1>
           <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
@@ -405,7 +405,7 @@ export const FormulaVault: React.FC = () => {
 
         <button
           onClick={() => setIsUploadOpen(true)}
-          className="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-xl shadow-blue-600/30 transition-transform active:scale-95 self-start md:self-center"
+          className="px-6 py-3 rounded-2xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-[#3b69a1]/20 transition-all active:scale-95 self-start md:self-center"
         >
           <Upload className="w-4 h-4" />
           <span>Upload Formula Card</span>
@@ -413,7 +413,7 @@ export const FormulaVault: React.FC = () => {
       </div>
 
       {/* Search & Multi-Filter Bar */}
-      <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-4 sm:p-5 flex flex-col lg:flex-row items-center justify-between gap-3 shadow-lg">
+      <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-4 sm:p-5 flex flex-col lg:flex-row items-center justify-between gap-3 shadow-sm">
         
         {/* Search */}
         <div className="relative w-full lg:w-80">
@@ -422,7 +422,7 @@ export const FormulaVault: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by topic, formula name, notes..."
-            className="w-full bg-[#161a26] border border-slate-800 rounded-2xl pl-10 pr-4 py-2.5 text-xs text-white outline-none focus:border-blue-500"
+            className="w-full bg-[#10141f] border border-[#1e2638] rounded-2xl pl-10 pr-4 py-2.5 text-xs text-white outline-none focus:border-[#3b69a1]"
           />
           <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-3 pointer-events-none" />
         </div>
@@ -432,7 +432,7 @@ export const FormulaVault: React.FC = () => {
           <select
             value={subjectFilter}
             onChange={(e) => setSubjectFilter(e.target.value)}
-            className="bg-[#161a26] border border-slate-800 rounded-xl px-3 py-2 text-slate-300 outline-none"
+            className="bg-[#10141f] border border-[#1e2638] rounded-xl px-3 py-2 text-slate-300 outline-none"
           >
             <option value="all">All Subjects</option>
             {GATE_ECE_SUBJECTS.map(s => (
@@ -443,7 +443,7 @@ export const FormulaVault: React.FC = () => {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="bg-[#161a26] border border-slate-800 rounded-xl px-3 py-2 text-slate-300 outline-none"
+            className="bg-[#10141f] border border-[#1e2638] rounded-xl px-3 py-2 text-slate-300 outline-none"
           >
             <option value="all">All Card Types</option>
             <option value="formula_sheet">Formula Sheets</option>
@@ -452,22 +452,22 @@ export const FormulaVault: React.FC = () => {
             <option value="graph_summary">Graphs & Waveforms</option>
           </select>
 
-          <div className="flex bg-[#161a26] border border-slate-800 rounded-xl p-1">
+          <div className="flex bg-[#10141f] border border-[#1e2638] rounded-xl p-1">
             <button
               onClick={() => setMasteryFilter('all')}
-              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'all' ? 'bg-blue-600 text-white' : 'text-slate-400'}`}
+              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'all' ? 'bg-[#3b69a1] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               All ({cards.length})
             </button>
             <button
               onClick={() => setMasteryFilter('needs_review')}
-              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'needs_review' ? 'bg-amber-600 text-white' : 'text-slate-400'}`}
+              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'needs_review' ? 'bg-[#b5823e] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               Review Queue
             </button>
             <button
               onClick={() => setMasteryFilter('mastered')}
-              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'mastered' ? 'bg-emerald-600 text-white' : 'text-slate-400'}`}
+              className={`px-3 py-1 rounded-lg transition-colors ${masteryFilter === 'mastered' ? 'bg-[#489874] text-white font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               Mastered
             </button>
@@ -477,7 +477,7 @@ export const FormulaVault: React.FC = () => {
 
       {/* Grid Gallery */}
       {filteredCards.length === 0 ? (
-        <div className="bg-[#12141c] border border-[#1f2433] rounded-3xl p-12 text-center space-y-4">
+        <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-12 text-center space-y-4">
           <ImageIcon className="w-12 h-12 text-slate-600 mx-auto" />
           <div className="text-base font-bold text-slate-200">No formula sheets found in this filter</div>
           <p className="text-xs text-slate-500 max-w-sm mx-auto">
@@ -485,7 +485,7 @@ export const FormulaVault: React.FC = () => {
           </p>
           <button
             onClick={() => setIsUploadOpen(true)}
-            className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-md"
+            className="px-5 py-2 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-md shadow-[#3b69a1]/20"
           >
             <Plus className="w-4 h-4" /> Upload First Sheet
           </button>
@@ -496,11 +496,11 @@ export const FormulaVault: React.FC = () => {
             return (
               <div
                 key={card.id}
-                className="bg-[#12141c] border border-[#1f2433] hover:border-slate-700 rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between transition-all duration-300 group"
+                className="bg-[#141824] border border-[#1e2638] hover:border-slate-700 rounded-3xl overflow-hidden shadow-sm flex flex-col justify-between transition-all duration-300 group"
               >
                 {/* Image Snapshot */}
                 <div 
-                  className="relative h-48 bg-[#090b10] cursor-pointer overflow-hidden border-b border-slate-800"
+                  className="relative h-48 bg-[#10141f] cursor-pointer overflow-hidden border-b border-[#1e2638]"
                   onClick={() => {
                     setPreviewCard(card);
                     setZoomScale(1);
@@ -513,26 +513,26 @@ export const FormulaVault: React.FC = () => {
                     className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                   />
                   
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-xs">
-                    <span className="px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-xs">
+                    <span className="px-3 py-1.5 rounded-xl bg-[#3b69a1] text-white text-xs font-bold flex items-center gap-1.5 shadow-md">
                       <Maximize2 className="w-3.5 h-3.5" /> Fullscreen View
                     </span>
                   </div>
 
                   <span
-                    className="absolute top-3 left-3 px-2.5 py-1 rounded-xl text-[11px] font-bold border backdrop-blur-md shadow-md"
+                    className="absolute top-3 left-3 px-2.5 py-1 rounded-xl text-[11px] font-bold border backdrop-blur-md shadow-sm"
                     style={{
-                      backgroundColor: `${card.subjectColor}25`,
+                      backgroundColor: `${card.subjectColor}20`,
                       color: card.subjectColor,
-                      borderColor: `${card.subjectColor}50`
+                      borderColor: `${card.subjectColor}40`
                     }}
                   >
                     {card.subjectName}
                   </span>
 
                   {card.isMastered && (
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-emerald-950/80 text-emerald-300 border border-emerald-500/50 backdrop-blur-md flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Mastered
+                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-[#101a18] text-[#7fd2a9] border border-[#489874]/50 backdrop-blur-md flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-[#7fd2a9]" /> Mastered
                     </span>
                   )}
                 </div>
@@ -543,7 +543,7 @@ export const FormulaVault: React.FC = () => {
                     <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">
                       {getCategoryLabel(card.category)}
                     </div>
-                    <h3 className="font-extrabold text-base text-white mt-0.5 line-clamp-1 group-hover:text-blue-400 transition-colors">
+                    <h3 className="font-bold text-base text-white mt-0.5 line-clamp-1 group-hover:text-[#6ba4e8] transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-xs text-slate-400 mt-1 line-clamp-1">
@@ -557,7 +557,7 @@ export const FormulaVault: React.FC = () => {
                   </div>
 
                   {/* Footer */}
-                  <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                  <div className="pt-3 border-t border-[#1e2638] flex items-center justify-between text-xs">
                     <div className="flex items-center gap-2 text-[11px] text-slate-500">
                       <span>Reviewed: <strong className="text-slate-300 font-mono">{card.reviewCount}x</strong></span>
                     </div>
@@ -567,8 +567,8 @@ export const FormulaVault: React.FC = () => {
                         onClick={() => toggleMastered(card.id)}
                         className={`p-1.5 rounded-lg border transition-colors ${
                           card.isMastered 
-                            ? 'bg-emerald-950 text-emerald-300 border-emerald-600' 
-                            : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'
+                            ? 'bg-[#101a18] text-[#7fd2a9] border-[#489874]/60' 
+                            : 'bg-[#10141f] text-slate-400 border-[#1e2638] hover:text-white'
                         }`}
                         title={card.isMastered ? 'Mark as Needs Review' : 'Mark as Mastered'}
                       >
@@ -577,7 +577,7 @@ export const FormulaVault: React.FC = () => {
 
                       <button
                         onClick={() => handleDeleteCard(card.id)}
-                        className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-red-400 hover:bg-red-950 border border-slate-700 transition-colors"
+                        className="p-1.5 rounded-lg bg-[#10141f] text-slate-400 hover:text-red-400 hover:bg-red-950/40 border border-[#1e2638] transition-colors"
                         title="Delete Card"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -594,8 +594,8 @@ export const FormulaVault: React.FC = () => {
 
       {/* Fullscreen Lightbox Modal */}
       {previewCard && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200">
-          <div className="flex items-center justify-between text-white pb-3 border-b border-slate-800">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200">
+          <div className="flex items-center justify-between text-white pb-3 border-b border-[#1e2638]">
             <div className="flex items-center gap-3">
               <span
                 className="px-3 py-1 rounded-xl text-xs font-bold border"
@@ -616,7 +616,7 @@ export const FormulaVault: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setZoomScale(z => Math.max(0.5, z - 0.25))}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-2 rounded-xl bg-[#141824] hover:bg-[#1e2638] text-slate-300 border border-[#1e2638]"
                 title="Zoom Out"
               >
                 <ZoomOut className="w-4 h-4" />
@@ -624,21 +624,21 @@ export const FormulaVault: React.FC = () => {
               <span className="text-xs font-mono text-slate-400 px-1">{Math.round(zoomScale * 100)}%</span>
               <button
                 onClick={() => setZoomScale(z => Math.min(3, z + 0.25))}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-2 rounded-xl bg-[#141824] hover:bg-[#1e2638] text-slate-300 border border-[#1e2638]"
                 title="Zoom In"
               >
                 <ZoomIn className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setRotation(r => (r + 90) % 360)}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-2 rounded-xl bg-[#141824] hover:bg-[#1e2638] text-slate-300 border border-[#1e2638]"
                 title="Rotate 90°"
               >
                 <RotateCw className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setPreviewCard(null)}
-                className="p-2 rounded-xl bg-red-950 text-red-300 hover:bg-red-900 ml-2"
+                className="p-2 rounded-xl bg-red-950/60 text-red-300 hover:bg-red-900 border border-red-800/40 ml-2"
                 title="Close"
               >
                 <X className="w-5 h-5" />
@@ -658,7 +658,7 @@ export const FormulaVault: React.FC = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
+          <div className="flex items-center justify-between pt-3 border-t border-[#1e2638] text-xs">
             <div className="text-slate-400">
               Times Reviewed: <strong className="text-white font-mono">{previewCard.reviewCount}</strong>
             </div>
@@ -669,7 +669,7 @@ export const FormulaVault: React.FC = () => {
                   recordReviewTouch(previewCard.id);
                   setPreviewCard({ ...previewCard, reviewCount: previewCard.reviewCount + 1 });
                 }}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold flex items-center gap-1.5 shadow-md"
+                className="px-4 py-2 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white font-bold flex items-center gap-1.5 shadow-md shadow-[#3b69a1]/20 transition-all"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>+1 Review Touch</span>
@@ -681,8 +681,8 @@ export const FormulaVault: React.FC = () => {
                 }}
                 className={`px-4 py-2 rounded-xl font-bold border transition-colors ${
                   previewCard.isMastered 
-                    ? 'bg-emerald-950 text-emerald-300 border-emerald-500' 
-                    : 'bg-slate-800 text-slate-300 border-slate-700 hover:text-white'
+                    ? 'bg-[#101a18] text-[#7fd2a9] border-[#489874]/60' 
+                    : 'bg-[#141824] text-slate-300 border-[#1e2638] hover:text-white'
                 }`}
               >
                 {previewCard.isMastered ? '✓ Mastered' : 'Mark as Mastered'}
@@ -695,15 +695,15 @@ export const FormulaVault: React.FC = () => {
       {/* 📤 UPLOAD FORMULA CARD MODAL */}
       {isUploadOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
           onPaste={handlePaste}
         >
-          <div className="bg-[#151924] border-2 border-blue-500/50 rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-5 shadow-2xl animate-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#141824] border border-[#222c40] rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-5 shadow-2xl animate-in zoom-in-95 max-h-[90vh] overflow-y-auto">
             
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center justify-between border-b border-[#1e2638] pb-3">
               <div className="flex items-center gap-2">
-                <Upload className="w-5 h-5 text-blue-400" />
-                <h3 className="font-extrabold text-white text-lg">Upload Formula Sheet / Notes</h3>
+                <Upload className="w-5 h-5 text-[#6ba4e8]" />
+                <h3 className="font-bold text-white text-lg">Upload Formula Sheet / Notes</h3>
               </div>
               <button onClick={resetForm} className="text-slate-400 hover:text-white">
                 <X className="w-5 h-5" />
@@ -727,20 +727,20 @@ export const FormulaVault: React.FC = () => {
               {!imagePreview ? (
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className="border-2 border-dashed border-slate-700 hover:border-blue-500 bg-[#0c0f16] hover:bg-[#0f131d] rounded-2xl p-8 text-center cursor-pointer transition-all space-y-2 group"
+                  className="border-2 border-dashed border-[#1e2638] hover:border-[#3b69a1] bg-[#10141f] hover:bg-[#161c28] rounded-2xl p-8 text-center cursor-pointer transition-all space-y-2 group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-[#3b69a1]/15 text-[#6ba4e8] flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
                     <Upload className="w-6 h-6" />
                   </div>
                   <div className="text-sm font-bold text-white">
                     Click to browse or Drag & Drop image here
                   </div>
                   <p className="text-xs text-slate-500">
-                    Supports PNG, JPG, WEBP • <strong className="text-blue-400">Pro-tip: Press Ctrl+V directly to paste screenshot!</strong>
+                    Supports PNG, JPG, WEBP • <strong className="text-[#6ba4e8]">Pro-tip: Press Ctrl+V directly to paste screenshot!</strong>
                   </p>
                 </div>
               ) : (
-                <div className="relative rounded-2xl overflow-hidden border border-slate-700 bg-black/60 p-2">
+                <div className="relative rounded-2xl overflow-hidden border border-[#1e2638] bg-[#10141f] p-2">
                   <img src={imagePreview} alt="Preview" className="max-h-48 w-full object-contain mx-auto" />
                   <button
                     onClick={() => setImagePreview(null)}
@@ -757,8 +757,8 @@ export const FormulaVault: React.FC = () => {
             <div className="relative" ref={autocompleteRef}>
               <label className="text-xs font-bold text-slate-300 block mb-1 flex items-center justify-between">
                 <span>Associated Syllabus Topic</span>
-                <span className="text-[10px] text-blue-400 font-semibold flex items-center gap-1">
-                  <Zap className="w-3 h-3 text-amber-400" />
+                <span className="text-[10px] text-[#6ba4e8] font-semibold flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-[#e0b579]" />
                   Auto-fills Subject on typing
                 </span>
               </label>
@@ -769,17 +769,17 @@ export const FormulaVault: React.FC = () => {
                 onFocus={() => setIsAutocompleteOpen(true)}
                 onChange={(e) => handleTopicInputChange(e.target.value)}
                 placeholder="Type any keyword: 'Eigenvalues', 'Transients', 'Bode', 'Op-Amp'..."
-                className="w-full bg-[#0c0f16] border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-white outline-none focus:border-blue-500 font-medium"
+                className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl p-3 text-xs sm:text-sm text-white outline-none focus:border-[#3b69a1] font-medium"
               />
 
               {/* Suggestions dropdown */}
               {isAutocompleteOpen && topicSuggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-[#131722] border border-[#2b364c] rounded-2xl shadow-2xl z-50 overflow-hidden max-h-48 overflow-y-auto">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#141824] border border-[#222c40] rounded-2xl shadow-2xl z-50 overflow-hidden max-h-48 overflow-y-auto">
                   {topicSuggestions.map((sug, idx) => (
                     <div
                       key={idx}
                       onClick={() => handleSelectSuggestion(sug)}
-                      className="p-2.5 hover:bg-[#1c2233] cursor-pointer flex items-center justify-between border-b border-slate-800/60 last:border-none"
+                      className="p-2.5 hover:bg-[#1a2233] cursor-pointer flex items-center justify-between border-b border-[#1e2638] last:border-none"
                     >
                       <div className="text-xs font-semibold text-slate-200">{sug.topicName}</div>
                       <span className="text-[10px] px-2 py-0.5 rounded font-bold" style={{ color: sug.subjectColor, backgroundColor: `${sug.subjectColor}20` }}>
@@ -796,7 +796,7 @@ export const FormulaVault: React.FC = () => {
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs font-bold text-slate-300">Connected Subject</label>
                 {autoDetected && (
-                  <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                  <span className="text-[10px] text-[#7fd2a9] font-bold flex items-center gap-1">
                     <CheckCheck className="w-3 h-3" /> Auto-filled from topic
                   </span>
                 )}
@@ -810,7 +810,7 @@ export const FormulaVault: React.FC = () => {
                     setAutoDetected(false);
                   }
                 }}
-                className="w-full bg-[#0c0f16] border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-white outline-none focus:border-blue-500 font-semibold"
+                className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl p-3 text-xs sm:text-sm text-white outline-none focus:border-[#3b69a1] font-semibold"
                 style={{ color: selectedSubject.color }}
               >
                 {GATE_ECE_SUBJECTS.map(s => (
@@ -828,7 +828,7 @@ export const FormulaVault: React.FC = () => {
                   value={titleInput}
                   onChange={(e) => setTitleInput(e.target.value)}
                   placeholder="e.g. Transients Short Formula Sheet"
-                  className="w-full bg-[#0c0f16] border border-slate-700 rounded-xl p-3 text-xs text-white outline-none focus:border-blue-500"
+                  className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl p-3 text-xs text-white outline-none focus:border-[#3b69a1]"
                 />
               </div>
 
@@ -837,7 +837,7 @@ export const FormulaVault: React.FC = () => {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value as any)}
-                  className="w-full bg-[#0c0f16] border border-slate-700 rounded-xl p-3 text-xs text-white outline-none focus:border-blue-500"
+                  className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl p-3 text-xs text-white outline-none focus:border-[#3b69a1]"
                 >
                   <option value="formula_sheet">Formula Sheet (Core Equations)</option>
                   <option value="cheat_sheet">Cheatsheet / Speed Shortcuts</option>
@@ -855,22 +855,22 @@ export const FormulaVault: React.FC = () => {
                 value={notesInput}
                 onChange={(e) => setNotesInput(e.target.value)}
                 placeholder="e.g. Remember series vs parallel damping factor"
-                className="w-full bg-[#0c0f16] border border-slate-700 rounded-xl p-2.5 text-xs text-white outline-none focus:border-blue-500"
+                className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl p-2.5 text-xs text-white outline-none focus:border-[#3b69a1]"
               />
             </div>
 
             {/* Actions */}
-            <div className="flex justify-end gap-3 pt-3 border-t border-slate-800">
+            <div className="flex justify-end gap-3 pt-3 border-t border-[#1e2638]">
               <button
                 onClick={resetForm}
-                className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold"
+                className="px-5 py-2.5 rounded-xl bg-[#10141f] hover:bg-[#1a2233] text-slate-300 text-xs font-bold transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSaveCard}
                 disabled={!titleInput.trim() || !imagePreview}
-                className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white font-bold text-xs shadow-lg shadow-blue-600/30"
+                className="px-6 py-2.5 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] disabled:opacity-40 text-white font-bold text-xs shadow-md shadow-[#3b69a1]/20 transition-all"
               >
                 Save to Formula Vault
               </button>

@@ -18,11 +18,9 @@ export const useGateStore = () => {
 
   return {
     // Navigation mapping
-    activeTab: (store.activeView === 'cbt' ? 'cbt' : store.activeView === 'pyq' ? 'pyq' : 'dashboard') as 'dashboard' | 'pyq' | 'cbt' | 'calculator' | 'errorlog' | 'roadmap',
+    activeTab: (store.activeView === 'roadmap' ? 'roadmap' : store.activeView === 'errors' ? 'errorlog' : 'dashboard') as 'dashboard' | 'pyq' | 'cbt' | 'calculator' | 'errorlog' | 'roadmap',
     setActiveTab: (tab: 'dashboard' | 'pyq' | 'cbt' | 'calculator' | 'errorlog' | 'roadmap') => {
-      if (tab === 'cbt' || tab === 'pyq') {
-        store.setActiveView(tab);
-      } else if (tab === 'roadmap') {
+      if (tab === 'roadmap') {
         store.setActiveView('roadmap');
       } else if (tab === 'errorlog') {
         store.setActiveView('errors');

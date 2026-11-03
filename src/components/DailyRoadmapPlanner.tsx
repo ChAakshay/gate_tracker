@@ -53,15 +53,15 @@ export const DailyRoadmapPlanner: React.FC = () => {
   const getArchetypeBadgeClass = (archetype: string) => {
     switch (archetype) {
       case 'Hardware Core':
-        return 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30';
+        return 'bg-[#3b69a1]/15 text-[#6ba4e8] border-[#3b69a1]/30';
       case 'System & Signal':
-        return 'bg-purple-500/10 text-purple-400 border-purple-500/30';
+        return 'bg-[#7c75a8]/15 text-[#b0a9db] border-[#7c75a8]/30';
       case 'Speed & Accuracy':
-        return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+        return 'bg-[#489874]/15 text-[#7fd2a9] border-[#489874]/30';
       case 'Logic & Physics':
-        return 'bg-amber-500/10 text-amber-400 border-amber-500/30';
+        return 'bg-[#b5823e]/15 text-[#e0b579] border-[#b5823e]/30';
       default:
-        return 'bg-blue-500/10 text-blue-400 border-blue-500/30';
+        return 'bg-[#527eaf]/15 text-[#92bde8] border-[#527eaf]/30';
     }
   };
 
@@ -126,16 +126,16 @@ export const DailyRoadmapPlanner: React.FC = () => {
     <div className="max-w-5xl mx-auto space-y-6">
       
       {/* 🧭 COMMAND BANNER: TOPIC PAIRING VARIETY HUB */}
-      <div className="bg-gradient-to-br from-[#131b2e] via-[#10131f] to-[#0c0e17] border border-blue-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-[#141824] border border-[#1e2638] rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#3b69a1]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div>
-            <div className="flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-wider mb-1.5 font-mono">
-              <Shuffle className="w-4 h-4 text-blue-400" />
+            <div className="flex items-center gap-2 text-[#6ba4e8] text-xs font-bold uppercase tracking-wider mb-1.5 font-mono">
+              <Shuffle className="w-4 h-4 text-[#6ba4e8]" />
               <span>Anti-Burnout Topic Pairing Engine</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Topic Pairs Variety Hub
             </h1>
             <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
@@ -145,14 +145,14 @@ export const DailyRoadmapPlanner: React.FC = () => {
 
           {/* Quick Metrics & Actions */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="px-4 py-2.5 rounded-2xl border border-[#232b40] bg-[#141824]/90 text-xs font-bold font-mono flex items-center gap-2 shadow-lg">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
+            <div className="px-4 py-2.5 rounded-2xl border border-[#1e2638] bg-[#10141f] text-xs font-bold font-mono flex items-center gap-2 text-slate-300 shadow-sm">
+              <Sparkles className="w-4 h-4 text-[#7fd2a9]" />
               <span>{completedCount} / {topicPairs.length} Pairs Completed</span>
             </div>
 
             <button
               onClick={() => setShowCustomBuilder(true)}
-              className="px-4 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-blue-600/30 transition-transform active:scale-95"
+              className="px-4 py-2.5 rounded-2xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-[#3b69a1]/20 transition-all active:scale-95"
             >
               <PlusCircle className="w-4 h-4" />
               <span>Build Custom Pair</span>
@@ -162,30 +162,30 @@ export const DailyRoadmapPlanner: React.FC = () => {
 
         {/* 📊 3 Variety Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-          <div className="bg-[#141824]/90 p-4 rounded-2xl border border-[#232b40]">
+          <div className="bg-[#10141f] p-4 rounded-2xl border border-[#1e2638]">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Session Architecture</div>
             <div className="text-xl font-bold text-white mt-1">Dual-Domain Fusion</div>
             <div className="text-[11px] text-slate-500 mt-0.5">Calculation paired with Architecture/Logic</div>
           </div>
 
-          <div className="bg-[#141824]/90 p-4 rounded-2xl border border-[#232b40]">
+          <div className="bg-[#10141f] p-4 rounded-2xl border border-[#1e2638]">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Average Session</div>
-            <div className="text-xl font-bold text-blue-400 font-mono mt-1">~3.0 to 3.5 Hours</div>
+            <div className="text-xl font-bold text-[#6ba4e8] font-mono mt-1">~3.0 to 3.5 Hours</div>
             <div className="text-[11px] text-slate-500 mt-0.5">Topic A (1.5h) + Topic B (1.5h) + Retention</div>
           </div>
 
-          <div className="bg-[#141824]/90 p-4 rounded-2xl border border-[#232b40]">
+          <div className="bg-[#10141f] p-4 rounded-2xl border border-[#1e2638]">
             <div className="text-[11px] text-slate-400 font-semibold uppercase">Textbook Precision</div>
-            <div className="text-xl font-bold text-emerald-400 mt-1">100% Granular Citations</div>
+            <div className="text-xl font-bold text-[#7fd2a9] mt-1">100% Granular Citations</div>
             <div className="text-[11px] text-slate-500 mt-0.5">Exact chapters & page numbers for every topic</div>
           </div>
         </div>
       </div>
 
       {/* 🔍 Archetype Filter Navigation Bar */}
-      <div className="bg-[#10131d] border border-[#1b2234] rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+      <div className="bg-[#141824] border border-[#1e2638] rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 shadow-sm">
         <div className="flex items-center gap-2 text-xs font-bold text-slate-300">
-          <Filter className="w-4 h-4 text-blue-400" />
+          <Filter className="w-4 h-4 text-[#6ba4e8]" />
           <span>Filter by Pairing Archetype:</span>
         </div>
 
@@ -196,8 +196,8 @@ export const DailyRoadmapPlanner: React.FC = () => {
               onClick={() => setSelectedArchetype(arch)}
               className={`px-3 py-1.5 rounded-xl transition-colors ${
                 selectedArchetype === arch 
-                  ? 'bg-blue-600 text-white font-bold shadow-sm' 
-                  : 'bg-[#141824] text-slate-400 hover:text-white border border-[#202738]'
+                  ? 'bg-[#3b69a1] text-white font-bold shadow-sm' 
+                  : 'bg-[#10141f] text-slate-400 hover:text-white border border-[#1e2638]'
               }`}
             >
               {arch}
@@ -216,10 +216,10 @@ export const DailyRoadmapPlanner: React.FC = () => {
               key={pair.id}
               className={`p-5 sm:p-6 rounded-2xl border transition-all space-y-4 ${
                 pair.isCompleted
-                  ? 'bg-emerald-950/20 border-emerald-500/40'
+                  ? 'bg-[#101a18] border-[#489874]/40'
                   : isActive
-                  ? 'bg-blue-950/20 border-blue-500 shadow-md ring-1 ring-blue-500/50'
-                  : 'bg-[#10131d] border-[#1b2234] hover:border-slate-700'
+                  ? 'bg-[#121c2d] border-[#3b69a1] shadow-sm ring-1 ring-[#3b69a1]/40'
+                  : 'bg-[#141824] border-[#1e2638] hover:border-slate-700'
               }`}
             >
               {/* Header: Pair Number, Archetype & Title */}
@@ -227,11 +227,11 @@ export const DailyRoadmapPlanner: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <button
                     onClick={() => togglePairCompletion(pair.id)}
-                    className="mt-0.5 text-slate-500 hover:text-emerald-400 transition-colors"
+                    className="mt-0.5 text-slate-500 hover:text-[#7fd2a9] transition-colors"
                     title={pair.isCompleted ? 'Mark Incomplete' : 'Mark Complete'}
                   >
                     {pair.isCompleted ? (
-                      <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+                      <CheckCircle2 className="w-6 h-6 text-[#7fd2a9]" />
                     ) : (
                       <Circle className="w-6 h-6 text-slate-600" />
                     )}
@@ -239,17 +239,17 @@ export const DailyRoadmapPlanner: React.FC = () => {
 
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
+                      <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#10141f] text-[#6ba4e8] border border-[#1e2638]">
                         Pair #{pair.pairNumber}
                       </span>
                       <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded border ${getArchetypeBadgeClass(pair.archetype)}`}>
                         {pair.archetype}
                       </span>
-                      <span className="text-xs font-bold text-emerald-400 font-mono">
+                      <span className="text-xs font-bold text-[#7fd2a9] font-mono">
                         +{pair.combinedMarks} Marks
                       </span>
                       {isActive && (
-                        <span className="text-[10px] uppercase font-mono font-extrabold px-2 py-0.5 rounded-full bg-blue-500 text-white animate-pulse">
+                        <span className="text-[10px] uppercase font-mono font-extrabold px-2.5 py-0.5 rounded-full bg-[#3b69a1] text-white">
                           Active Today
                         </span>
                       )}
@@ -271,8 +271,8 @@ export const DailyRoadmapPlanner: React.FC = () => {
                     }}
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold font-mono transition-colors flex items-center gap-1.5 ${
                       isActive 
-                        ? 'bg-blue-600 text-white shadow-sm' 
-                        : 'bg-[#141824] hover:bg-slate-800 text-slate-300 border border-[#202738]'
+                        ? 'bg-[#3b69a1] text-white shadow-sm' 
+                        : 'bg-[#10141f] hover:bg-[#1a2130] text-slate-300 border border-[#1e2638]'
                     }`}
                   >
                     <span>{isActive ? 'Continue Session' : 'Study This Pair'}</span>
@@ -285,7 +285,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                 
                 {/* Topic A Block */}
-                <div className="bg-[#141824] p-3.5 rounded-xl border border-[#1f273a] space-y-2">
+                <div className="bg-[#10141f] p-3.5 rounded-xl border border-[#1e2638] space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span 
                       className="font-mono font-bold px-2 py-0.5 rounded text-[10px]"
@@ -305,18 +305,18 @@ export const DailyRoadmapPlanner: React.FC = () => {
                   {/* Book Citation Pill */}
                   <div 
                     onClick={() => setActiveBookModal({ topicName: pair.topicA.topicName, bookRef: pair.topicA.bookRef })}
-                    className="cursor-pointer bg-[#0e111a] hover:bg-[#181d2c] p-2 rounded-lg border border-[#232a3e] flex items-center justify-between text-[11px] text-slate-300 group"
+                    className="cursor-pointer bg-[#0e1117] hover:bg-[#161c28] p-2 rounded-lg border border-[#1e2638] flex items-center justify-between text-[11px] text-slate-300 group transition-colors"
                   >
                     <div className="flex items-center gap-1.5 truncate">
-                      <BookOpen className="w-3 h-3 text-blue-400 flex-shrink-0" />
+                      <BookOpen className="w-3 h-3 text-[#6ba4e8] flex-shrink-0" />
                       <span className="truncate">{pair.topicA.bookRef.bookTitle} ({pair.topicA.bookRef.pages})</span>
                     </div>
-                    <Info className="w-3 h-3 text-slate-500 group-hover:text-blue-400 flex-shrink-0" />
+                    <Info className="w-3 h-3 text-slate-500 group-hover:text-[#6ba4e8] flex-shrink-0" />
                   </div>
                 </div>
 
                 {/* Topic B Block */}
-                <div className="bg-[#141824] p-3.5 rounded-xl border border-[#1f273a] space-y-2">
+                <div className="bg-[#10141f] p-3.5 rounded-xl border border-[#1e2638] space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span 
                       className="font-mono font-bold px-2 py-0.5 rounded text-[10px]"
@@ -336,13 +336,13 @@ export const DailyRoadmapPlanner: React.FC = () => {
                   {/* Book Citation Pill */}
                   <div 
                     onClick={() => setActiveBookModal({ topicName: pair.topicB.topicName, bookRef: pair.topicB.bookRef })}
-                    className="cursor-pointer bg-[#0e111a] hover:bg-[#181d2c] p-2 rounded-lg border border-[#232a3e] flex items-center justify-between text-[11px] text-slate-300 group"
+                    className="cursor-pointer bg-[#0e1117] hover:bg-[#161c28] p-2 rounded-lg border border-[#1e2638] flex items-center justify-between text-[11px] text-slate-300 group transition-colors"
                   >
                     <div className="flex items-center gap-1.5 truncate">
-                      <BookOpen className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                      <BookOpen className="w-3 h-3 text-[#b0a9db] flex-shrink-0" />
                       <span className="truncate">{pair.topicB.bookRef.bookTitle} ({pair.topicB.bookRef.pages})</span>
                     </div>
-                    <Info className="w-3 h-3 text-slate-500 group-hover:text-purple-400 flex-shrink-0" />
+                    <Info className="w-3 h-3 text-slate-500 group-hover:text-[#b0a9db] flex-shrink-0" />
                   </div>
                 </div>
 
@@ -355,11 +355,11 @@ export const DailyRoadmapPlanner: React.FC = () => {
 
       {/* 📖 MODAL: GRANULAR BOOK & CHAPTER ATLAS POPUP */}
       {activeBookModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#121622] border border-[#232b40] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#141824] border border-[#222c40] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded bg-[#3b69a1]/15 text-[#6ba4e8] border border-[#3b69a1]/30">
                   Standard Textbook Guide
                 </span>
                 <h3 className="text-base font-bold text-white mt-1.5">
@@ -368,13 +368,13 @@ export const DailyRoadmapPlanner: React.FC = () => {
               </div>
               <button 
                 onClick={() => setActiveBookModal(null)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
+                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-[#1a2233]"
               >
                 ✕
               </button>
             </div>
 
-            <div className="space-y-3 bg-[#161b2a] p-4 rounded-xl border border-[#20273c] text-xs">
+            <div className="space-y-3 bg-[#10141f] p-4 rounded-xl border border-[#1e2638] text-xs">
               <div>
                 <span className="text-slate-400 uppercase text-[10px] font-bold block">Recommended Book</span>
                 <div className="text-white font-bold text-sm mt-0.5">
@@ -385,24 +385,24 @@ export const DailyRoadmapPlanner: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-700/50">
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#1e2638]">
                 <div>
                   <span className="text-slate-400 uppercase text-[10px] font-bold block">Chapter</span>
-                  <span className="text-blue-300 font-semibold">{activeBookModal.bookRef.chapters}</span>
+                  <span className="text-[#6ba4e8] font-semibold">{activeBookModal.bookRef.chapters}</span>
                 </div>
                 <div>
                   <span className="text-slate-400 uppercase text-[10px] font-bold block">Exact Page Range</span>
-                  <span className="text-emerald-300 font-semibold">{activeBookModal.bookRef.pages}</span>
+                  <span className="text-[#7fd2a9] font-semibold">{activeBookModal.bookRef.pages}</span>
                 </div>
               </div>
 
               {activeBookModal.bookRef.keyConcepts && activeBookModal.bookRef.keyConcepts.length > 0 && (
-                <div className="pt-2 border-t border-slate-700/50">
+                <div className="pt-2 border-t border-[#1e2638]">
                   <span className="text-slate-400 uppercase text-[10px] font-bold block mb-1.5">Key Concepts & Formulas:</span>
                   <ul className="space-y-1">
                     {activeBookModal.bookRef.keyConcepts.map((kc, idx) => (
                       <li key={idx} className="flex items-start gap-1.5 text-slate-300">
-                        <span className="text-blue-400 mt-0.5">•</span>
+                        <span className="text-[#6ba4e8] mt-0.5">•</span>
                         <span>{kc}</span>
                       </li>
                     ))}
@@ -414,7 +414,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setActiveBookModal(null)}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold"
+                className="px-4 py-2 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white text-xs font-semibold shadow-md shadow-[#3b69a1]/20 transition-colors"
               >
                 Got It
               </button>
@@ -425,11 +425,11 @@ export const DailyRoadmapPlanner: React.FC = () => {
 
       {/* 🎲 MODAL: CUSTOM PAIR SHUFFLER & BUILDER */}
       {showCustomBuilder && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <form onSubmit={handleCreateCustomPair} className="bg-[#121622] border border-[#232b40] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <form onSubmit={handleCreateCustomPair} className="bg-[#141824] border border-[#222c40] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                <span className="text-[10px] uppercase font-mono font-bold px-2 py-0.5 rounded bg-[#3b69a1]/15 text-[#6ba4e8] border border-[#3b69a1]/30">
                   Variety Shuffler
                 </span>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -442,7 +442,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
               <button 
                 type="button"
                 onClick={() => setShowCustomBuilder(false)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
+                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-[#1a2233]"
               >
                 ✕
               </button>
@@ -456,13 +456,13 @@ export const DailyRoadmapPlanner: React.FC = () => {
                   value={customTitle}
                   onChange={(e) => setCustomTitle(e.target.value)}
                   placeholder="e.g. Eigenvalues & Op-Amp Derivations"
-                  className="w-full bg-[#181d2c] border border-[#28324a] rounded-xl px-3 py-2 text-slate-100 outline-none focus:border-blue-500"
+                  className="w-full bg-[#10141f] border border-[#1e2638] rounded-xl px-3 py-2 text-slate-100 outline-none focus:border-[#3b69a1]"
                 />
               </div>
 
               {/* Topic A Selection */}
-              <div className="bg-[#161a28] p-3 rounded-xl border border-[#22293c] space-y-2">
-                <span className="font-bold text-blue-400 uppercase text-[10px]">Topic 1 (Domain 1)</span>
+              <div className="bg-[#10141f] p-3 rounded-xl border border-[#1e2638] space-y-2">
+                <span className="font-bold text-[#6ba4e8] uppercase text-[10px]">Topic 1 (Domain 1)</span>
                 <div className="grid grid-cols-2 gap-2">
                   <select
                     value={customTopicA_Sub}
@@ -471,7 +471,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
                       const s = subjects.find(sub => sub.id === e.target.value);
                       if (s?.topics[0]) setCustomTopicA_Id(s.topics[0].id);
                     }}
-                    className="bg-[#10131d] border border-slate-700 rounded-lg p-2 text-xs text-slate-200 outline-none"
+                    className="bg-[#141824] border border-[#1e2638] rounded-lg p-2 text-xs text-slate-200 outline-none"
                   >
                     {subjects.map(s => (
                       <option key={s.id} value={s.id}>{s.name.split('(')[0]}</option>
@@ -481,7 +481,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
                   <select
                     value={customTopicA_Id}
                     onChange={(e) => setCustomTopicA_Id(e.target.value)}
-                    className="bg-[#10131d] border border-slate-700 rounded-lg p-2 text-xs text-slate-200 outline-none"
+                    className="bg-[#141824] border border-[#1e2638] rounded-lg p-2 text-xs text-slate-200 outline-none"
                   >
                     {subjects.find(s => s.id === customTopicA_Sub)?.topics.map(t => (
                       <option key={t.id} value={t.id}>{t.name}</option>
@@ -491,8 +491,8 @@ export const DailyRoadmapPlanner: React.FC = () => {
               </div>
 
               {/* Topic B Selection */}
-              <div className="bg-[#161a28] p-3 rounded-xl border border-[#22293c] space-y-2">
-                <span className="font-bold text-purple-400 uppercase text-[10px]">Topic 2 (Domain 2)</span>
+              <div className="bg-[#10141f] p-3 rounded-xl border border-[#1e2638] space-y-2">
+                <span className="font-bold text-[#b0a9db] uppercase text-[10px]">Topic 2 (Domain 2)</span>
                 <div className="grid grid-cols-2 gap-2">
                   <select
                     value={customTopicB_Sub}
@@ -501,7 +501,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
                       const s = subjects.find(sub => sub.id === e.target.value);
                       if (s?.topics[0]) setCustomTopicB_Id(s.topics[0].id);
                     }}
-                    className="bg-[#10131d] border border-slate-700 rounded-lg p-2 text-xs text-slate-200 outline-none"
+                    className="bg-[#141824] border border-[#1e2638] rounded-lg p-2 text-xs text-slate-200 outline-none"
                   >
                     {subjects.map(s => (
                       <option key={s.id} value={s.id}>{s.name.split('(')[0]}</option>
@@ -511,7 +511,7 @@ export const DailyRoadmapPlanner: React.FC = () => {
                   <select
                     value={customTopicB_Id}
                     onChange={(e) => setCustomTopicB_Id(e.target.value)}
-                    className="bg-[#10131d] border border-slate-700 rounded-lg p-2 text-xs text-slate-200 outline-none"
+                    className="bg-[#141824] border border-[#1e2638] rounded-lg p-2 text-xs text-slate-200 outline-none"
                   >
                     {subjects.find(s => s.id === customTopicB_Sub)?.topics.map(t => (
                       <option key={t.id} value={t.id}>{t.name}</option>
@@ -521,17 +521,17 @@ export const DailyRoadmapPlanner: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-3 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-3 border-t border-[#1e2638]">
               <button
                 type="button"
                 onClick={() => setShowCustomBuilder(false)}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-slate-400 text-xs font-semibold"
+                className="px-4 py-2 rounded-xl bg-[#10141f] hover:bg-[#1a2233] text-slate-400 text-xs font-semibold transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold"
+                className="px-4 py-2 rounded-xl bg-[#3b69a1] hover:bg-[#4a7cb8] text-white text-xs font-bold shadow-md shadow-[#3b69a1]/20 transition-all"
               >
                 Launch Pair in Today's Essentials
               </button>
